@@ -181,4 +181,4 @@ El sistema debe permitir gestionar las cuentas de jugadores y entrenadores ya re
 
 Los requisitos funcionales serán relacionados posteriormente con las historias de usuario, épicas, casos de uso, prototipos y pruebas del sistema.
 
-Esta trazabilidad permitirá comp
+Esta trazabilidad permitirá comprobar que las funcionalidades planteadas en el proyecto sean implementadas y verificadas durante las diferentes etapas del desarrollo.
