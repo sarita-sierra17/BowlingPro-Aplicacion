@@ -9,6 +9,7 @@
     "userInterfaceStyle": "dark",
     "plugins": ["expo-router"],
     "experiments": {
+      "baseUrl": "/BowlingPro-Aplicacion",
       "typedRoutes": true
     },
     "ios": {
@@ -23,6 +24,10 @@
     },
     "web": {
       "bundler": "metro",
+      "output": "static",
+      "name": "BowlingPro",
+      "lang": "es",
+      "themeColor": "#0B1326",
       "favicon": "./assets/favicon.png"
     }
   }

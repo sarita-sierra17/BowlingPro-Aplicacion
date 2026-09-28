@@ -41,6 +41,16 @@ npx expo install --check
 
 El motor de puntuación está en `mobile/src/scoring.ts` y sus pruebas en `mobile/src/scoring.test.ts`.
 
+## GitHub Pages
+
+El repositorio incluye un workflow que exporta la app como sitio estático y la publica en cada push a `main`:
+
+1. En GitHub abre **Settings → Pages** y selecciona **GitHub Actions** como fuente de publicación.
+2. Confirma que el repositorio pueda publicar Pages. En GitHub Free, el repositorio debe ser público.
+3. Haz push a `main` o ejecuta manualmente **Actions → Deploy BowlingPro to GitHub Pages → Run workflow**.
+
+La URL del proyecto es `https://sarita-sierra17.github.io/BowlingPro-Aplicacion/`. La configuración de Expo ya incluye la ruta base del repositorio. El sitio es público y usa datos locales de demostración; no publiques secretos ni datos reales de usuarios.
+
 ## Alcance de esta entrega
 
 La app funciona como MVP local de demostración. En el acceso, selecciona un rol y pulsa **Explorar en modo demo**; el perfil permite cambiar entre jugador, entrenador y administrador. El progreso y los datos de prueba se guardan en el dispositivo con AsyncStorage.
