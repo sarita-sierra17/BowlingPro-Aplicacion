@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0b1326;color:#dae2fd;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-on-surface": "#283044", "surface-container-highest": "#2d3449", "surface": "#0b1326", "surface-dim": "#0b1326", "inverse-primary": "#0053db", "on-error": "#690005", "on-primary-container": "#eeefff", "error-container": "#93000a", "surface-variant": "#2d3449", "outline-variant": "#434655", "primary": "#b4c5ff", "primary-fixed-dim": "#b4c5ff", "primary-container": "#2563eb", "on-tertiary-container": "#bdffdb", "on-secondary-container": "#5b3800", "surface-tint": "#b4c5ff", "tertiary-fixed-dim": "#4edea3", "on-surface": "#dae2fd", "surface-container-high": "#222a3d", "surface-bright": "#31394d", "on-primary-fixed": "#00174b", "secondary-container": "#ee9800", "background": "#0b1326", "on-background": "#dae2fd", "tertiary-fixed": "#6ffbbe", "tertiary-container": "#007d55", "outline": "#8d90a0", "surface-container-lowest": "#060e20", "error": "#ffb4ab", "on-tertiary-fixed-variant": "#005236", "on-error-container": "#ffdad6", "on-primary-fixed-variant": "#003ea8", "on-secondary-fixed": "#2a1700", "on-secondary-fixed-variant": "#653e00", "secondary": "#ffb95f", "primary-fixed": "#dbe1ff", "on-primary": "#002a78", "secondary-fixed": "#ffddb8", "surface-container-low": "#131b2e", "on-tertiary-fixed": "#002113", "inverse-surface": "#dae2fd", "on-secondary": "#472a00", "tertiary": "#4edea3", "secondary-fixed-dim": "#ffb95f", "surface-container": "#171f33", "on-surface-variant": "#c3c6d7", "on-tertiary": "#003824" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-sm": "0.75rem", "margin-lg": "1.5rem", "margin": "1rem", "gutter": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "space-xl": "2rem", "space-xs": "0.25rem", "space-sm": "0.5rem" }, "fontFamily": { "body-md": ["Plus Jakarta Sans"], "label-lg": ["Outfit"], "headline-lg": ["Outfit"], "headline-sm": ["Outfit"], "stat-mono": ["Outfit"], "body-sm": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-md": ["Outfit"], "display-score-mobile": ["Outfit"], "label-sm": ["Outfit"], "display-score": ["Outfit"], "label-md": ["Outfit"] }, "fontSize": { "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "700" }], "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "stat-mono": ["18px", { "lineHeight": "22px", "letterSpacing": "0.02em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display-score-mobile": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.06em", "fontWeight": "700" }], "display-score": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.12)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="Volver" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high transition-colors -ml-2" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><img alt="Minimalist dynamic vector logo for BowlingPro app. A stylized bowling pin intersected with a sleek speeding bowling ball with precision motion trajectory lines and star accent, clean athletic geometric lines, cobalt blue, vibrant amber gold, and crisp white. Modern esport and pro bowling aesthetic.. Design context: - Primary color: #2563eb
+- Font: outfit
+- Mode: dark
+- Roundness: rounded-md
+. The logo should be visually consistent with these brand tokens." class="h-7 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1UBJ9RXRHjOXyIN9_-NLOqpZbjHiEDthIxg2K6cGPyqGJn1Fv8tuDh0qNlhROa2WFHhylIZpQQjMmgIU1sEh2DUX6gAmsH-9x2ifPLNvWXtTnizrMwtvxFv-BtCZ23qe5m-bcFS3-96RlABYkk67aaLazsLFt6sEMItsLKqkgP70ISCaUhDCUsdUWXG2yrQNAd6DIBs-OfNHgMU80wL-WFTQupUKo4SNBLVLDIM5N99OSXEUQG4c3olvaFV"/><h1 class="text-headline-sm font-headline-sm text-on-surface truncate ml-1">Visor De Lección Multimedia</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Filtrar o ajustar" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">tune</span></button><button aria-label="Perfil de usuario" class="w-11 h-11 flex items-center justify-center rounded-full transition-transform active:scale-95"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container/40" src="https://lh3.googleusercontent.com/aida/AEtjO1Ut22PNGAbzRm9btI_PXYkw3qqRTIx7WDV1ef83-K0HDcmVUsC2DamUU7MPKJQD7OnTbYocTWJdveXkiw-v9K9BQEPbjHnqf0SkjSF50MBAz2eAM53SVV5BULbC5H2WpWcBnaD2wPGGQqgx_wszHo_ZXnlMnK4SY_x0J68johlDfJ6_fFZsVjJfpswFHqPv4W-IsIZ5AwXiik25wbwtXZb3EKRp8FZ20pxPaIXBRfNChOXgGYxKKmiQI2zQ"/></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full pb-8 space-y-5 px-margin">
+<!-- 1. Cabecera Contextual de la Lección -->
+<section class="mt-2 bg-surface-container-low rounded-xl p-space-md shadow-md">
+<div class="flex items-center justify-between gap-space-xs mb-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+        Nivel 2 Intermedio · Biomecánica
+      </span>
+<span class="font-label-md text-label-md text-secondary font-bold">80% LISTO</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2 font-bold leading-snug">
+      Mecánica del Péndulo y Timing de 5 Pasos
+    </h2>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-on-surface-variant font-body-sm text-body-sm mb-3">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+        15 min estudio
+      </span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">videocam</span>
+        Video HD + Guía
+      </span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">fitness_center</span>
+        1 Ejercicio Práctico
+      </span>
+</div>
+<!-- Barra de Progreso Lúdica -->
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden flex">
+<div class="bg-primary-container h-full rounded-full transition-all duration-500 ease-out" style="width: 80%"></div>
+</div>
+</section>
+<!-- 2. Reproductor Multimedia de Video Técnico (RF-10) -->
+<section class="relative w-full rounded-xl overflow-hidden bg-surface-container-lowest shadow-xl">
+<!-- Visual Screen Frame / Mock Video Content -->
+<div class="relative w-full aspect-video bg-cover bg-center" data-alt="Cinematic shot of a professional ten-pin bowler poised at delivery line inside modern darkened lane. Glowing laser trajectory grid lines overlay the polished lane wood toward the pocket. Dramatic cobalt blue and strike amber accent lighting, capturing high-speed bowling ball movement with biomechanical angle indicators." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCw6Crp9V-cdj1qNkj1qrGnIWJZjUom1xpGOfoJk13rG_O0nlqLs_capiC9fcRco4n5pNwuhSBOUN-mY-lqa_xjLwGGmqY4wgw4VF8kFKWNrO-xYB2UPbJO4L8j4eSy1WNtI5ZypCc1FkFtXhO5w6qEI9t1Xc4JmxRUgfBUsaIejDwI16rNpmW_F8ddrvSyvMLBpGOo2XExi_FEPxI94WGQgF9zbtdKWOfzs22t7Om81bFkKFqgVh2BQQ')">
+<!-- Top Video Badges Overlay -->
+<div class="absolute top-2.5 inset-x-2.5 flex items-center justify-between pointer-events-none">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+            HD 60 FPS
+          </span>
+<span class="px-2 py-0.5 rounded-md bg-primary-container/80 backdrop-blur-md text-on-primary-container font-label-sm text-label-sm font-semibold">
+            Cámara Lenta Biomecánica
+          </span>
+</div>
+<div class="px-2 py-0.5 rounded-md bg-secondary-container/90 text-on-secondary-container font-label-sm text-label-sm font-extrabold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">slow_motion_video</span>
+          0.5x Slow-Mo
+        </div>
+</div>
+<!-- Center Play Overlay Indicator (Tap to replay) -->
+<button aria-label="Reproducir o pausar video" class="absolute inset-0 m-auto w-14 h-14 rounded-full bg-surface-container-highest/70 backdrop-blur-md text-primary flex items-center justify-center transition-transform active:scale-90 hover:bg-surface-container-highest/90" id="togglePlayBtn">
+<span class="material-symbols-outlined text-[32px] ml-0.5" id="playIcon">play_arrow</span>
+</button>
+<!-- Bottom Interactive HUD Telemetry & Video Control -->
+<div class="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent">
+<!-- Timeline scrubber with key technical milestones -->
+<div class="relative w-full h-4 flex items-center mb-1 cursor-pointer">
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-[58%] h-full bg-primary-container"></div>
+</div>
+<!-- Milestone markers -->
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-on-surface" title="00:00 Intro"></div>
+<div class="absolute left-[22%] top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface" title="02:15 Pushaway"></div>
+<div class="absolute left-[58%] top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-secondary ring-2 ring-surface" title="05:40 Backswing"></div>
+<div class="absolute left-[85%] top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-tertiary ring-2 ring-surface" title="08:30 Release"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="text-on-surface font-stat-mono text-body-sm font-semibold">05:40</span>
+<span class="text-outline">/ 09:45</span>
+<span class="text-secondary font-semibold">Hito actual: Vértice Backswing</span>
+</div>
+<button aria-label="Pantalla completa" class="text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Segment Quick Selection Pills (Capítulos de Lección) -->
+<div class="flex items-center gap-1.5 p-2 overflow-x-auto bg-surface-container-low">
+<button class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap active:bg-surface-container-high transition-colors">
+        00:00 Intro
+      </button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap active:bg-surface-container-high transition-colors">
+        02:15 Pushaway
+      </button>
+<button class="px-2.5 py-1 rounded-lg bg-primary-container text-on-primary-container font-label-sm text-label-sm whitespace-nowrap font-bold">
+        05:40 Backswing 90°
+      </button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap active:bg-surface-container-high transition-colors">
+        08:30 Slide &amp; Release
+      </button>
+</div>
+</section>
+<!-- 3. Desglose Técnico Paso a Paso con Ilustraciones (RF-10) -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">directions_run</span>
+        Secuencia Biomecánica del Péndulo
+      </h3>
+<span class="font-label-sm text-label-sm text-tertiary bg-surface-container-high px-2 py-0.5 rounded-full font-semibold">3 Fases Clave</span>
+</div>
+<!-- Paso 1 -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-sm transition-all">
+<div class="flex items-start gap-space-sm">
+<div class="w-7 h-7 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center justify-center shrink-0 font-extrabold">
+          01
+        </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">
+              El 'Pushaway' Sincrónico
+            </h4>
+<span class="font-label-sm text-label-sm text-primary bg-surface-container-highest px-2 py-0.5 rounded">Pasos 1 y 2</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3 leading-relaxed">
+            Inicia simultáneamente con el segundo paso (pie diestro/zurdo según agarre). El desplazamiento de la bola debe fluir hacia adelante y en caída libre natural, sin empujar bruscamente con los hombros.
+          </p>
+<div class="relative w-full h-36 rounded-lg overflow-hidden bg-cover bg-center shadow-inner" data-alt="Technical side profile breakdown of a competitive bowler initiating pushaway stance. Clear graphical vector highlights show elbow positioning and rhythmic forward ball drop, dynamic blue glow trajectory accent, midnight cobalt background aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAq0e-kNnP6jXfeZQIBUqkakDg5nOkLugnKw6srWWD6DwGDLp2EZPd5UDK6NdH7HWHqhq21yadsN1Q9413pAts0xhggAn1szPDGhKqvT-W7Ky2MrhnS60eqyG2AUnloqTmvtzFvWZUee5Uln9PrWmUaYAPCkwyuG6_BDA2PikOCg_Sp42YHXIs5Sb1ZrOw60iOXqimVx6364GhmwjSMnLbNajMV8oZNYhR_AWdyjaqSWpxQwtASEjDuQ')">
+<div class="absolute bottom-2 left-2 px-2 py-0.5 bg-surface-container-lowest/80 backdrop-blur-md rounded text-on-surface font-label-sm text-label-sm">
+              Sincronía de inercia y gravedad
+            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Paso 2 -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-sm transition-all">
+<div class="flex items-start gap-space-sm">
+<div class="w-7 h-7 rounded-lg bg-secondary-container text-on-secondary-container font-label-md text-label-md flex items-center justify-center shrink-0 font-extrabold">
+          02
+        </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">
+              Vértice del 'Backswing'
+            </h4>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-highest px-2 py-0.5 rounded">Codo a 180°</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3 leading-relaxed">
+            Cúspide de máxima elevación del péndulo sin forzar los dorsales ni torcer el torso. El brazo pendular se mantiene recto como cuerda estirada, acumulando energía cinética potencial sin tensión muscular.
+          </p>
+<div class="relative w-full h-36 rounded-lg overflow-hidden bg-cover bg-center shadow-inner" data-alt="High-speed camera angle capturing bowling backswing at highest apex point. 180 degree straight arm trajectory highlighted in amber line overlay, muscular alignment vector over shoulder blades in a dark modern sport training facility." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZQHWKPjIZzXkv09kyudqSpeU-vn_eiKU_5Of3f7mKbQp2RGl4bRH6-B-b1sAqiM_XfXsGFCLiMtRxqqzucSxsCvfD5KDLDYBpf9e9fcLD78sxBOuNdaSCD05ZHjEcr4vAuRJPRLbSj7JQHGUi2VRxOD4bvGFP_TfL4Z1B1pg8pvF0EfXON2n0u9owb75EWj9Ei-u1gQ8iPPd8xHNbHLhrVBBsUXNLylGK_bp-yF77GZ-224BVMFe39w')">
+<div class="absolute bottom-2 left-2 px-2 py-0.5 bg-surface-container-lowest/80 backdrop-blur-md rounded text-on-surface font-label-sm text-label-sm">
+              Altura ideal: Nivel del hombro
+            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Paso 3 -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-sm transition-all">
+<div class="flex items-start gap-space-sm">
+<div class="w-7 h-7 rounded-lg bg-tertiary-container text-on-tertiary-container font-label-md text-label-md flex items-center justify-center shrink-0 font-extrabold">
+          03
+        </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">
+              Slide y 'Follow-Through'
+            </h4>
+<span class="font-label-sm text-label-sm text-tertiary bg-surface-container-highest px-2 py-0.5 rounded">Rodilla a 45°</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3 leading-relaxed">
+            Transición al paso final de deslizamiento. Flexión de rodilla a 45°, punta alineada a las flechas guía. Tras soltar la bola a ras de pista, la mano continúa su extensión hacia el techo en ángulo continuo.
+          </p>
+<div class="relative w-full h-36 rounded-lg overflow-hidden bg-cover bg-center shadow-inner" data-alt="Professional bowler in perfect sliding follow-through posture at the foul line. Knee bent at 45 degrees, sliding shoe pointing straight ahead, arm extended towards the ceiling with telemetry telemetry overlay vectors showing ball release trajectory." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB49-G85vmFcx2uZasKoH_jX5LYjDN80sDIU3T_hHe2tptLDx1ghrDBYAT6wzJYnAUlB4cNJyoRVP338uJSVO6sojePfziCBq98TJgWl2wfr501jDNR1gGsmMtCatsDEz65ALjhYcR9Nic7-oQJ5YchTRkcD6b72rGr0xp5_oRJqkjxo4w1VWlpLhhXLhcIDCB-cZUuvgoCFHGL3FQ-typ2GbrjF2tLzR29PXApktuw_FnaguW97_qOeg')">
+<div class="absolute bottom-2 left-2 px-2 py-0.5 bg-surface-container-lowest/80 backdrop-blur-md rounded text-on-surface font-label-sm text-label-sm">
+              Extensión armónica continua
+            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Diagrama Biomecánico de Vectores y Ángulos -->
+<section class="bg-surface-container-high rounded-xl p-space-md shadow-md space-y-3">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">architecture</span>
+        Telemetría y Vectores de Alineación
+      </h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Modo Interactivo</span>
+</div>
+<!-- Vector HUD SVG Diagram -->
+<div class="relative w-full bg-surface-container-lowest rounded-xl p-4 flex flex-col items-center">
+<svg aria-label="Diagrama vectorial de ángulos de hombros e impacto en pocket" class="w-full h-44 drop-shadow-md" viewbox="0 0 320 180">
+<!-- Lane Perspective Lines -->
+<polygon fill="#131b2e" points="120,10 200,10 280,170 40,170"></polygon>
+<line stroke="#434655" stroke-dasharray="3 3" stroke-width="1.5" x1="160" x2="160" y1="10" y2="170"></line>
+<!-- Arrow Targets (Flechas) -->
+<polygon fill="#8d90a0" points="100,85 105,75 110,85"></polygon>
+<polygon fill="#ee9800" points="130,80 135,70 140,80" stroke="#ee9800" stroke-width="1"></polygon>
+<polygon fill="#8d90a0" points="160,75 165,65 170,75"></polygon>
+<polygon fill="#8d90a0" points="190,80 195,70 200,80"></polygon>
+<polygon fill="#8d90a0" points="220,85 225,75 230,85"></polygon>
+<!-- Trajectory Vector to Flecha 2 / Pocket -->
+<path d="M 90,165 Q 120,110 135,75 T 155,20" fill="none" stroke="#2563eb" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Biomechanical Pin Pocket -->
+<circle cx="160" cy="22" fill="#ffffff" r="4"></circle>
+<circle cx="152" cy="16" fill="#ffffff" opacity="0.8" r="3"></circle>
+<circle cx="168" cy="16" fill="#ffffff" opacity="0.8" r="3"></circle>
+<!-- Vector Marker Callout: 15° Shoulder drop -->
+<line stroke="#4edea3" stroke-width="2" x1="60" x2="135" y1="130" y2="150"></line>
+<circle cx="60" cy="130" fill="#4edea3" r="3"></circle>
+<circle cx="135" cy="150" fill="#4edea3" r="3"></circle>
+<text fill="#4edea3" font-family="Outfit" font-size="10" font-weight="700" x="50" y="120">15° Drop Lateral</text>
+<!-- Target Lock Flecha 2 -->
+<circle cx="135" cy="75" fill="none" r="7" stroke="#ee9800" stroke-dasharray="2 2" stroke-width="1.5"></circle>
+<text fill="#ee9800" font-family="Outfit" font-size="10" font-weight="700" x="145" y="70">Flecha 2 (Pocket 1-3)</text>
+</svg>
+<div class="grid grid-cols-2 gap-2 w-full mt-2">
+<div class="bg-surface-container p-2.5 rounded-lg">
+<div class="font-label-sm text-label-sm text-tertiary uppercase font-bold">Inclinación Hombro</div>
+<div class="font-stat-mono text-headline-sm text-on-surface font-extrabold">15° Lateral</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Abre espacio libre al swing</div>
+</div>
+<div class="bg-surface-container p-2.5 rounded-lg">
+<div class="font-label-sm text-label-sm text-secondary uppercase font-bold">Focalización Visual</div>
+<div class="font-stat-mono text-headline-sm text-on-surface font-extrabold">Flecha #2</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Trayectoria al pocket 1-3</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Notas del Entrenador (Coach Carlos) -->
+<section class="bg-surface-container rounded-xl p-space-md shadow-sm relative overflow-hidden">
+<div class="flex items-start gap-space-sm">
+<img alt="Coach Carlos" class="w-11 h-11 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1Ut22PNGAbzRm9btI_PXYkw3qqRTIx7WDV1ef83-K0HDcmVUsC2DamUU7MPKJQD7OnTbYocTWJdveXkiw-v9K9BQEPbjHnqf0SkjSF50MBAz2eAM53SVV5BULbC5H2WpWcBnaD2wPGGQqgx_wszHo_ZXnlMnK4SY_x0J68johlDfJ6_fFZsVjJfpswFHqPv4W-IsIZ5AwXiik25wbwtXZb3EKRp8FZ20pxPaIXBRfNChOXgGYxKKmiQI2zQ"/>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-0.5">
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">Coach Carlos</h4>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-[14px]">sports</span>
+            Feedback Directo
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic mb-2">
+          Entrenador Certificado USBC Gold
+        </p>
+<div class="bg-surface-container-high rounded-lg p-3 text-on-surface font-body-md text-body-md leading-relaxed">
+          “Ojo Mateo: concéntrate en <span class="text-secondary font-semibold">no acelerar el segundo paso</span>. Deja que la gravedad haga todo el trabajo del péndulo antes de iniciar el deslizamiento. La prisa descoordina el release final.”
+        </div>
+</div>
+</div>
+</section>
+<!-- 6. Barra Inferior de Acción para Examen (RN-01) -->
+<section class="bg-surface-container-low rounded-xl p-space-md shadow-lg space-y-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">
+          Contenido completado con éxito
+        </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          ¿Listo para certificar tus conocimientos técnicos?
+        </p>
+</div>
+</div>
+<!-- Requisito de Aprobación RN-01 -->
+<div class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1.5 text-on-surface font-medium">
+<span class="material-symbols-outlined text-[16px] text-secondary">fact_check</span>
+        Regla RN-01: Evaluación Oficial
+      </span>
+<span class="text-tertiary font-bold">Mínimo 80% para aprobar</span>
+</div>
+<!-- Botón Principal con Gradiente Azul High-Contrast -->
+<button class="w-full h-[52px] bg-primary-container text-on-primary-container hover:bg-primary transition-all duration-200 rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-lg active:scale-[0.98]" onclick="handleStartEvaluation()">
+<span>Comenzar Evaluación Técnica (RN-01)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</section>
+</div>
+<script>
+  // Simple micro-interaction for video play / pause state
+  const togglePlayBtn = document.getElementById('togglePlayBtn');
+  const playIcon = document.getElementById('playIcon');
+  let isPlaying = false;
+
+  if (togglePlayBtn && playIcon) {
+    togglePlayBtn.addEventListener('click', () => {
+      isPlaying = !isPlaying;
+      playIcon.textContent = isPlaying ? 'pause' : 'play_arrow';
+      togglePlayBtn.classList.toggle('opacity-50', isPlaying);
+    });
+  }
+
+  // Handler for examination transition (RN-01)
+  function handleStartEvaluation() {
+    // Provide tactile feedback or navigation trigger in a mobile context
+    if (window.navigator && window.navigator.vibrate) {
+      window.navigator.vibrate(30);
+    }
+    console.log('Navegando a la Evaluación Técnica con consultarContenido()...');
+  }
+</script></main></body></html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html><html class="dark" lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0b1326;color:#dae2fd;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-error-container": "#ffdad6", "secondary-fixed-dim": "#ffb95f", "on-surface-variant": "#c3c6d7", "on-background": "#dae2fd", "primary-container": "#2563eb", "secondary": "#ffb95f", "on-primary-fixed": "#00174b", "surface-variant": "#2d3449", "on-surface": "#dae2fd", "on-tertiary-fixed": "#002113", "secondary-fixed": "#ffddb8", "error": "#ffb4ab", "secondary-container": "#ee9800", "primary-fixed": "#dbe1ff", "inverse-on-surface": "#283044", "surface-bright": "#31394d", "background": "#0b1326", "outline-variant": "#434655", "on-secondary": "#472a00", "on-primary-fixed-variant": "#003ea8", "on-secondary-container": "#5b3800", "on-primary": "#002a78", "on-secondary-fixed": "#2a1700", "surface-tint": "#b4c5ff", "on-secondary-fixed-variant": "#653e00", "inverse-primary": "#0053db", "inverse-surface": "#dae2fd", "tertiary-fixed-dim": "#4edea3", "surface-container-high": "#222a3d", "tertiary-fixed": "#6ffbbe", "surface-container-highest": "#2d3449", "surface-container": "#171f33", "on-tertiary-container": "#bdffdb", "surface-container-low": "#131b2e", "tertiary-container": "#007d55", "error-container": "#93000a", "on-tertiary-fixed-variant": "#005236", "on-tertiary": "#003824", "surface": "#0b1326", "surface-dim": "#0b1326", "tertiary": "#4edea3", "on-error": "#690005", "outline": "#8d90a0", "primary-fixed-dim": "#b4c5ff", "primary": "#b4c5ff", "on-primary-container": "#eeefff", "surface-container-lowest": "#060e20" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "1rem", "space-xs": "0.25rem", "gutter": "1rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "margin-lg": "1.5rem", "space-md": "1rem", "gutter-sm": "0.75rem", "space-xl": "2rem" }, "fontFamily": { "stat-mono": ["Outfit"], "headline-sm": ["Outfit"], "display-score": ["Outfit"], "body-lg": ["Plus Jakarta Sans"], "label-sm": ["Outfit"], "label-lg": ["Outfit"], "headline-lg": ["Outfit"], "body-md": ["Plus Jakarta Sans"], "headline-md": ["Outfit"], "display-score-mobile": ["Outfit"], "body-sm": ["Plus Jakarta Sans"], "label-md": ["Outfit"] }, "fontSize": { "stat-mono": ["18px", { "lineHeight": "22px", "letterSpacing": "0.02em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "display-score": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.06em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "700" }], "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display-score-mobile": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="BowlingPro Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWmVFev2tMzHxp0V1_Q5OLKVPxi5bzYyDuXMjeKIG6ssmQeDhbiVf3RANz5-biYjxDwReidh-MSRleKCMOlW5EaxzmsLB47qUXLK-HuelzI8ImGonBCUxf_85R9yz8LADHCztU0vvAWEJeUS_o9u9985K_QgfHxVH3Ox5AlaMCGvxEjAzrpmoaJM30Pddt43j2qqOrbFW1CUwEHBUpNkY4Akwv5bTMvQx1HjJ4jg4D-yb2nPtIb3X0ew"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface">BowlingPro</span><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Athletic Telemetry</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Notifications" class="relative w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface transition-colors" onclick="alert('Abriendo Centro de Notificaciones (3 pendientes)')"><span class="material-symbols-outlined text-2xl">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span></button><button aria-label="Profile" class="w-11 h-11 flex items-center justify-center" onclick="alert('Navegando al Perfil de Atleta: Mateo')"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB36l80i4OrIS-H33C4ut2zzLPd0r1YF3P72uRonwh9KLxOIvKYWkkSXvt6IV_tsETlrNP7GkKiS8rbIlM4VV9WLUmhb9kyt-lb_CJKKeZACBHak44zrUDealQOOEYzKuZTLKsZfyMyKF6NNfxUDcoJHrt6kxaxYk7UXH9Y6G6fULuXGfx__fgB89TmKhq_k72pK90CS4UchPRUR4Lm4Xqkpr4Im2kfTB_aEZtb63VnRD2zDi9hmlL5ZA"></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full px-margin space-y-space-lg pb-space-xl">
+<!-- Saludo Personalizado & Badge Activo -->
+<section class="flex flex-col gap-space-xs pt-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+          En entrenamiento activo
+        </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary">local_fire_department</span>
+        Racha 4 días
+      </span>
+</div>
+<div class="flex items-baseline justify-between mt-1">
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">
+        Hola, Mateo <span class="inline-block transform hover:rotate-12 transition-transform select-none">🎳</span>
+</h1>
+<span class="font-label-md text-label-md text-primary font-semibold">Liga Metropolitana</span>
+</div>
+</section>
+<!-- Card Nivel Actual (RN-01, RF-06) -->
+<section class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-space-sm relative overflow-hidden">
+<div class="absolute -right-10 -bottom-10 w-36 h-36 bg-primary-container/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-secondary/15 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg">military_tech</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Nivel Atlético</span>
+<p class="font-headline-sm text-headline-sm font-bold text-on-surface">Intermedio</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary-fixed-dim font-label-md text-label-md font-bold">
+        68% Completado
+      </span>
+</div>
+<!-- Stepper Visual de Niveles -->
+<div class="grid grid-cols-3 gap-1.5 pt-1">
+<!-- Principiante -->
+<div class="flex flex-col gap-1">
+<div class="h-1.5 rounded-full bg-tertiary"></div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Principiante</span>
+<span class="material-symbols-outlined text-xs text-tertiary">check_circle</span>
+</div>
+</div>
+<!-- Intermedio (Actual) -->
+<div class="flex flex-col gap-1">
+<div class="h-1.5 rounded-full bg-surface-variant overflow-hidden">
+<div class="h-full bg-secondary w-[68%] rounded-full shadow-[0_0_8px_rgba(255,185,95,0.6)]"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-secondary font-bold">
+<span class="">Intermedio</span>
+<span class="">68%</span>
+</div>
+</div>
+<!-- Avanzado (Bloqueado) -->
+<div class="flex flex-col gap-1">
+<div class="h-1.5 rounded-full bg-surface-container-highest"></div>
+<div class="flex items-center justify-between text-on-surface-variant/50 font-label-sm text-label-sm">
+<span class="">Avanzado</span>
+<span class="material-symbols-outlined text-xs">lock</span>
+</div>
+</div>
+</div>
+<!-- Requisito RN-01 -->
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-2 rounded-lg mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-base text-secondary flex-shrink-0">flag</span>
+<p class="leading-tight">
+        Faltan <strong class="text-on-surface font-semibold">2 lecciones</strong> y <strong class="text-on-surface font-semibold">1 evaluación</strong> para desbloquear <span class="text-primary font-medium">Nivel Avanzado</span>.
+      </p>
+</div>
+</section>
+<!-- Acceso Rápido: Registrar Nueva Partida (RF-07) -->
+<section class="bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-low rounded-xl p-space-md shadow-lg flex flex-col gap-space-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Acción en pista</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Registrar Nueva Partida</h2>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-[0_0_16px_rgba(37,99,235,0.4)]">
+<span class="material-symbols-outlined text-2xl">sports_score</span>
+</div>
+</div>
+<!-- Toggle Selector Rápido de Modo -->
+<div class="grid grid-cols-2 p-1 rounded-xl bg-surface-container-lowest gap-1">
+<button class="py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 font-label-md text-label-md font-bold transition-all bg-surface-variant text-on-surface shadow-sm" id="btn-mode-practice" onclick="selectMode('practice')">
+<span class="material-symbols-outlined text-base text-tertiary">tune</span>
+        Modo Práctica
+      </button>
+<button class="py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 font-label-md text-label-md font-bold transition-all text-on-surface-variant hover:text-on-surface" id="btn-mode-official" onclick="selectMode('official')">
+<span class="material-symbols-outlined text-base text-secondary">emoji_events</span>
+        Juego Oficial
+      </button>
+</div>
+<button class="w-full py-3 px-4 rounded-xl bg-primary-container hover:bg-inverse-primary active:scale-[0.99] transition-all text-on-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-[0_0_20px_-2px_rgba(37,99,235,0.45)]" onclick="alert('Iniciando: ' + document.getElementById('launch-cta-label').innerText)">
+<span class="material-symbols-outlined text-xl">play_circle</span>
+<span id="launch-cta-label" class="">Comenzar Sesión de Práctica</span>
+</button>
+</section>
+<!-- Panel de KPIs Deportivos (RF-13) -->
+<section class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-0.5">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Métricas de Rendimiento</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Temporada 2025</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<!-- 1. Promedio -->
+<div class="bg-surface-container p-3.5 rounded-xl flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Promedio</span>
+<span class="material-symbols-outlined text-base text-primary">analytics</span>
+</div>
+<div class="my-1.5">
+<div class="font-stat-mono text-headline-lg font-extrabold text-on-surface leading-none">184.6</div>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-0.5 mt-1 font-semibold">
+<span class="material-symbols-outlined text-xs">arrow_upward</span>
+            +4.2 este mes
+          </span>
+</div>
+<div class="w-full bg-surface-variant h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[74%] rounded-full"></div>
+</div>
+</div>
+<!-- 2. % Strikes -->
+<div class="bg-surface-container p-3.5 rounded-xl flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">% Strikes</span>
+<div class="w-5 h-5 rounded bg-secondary-container/20 text-secondary flex items-center justify-center font-stat-mono text-xs font-black">X</div>
+</div>
+<div class="my-1.5">
+<div class="font-stat-mono text-headline-lg font-extrabold text-secondary leading-none">38.5%</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5 mt-1">
+            42 strikes en 109 tiros
+          </span>
+</div>
+<div class="w-full bg-surface-variant h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[38.5%] rounded-full shadow-[0_0_6px_rgba(255,185,95,0.7)]"></div>
+</div>
+</div>
+<!-- 3. % Spares -->
+<div class="bg-surface-container p-3.5 rounded-xl flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">% Spares</span>
+<div class="w-5 h-5 rounded bg-primary/20 text-primary flex items-center justify-center font-stat-mono text-xs font-black">/</div>
+</div>
+<div class="my-1.5">
+<div class="font-stat-mono text-headline-lg font-extrabold text-primary-fixed leading-none">44.2%</div>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-0.5 mt-1 font-semibold">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+            86% conversión al 1er pin
+          </span>
+</div>
+<div class="w-full bg-surface-variant h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[44.2%] rounded-full"></div>
+</div>
+</div>
+<!-- 4. Pinos/Partida -->
+<div class="bg-surface-container p-3.5 rounded-xl flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Pinos / Bola</span>
+<span class="material-symbols-outlined text-base text-tertiary">scatter_plot</span>
+</div>
+<div class="my-1.5">
+<div class="font-stat-mono text-headline-lg font-extrabold text-on-surface leading-none">8.9 <span class="text-sm font-normal text-on-surface-variant">/ 10</span></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5 mt-1">
+            Primer tiro promedio
+          </span>
+</div>
+<div class="w-full bg-surface-variant h-1 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[89%] rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Reto Activo del Día (RF-19 / RN-04) -->
+<section class="bg-surface-container rounded-xl p-space-md shadow-sm relative overflow-hidden">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-secondary/15 text-secondary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl">trophy</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">Reto Diario • RF-19</span>
+<span class="font-label-sm text-label-sm text-on-tertiary-container bg-tertiary-container px-2 py-0.5 rounded-full font-bold">+150 XP</span>
+</div>
+<p class="font-body-md text-body-md font-semibold text-on-surface mt-1 leading-snug">
+          Logra 3 strikes consecutivos (Turkey) en modo juego
+        </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+          Validado con historial de partidas oficiales
+        </p>
+</div>
+</div>
+<div class="mt-3 bg-surface-container-lowest p-2.5 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Progreso actual:</span>
+<div class="flex items-center gap-1 font-stat-mono text-sm font-bold">
+<span class="px-2 py-0.5 rounded bg-secondary text-on-secondary">X</span>
+<span class="px-2 py-0.5 rounded bg-secondary text-on-secondary">X</span>
+<span class="px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant">__</span>
+</div>
+</div>
+<span class="font-stat-mono text-label-md font-bold text-secondary">2 / 3</span>
+</div>
+</section>
+<!-- Evolución del Rendimiento - Mini Gráfico Últimas 6 Partidas (RF-14) -->
+<section class="bg-surface-container rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tendencia Reciente</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Evolución del Rendimiento</h2>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary-fixed-dim font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">military_tech</span>
+        204 PTS High
+      </span>
+</div>
+<!-- Inline Telemetry SVG Chart -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-3 pt-4">
+<div class="h-32 w-full flex flex-col justify-end relative">
+<!-- SVG Polyline & Area -->
+<svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 300 100">
+<defs>
+<linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#2563eb" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#2563eb" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+<!-- Grid Lines -->
+<line stroke="#2d3449" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="300" y1="20" y2="20"></line>
+<line stroke="#2d3449" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="300" y1="55" y2="55"></line>
+<line stroke="#2d3449" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="300" y1="85" y2="85"></line>
+<!-- Filled Area Under Curve -->
+<polygon fill="url(#chartGradient)" points="15,75 70,52 125,40 180,82 235,15 285,26 285,100 15,100"></polygon>
+<!-- Polyline (172, 185, 190, 168, 204, 198) normalized -->
+<polyline fill="none" points="15,75 70,52 125,40 180,82 235,15 285,26" stroke="#2563eb" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<!-- Data Points -->
+<circle cx="15" cy="75" fill="#dae2fd" r="3.5"></circle>
+<circle cx="70" cy="52" fill="#dae2fd" r="3.5"></circle>
+<circle cx="125" cy="40" fill="#dae2fd" r="3.5"></circle>
+<circle cx="180" cy="82" fill="#dae2fd" r="3.5"></circle>
+<!-- High Point Highlight -->
+<circle class="animate-pulse" cx="235" cy="15" fill="#ffb95f" r="5"></circle>
+<circle cx="285" cy="26" fill="#dae2fd" r="3.5"></circle>
+</svg>
+</div>
+<!-- X-Axis Labels & Scores -->
+<div class="grid grid-cols-6 text-center pt-2 gap-1 text-on-surface-variant font-stat-mono text-body-sm">
+<div><span class="text-on-surface font-semibold">172</span><p class="text-[10px] text-outline">P1</p></div>
+<div><span class="text-on-surface font-semibold">185</span><p class="text-[10px] text-outline">P2</p></div>
+<div><span class="text-on-surface font-semibold">190</span><p class="text-[10px] text-outline">P3</p></div>
+<div><span class="text-on-surface font-semibold">168</span><p class="text-[10px] text-outline">P4</p></div>
+<div><span class="text-secondary font-bold">204</span><p class="text-[10px] text-secondary font-bold">P5 ★</p></div>
+<div><span class="text-on-surface font-semibold">198</span><p class="text-[10px] text-outline">P6</p></div>
+</div>
+</div>
+</section>
+<!-- Historial Reciente de Partidas (RF-07) -->
+<section class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-0.5">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Historial Reciente</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm">RF-07</span>
+</div>
+<a class="font-label-md text-label-md text-primary font-semibold hover:underline" href="#" onclick="event.preventDefault(); alert('Cargando Historial Completo de Partidas (Temporada 2025)')">Ver todas</a>
+</div>
+<div class="space-y-2.5">
+<!-- Partida 1: Ayer -->
+<div class="bg-surface-container p-3.5 rounded-xl shadow-sm flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-secondary-container/20 text-secondary flex flex-col items-center justify-center flex-shrink-0">
+<span class="font-stat-mono text-headline-sm font-bold leading-none">204</span>
+<span class="font-label-sm text-[9px] uppercase tracking-tighter text-secondary">PTS</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded bg-primary-container/30 text-primary-fixed font-label-sm text-label-sm font-semibold">
+                Juego Oficial
+              </span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">• Hace 1 día</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-1 truncate">
+<strong class="text-secondary">6 Strikes</strong>, 3 Spares • Pista 4 Strike Alley
+            </p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-xl">chevron_right</span>
+</div>
+<!-- Partida 2: Hace 3 días -->
+<div class="bg-surface-container p-3.5 rounded-xl shadow-sm flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-surface-variant text-on-surface flex flex-col items-center justify-center flex-shrink-0">
+<span class="font-stat-mono text-headline-sm font-bold leading-none">178</span>
+<span class="font-label-sm text-[9px] uppercase tracking-tighter text-on-surface-variant">PTS</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm font-semibold">
+                Práctica
+              </span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">• Hace 3 días</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 truncate">
+              Enfoque: <span class="text-on-surface font-medium">Ajuste de paso</span> • 4 Spares de 10-pin
+            </p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-xl">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Pistas & Centro de Entrenamiento Recomendado -->
+<section class="bg-surface-container-low rounded-xl p-space-md shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Sede de Práctica Sugerida</span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold flex items-center gap-0.5">
+<span class="w-2 h-2 rounded-full bg-tertiary inline-block"></span>
+        12 pistas libres
+      </span>
+</div>
+<div class="w-full h-28 bg-cover bg-center rounded-lg relative overflow-hidden flex items-end p-2.5" data-location="Bowling Club San Jerónimo, Monterrey" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAqZcD1ynOa-hMLBcivR6WJX7VllloH9rYTAE0U8q8f3S_93LuOL_Dv-qN1-mLnE7hAli8LE4-bk0camSN4b4dIPL_drL-6_iQF4qkkXqeI3vH7Vu_xJwjgf4H9zwb5TbbaROmhV8mqe68nb2Uv4wlBpYEdxRFb1Z65EeyKfZyiDYMZ8Fq4fl5FFeEeGDAXt0HOO0BapTYvNKPmEtV_yqzaCXZprXgoTasFeHiFCmBoOS8iS8ZefWx89w')">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/40 to-transparent"></div>
+<div class="relative z-10 flex items-center justify-between w-full">
+<div>
+<p class="font-headline-sm text-body-lg font-bold text-on-surface">Club Bowling San Jerónimo</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Aceitado: THS House Pattern 41ft</p>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-variant/90 text-on-surface font-label-sm text-label-sm font-bold flex items-center gap-1 hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-sm text-primary">directions</span>
+          Ruta
+        </button>
+</div>
+</div>
+</section>
+</div>
+<script>
+  function selectMode(mode) {
+    const btnPractice = document.getElementById('btn-mode-practice');
+    const btnOfficial = document.getElementById('btn-mode-official');
+    const labelCTA = document.getElementById('launch-cta-label');
+
+    if (mode === 'practice') {
+      btnPractice.className = 'py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 font-label-md text-label-md font-bold transition-all bg-surface-variant text-on-surface shadow-sm';
+      btnOfficial.className = 'py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 font-label-md text-label-md font-bold transition-all text-on-surface-variant hover:text-on-surface';
+      labelCTA.textContent = 'Comenzar Sesión de Práctica';
+    } else {
+      btnOfficial.className = 'py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 font-label-md text-label-md font-bold transition-all bg-surface-variant text-on-surface shadow-sm';
+      btnPractice.className = 'py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 font-label-md text-label-md font-bold transition-all text-on-surface-variant hover:text-on-surface';
+      labelCTA.textContent = 'Comenzar Partida Oficial';
+    }
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.4)]" data-active-classes="text-primary font-bold [&amp;_span.material-symbols-outlined]:text-primary [&amp;_span.indicator]:opacity-100" onclick="const link = event.target.closest('a[data-path]'); if (!link) return; event.preventDefault(); document.querySelectorAll('nav a[data-path]').forEach(el =&gt; { el.classList.remove('text-primary', 'font-bold', '[&amp;_span.material-symbols-outlined]:text-primary', '[&amp;_span.indicator]:opacity-100'); el.classList.add('text-on-surface-variant'); const ind = el.querySelector('.indicator'); if (ind) ind.classList.add('opacity-0'); }); link.classList.remove('text-on-surface-variant'); link.classList.add('text-primary', 'font-bold', '[&amp;_span.material-symbols-outlined]:text-primary', '[&amp;_span.indicator]:opacity-100'); const ind = link.querySelector('.indicator'); if (ind) ind.classList.remove('opacity-0');"><div class="flex items-center justify-around h-18 px-space-xs relative"><a aria-current="page" class="group flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 transition-all text-primary font-bold [&amp;_span.material-symbols-outlined]:text-primary [&amp;_span.indicator]:opacity-100" data-path="dashboard" href="#"><span class="material-symbols-outlined text-2xl group-hover:scale-105 transition-transform">dashboard</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Dashboard</span><span class="indicator opacity-0 w-1.5 h-1.5 bg-secondary rounded-full mt-0.5 transition-opacity"></span></a><a class="group flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 text-on-surface-variant hover:text-on-surface transition-all" data-path="learn" href="#"><span class="material-symbols-outlined text-2xl group-hover:scale-105 transition-transform">menu_book</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Aprender</span><span class="indicator opacity-0 w-1.5 h-1.5 bg-secondary rounded-full mt-0.5 transition-opacity"></span></a><div class="flex flex-col items-center justify-center -mt-6 z-10"><a class="group flex flex-col items-center focus:outline-none" data-path="match" href="#"><div class="w-14 h-14 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-[0_0_20px_rgba(37,99,235,0.45)] group-active:scale-95 transition-all"><span class="material-symbols-outlined text-3xl">sports_score</span></div><span class="font-label-sm text-label-sm text-on-surface mt-1 font-bold">Partida</span></a></div><a class="group flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 text-on-surface-variant hover:text-on-surface transition-all" data-path="training" href="#"><span class="material-symbols-outlined text-2xl group-hover:scale-105 transition-transform">fact_check</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Entrenar</span><span class="indicator opacity-0 w-1.5 h-1.5 bg-secondary rounded-full mt-0.5 transition-opacity"></span></a><a class="group flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 text-on-surface-variant hover:text-on-surface transition-all" data-path="coach" href="#"><span class="material-symbols-outlined text-2xl group-hover:scale-105 transition-transform">forum</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Entrenador</span><span class="indicator opacity-0 w-1.5 h-1.5 bg-secondary rounded-full mt-0.5 transition-opacity"></span></a></div></nav>
+
+</body></html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-variant": "#2d3449", "primary": "#b4c5ff", "secondary-container": "#ee9800", "secondary-fixed": "#ffddb8", "inverse-primary": "#0053db", "tertiary-container": "#007d55", "on-primary-fixed-variant": "#003ea8", "tertiary-fixed-dim": "#4edea3", "secondary": "#ffb95f", "tertiary-fixed": "#6ffbbe", "inverse-surface": "#dae2fd", "on-secondary": "#472a00", "outline-variant": "#434655", "tertiary": "#4edea3", "secondary-fixed-dim": "#ffb95f", "on-primary-fixed": "#00174b", "surface": "#0b1326", "primary-fixed": "#dbe1ff", "on-secondary-container": "#5b3800", "on-tertiary-container": "#bdffdb", "on-tertiary-fixed-variant": "#005236", "on-surface-variant": "#c3c6d7", "surface-tint": "#b4c5ff", "on-secondary-fixed-variant": "#653e00", "surface-dim": "#0b1326", "on-error-container": "#ffdad6", "on-surface": "#dae2fd", "surface-bright": "#31394d", "primary-container": "#2563eb", "error": "#ffb4ab", "surface-container": "#171f33", "surface-container-high": "#222a3d", "on-secondary-fixed": "#2a1700", "surface-container-highest": "#2d3449", "background": "#0b1326", "on-primary": "#002a78", "on-background": "#dae2fd", "inverse-on-surface": "#283044", "on-primary-container": "#eeefff", "on-error": "#690005", "error-container": "#93000a", "on-tertiary-fixed": "#002113", "surface-container-lowest": "#060e20", "primary-fixed-dim": "#b4c5ff", "surface-container-low": "#131b2e", "outline": "#8d90a0", "on-tertiary": "#003824" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "gutter-sm": "0.75rem", "space-md": "1rem", "space-lg": "1.5rem", "margin-lg": "1.5rem", "margin": "1rem", "space-sm": "0.5rem", "space-xl": "2rem", "gutter": "1rem" }, "fontFamily": { "label-md": ["Outfit"], "body-md": ["Plus Jakarta Sans"], "display-score": ["Outfit"], "display-score-mobile": ["Outfit"], "body-lg": ["Plus Jakarta Sans"], "label-sm": ["Outfit"], "headline-md": ["Outfit"], "stat-mono": ["Outfit"], "label-lg": ["Outfit"], "headline-sm": ["Outfit"], "body-sm": ["Plus Jakarta Sans"], "headline-lg": ["Outfit"] }, "fontSize": { "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "display-score": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "display-score-mobile": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.06em", "fontWeight": "700" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "stat-mono": ["18px", { "lineHeight": "22px", "letterSpacing": "0.02em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="Minimalist dynamic vector logo for BowlingPro app. A stylized bowling pin intersected with a sleek speeding bowling ball with precision motion trajectory lines and star accent, clean athletic geometric lines, cobalt blue, vibrant amber gold, and crisp white. Modern esport and pro bowling aesthetic.. Design context: - Primary color: #2563eb
+- Font: outfit
+- Mode: dark
+- Roundness: rounded-md
+. The logo should be visually consistent with these brand tokens." class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1UBJ9RXRHjOXyIN9_-NLOqpZbjHiEDthIxg2K6cGPyqGJn1Fv8tuDh0qNlhROa2WFHhylIZpQQjMmgIU1sEh2DUX6gAmsH-9x2ifPLNvWXtTnizrMwtvxFv-BtCZ23qe5m-bcFS3-96RlABYkk67aaLazsLFt6sEMItsLKqkgP70ISCaUhDCUsdUWXG2yrQNAd6DIBs-OfNHgMU80wL-WFTQupUKo4SNBLVLDIM5N99OSXEUQG4c3olvaFV"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate">BowlingPro</span><span class="px-1.5 py-0.5 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm tracking-widest shrink-0">ADMIN</span></div><span class="font-label-sm text-label-sm text-on-surface-variant truncate uppercase tracking-wider">Auditoría Logs</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Estado del Sistema" class="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl bg-surface-container-low text-tertiary transition-colors hover:bg-surface-container" type="button"><span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary"></span></span></button><button aria-label="Alertas y Notificaciones de Auditoría" class="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button><div class="min-h-[44px] min-w-[44px] flex items-center justify-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_12px_-2px_rgba(37,99,235,0.4)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full gap-space-lg">
+<!-- Header Contextual con Badge de Cumplimiento Normativo y Exportación -->
+<section class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between gap-space-sm flex-wrap">
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm tracking-widest uppercase">
+          RF-03 · Protección de Acceso
+        </span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+          Escudo Activo
+        </span>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Exportar Registros" class="min-h-[38px] px-3 rounded-lg bg-surface-container-high text-primary hover:bg-surface-variant flex items-center gap-1.5 transition-all text-label-md font-label-md shadow-sm active:scale-95" id="btnExport" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>CSV / JSON</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col">
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">Auditoría y Seguridad</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Supervisión de autenticación, control de fuerza bruta y trazabilidad operativa de BowlingPro.
+      </p>
+</div>
+</section>
+<!-- Monitor de Intentos Fallidos y Bloqueo en Tiempo Real (RF-03) -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-error text-[20px]">security_update_warning</span>
+<span class="font-label-lg text-label-lg text-on-surface">Monitor RF-03 en Tiempo Real</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Regla: 5 fallos = 15m bloqueo</span>
+</div>
+<!-- Tarjeta de Alerta Crítica (Cuenta Bloqueada) -->
+<article class="relative overflow-hidden rounded-xl bg-surface-container-high p-space-md shadow-xl transition-all" id="incidentCard">
+<!-- Glow superior de alerta de seguridad -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-error/15 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex flex-col gap-space-sm relative z-10">
+<!-- Encabezado del Incidente -->
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-xl bg-error-container/40 text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">gpp_bad</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-md text-label-md text-error uppercase tracking-wider">Bloqueo Preventivo Activo</span>
+<span class="px-1.5 py-0.2 rounded bg-error/20 text-error font-label-sm text-label-sm">5 / 5 Fallos</span>
+</div>
+<span class="font-stat-mono text-stat-mono text-on-surface truncate">roberto.m@gmail.com</span>
+</div>
+</div>
+<!-- Countdown de Desbloqueo Dinámico -->
+<div class="flex flex-col items-end shrink-0 bg-surface-container-lowest/80 px-2.5 py-1.5 rounded-lg text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Restan</span>
+<span class="font-stat-mono text-stat-mono text-secondary tracking-widest" id="countdownTimer">08:34</span>
+</div>
+</div>
+<!-- Metadatos de Telemetría de Red y Evento -->
+<div class="grid grid-cols-2 gap-space-xs bg-surface-container-low p-space-sm rounded-lg text-body-sm font-body-sm">
+<div class="flex flex-col min-w-0">
+<span class="text-on-surface-variant text-[11px] font-label-sm">DIRECCIÓN IP / ORIGEN</span>
+<span class="text-on-surface truncate font-stat-mono text-[13px]">189.204.12.44</span>
+<span class="text-on-surface-variant text-[11px] truncate">Monterrey, MX (ISP Megacable)</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-on-surface-variant text-[11px] font-label-sm">DISPARADOR</span>
+<span class="text-on-surface truncate">Contraseña errónea ×5</span>
+<span class="text-on-surface-variant text-[11px]">Hoy a las 11:42:18 AM</span>
+</div>
+</div>
+<!-- Acciones Rápidas del Administrador -->
+<div class="flex items-center gap-2 pt-1 flex-wrap">
+<button class="min-h-[44px] flex-1 px-3 rounded-lg bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all active:scale-95 shadow-[0_0_16px_-2px_rgba(37,99,235,0.4)]" id="btnUnlock" type="button">
+<span class="material-symbols-outlined text-[18px]">lock_open</span>
+<span>Desbloquear</span>
+</button>
+<button class="min-h-[44px] flex-1 px-3 rounded-lg bg-surface-variant text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all hover:bg-surface-bright active:scale-95" id="btnResetPass" type="button">
+<span class="material-symbols-outlined text-[18px]">password</span>
+<span>Forzar Reset</span>
+</button>
+<button aria-label="Descartar Alerta Temporal" class="min-h-[44px] min-w-[44px] rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" id="btnDismiss" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+</article>
+</section>
+<!-- Métricas de Ciberseguridad del Sistema (24h) -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Métricas de Autenticación (24h)</span>
+<span class="font-label-sm text-label-sm text-tertiary">Normal Operativo</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs">
+<!-- Métrica 1: Tasa Logins -->
+<div class="flex flex-col p-3 rounded-xl bg-surface-container gap-1 shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-tertiary">verified_user</span>
+<span class="font-label-sm text-label-sm text-tertiary">98.2%</span>
+</div>
+<span class="font-stat-mono text-headline-sm text-on-surface mt-1">342</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant leading-tight">Accesos Totales (6 fallos)</span>
+</div>
+<!-- Métrica 2: Concurrencia -->
+<div class="flex flex-col p-3 rounded-xl bg-surface-container gap-1 shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary">lan</span>
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+</div>
+<span class="font-stat-mono text-headline-sm text-on-surface mt-1">28</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant leading-tight">Sesiones Activas (14 pista)</span>
+</div>
+<!-- Métrica 3: Cumplimiento RF-01 -->
+<div class="flex flex-col p-3 rounded-xl bg-surface-container gap-1 shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-secondary">rule</span>
+<span class="font-label-sm text-label-sm text-secondary">RF-01</span>
+</div>
+<span class="font-stat-mono text-headline-sm text-on-surface mt-1">100%</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant leading-tight">Políticas de Clave Robustas</span>
+</div>
+</div>
+</section>
+<!-- Registro de Eventos e Auditoría (Audit Log) -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment</span>
+<span class="font-label-lg text-label-lg text-on-surface">Trazabilidad de Auditoría</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">5 eventos recientes</span>
+</div>
+<!-- Barra de Filtros Segmentados -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar text-label-sm font-label-sm">
+<button class="audit-filter-btn px-3 py-1.5 rounded-full bg-primary-container text-on-primary-container shrink-0 transition-all font-label-md text-label-md" data-filter="all" type="button">
+        Todos (5)
+      </button>
+<button class="audit-filter-btn px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface shrink-0 transition-all font-label-md text-label-md" data-filter="access" type="button">
+        Fallos de Acceso (1)
+      </button>
+<button class="audit-filter-btn px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface shrink-0 transition-all font-label-md text-label-md" data-filter="crud" type="button">
+        Modificaciones (1)
+      </button>
+<button class="audit-filter-btn px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface shrink-0 transition-all font-label-md text-label-md" data-filter="content" type="button">
+        Contenido (1)
+      </button>
+</div>
+<!-- Lista de Entradas de Log -->
+<div class="flex flex-col gap-2" id="logList">
+<!-- Log 1: Bloqueo RF-03 -->
+<article class="log-entry flex flex-col p-space-sm rounded-xl bg-surface-container gap-2 shadow-sm transition-all hover:bg-surface-container-high" data-cat="access">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2.5 h-2.5 rounded-full bg-error shrink-0"></span>
+<span class="font-label-md text-label-md text-error truncate">RF-03 · Acceso Bloqueado</span>
+</div>
+<span class="font-stat-mono text-[11px] text-on-surface-variant shrink-0">11:42 AM</span>
+</div>
+<div class="flex flex-col text-body-sm font-body-sm">
+<span class="text-on-surface font-semibold truncate">roberto.m@gmail.com</span>
+<span class="text-on-surface-variant text-[12px]">5 intentos fallidos consecutivos con clave incorrecta. IP: 189.204.12.44</span>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<span class="px-2 py-0.5 rounded bg-error-container/30 text-error font-label-sm text-label-sm">Fuerza Bruta</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Acción: Bloqueo 15m</span>
+</div>
+</article>
+<!-- Log 2: Login Exitoso RF-02 -->
+<article class="log-entry flex flex-col p-space-sm rounded-xl bg-surface-container gap-2 shadow-sm transition-all hover:bg-surface-container-high" data-cat="access">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary shrink-0"></span>
+<span class="font-label-md text-label-md text-tertiary truncate">RF-02 · Autenticación Exitosa</span>
+</div>
+<span class="font-stat-mono text-[11px] text-on-surface-variant shrink-0">11:15 AM</span>
+</div>
+<div class="flex flex-col text-body-sm font-body-sm">
+<span class="text-on-surface font-semibold truncate">carlos.mendez@vallesurbowling.com</span>
+<span class="text-on-surface-variant text-[12px]">Inicio de sesión web en cabina de entrenamiento. 2FA Validado.</span>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm">Rol: Entrenador Pro</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">IP: 201.144.90.12</span>
+</div>
+</article>
+<!-- Log 3: Edición de Contenido RN-06 -->
+<article class="log-entry flex flex-col p-space-sm rounded-xl bg-surface-container gap-2 shadow-sm transition-all hover:bg-surface-container-high" data-cat="content">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2.5 h-2.5 rounded-full bg-primary shrink-0"></span>
+<span class="font-label-md text-label-md text-primary truncate">RN-06 · Edición de Contenido</span>
+</div>
+<span class="font-stat-mono text-[11px] text-on-surface-variant shrink-0">10:50 AM</span>
+</div>
+<div class="flex flex-col text-body-sm font-body-sm">
+<span class="text-on-surface font-semibold truncate">Admin #1002 (SuperAdmin)</span>
+<span class="text-on-surface-variant text-[12px]">Actualizó nota mínima requerida en Certificación Intermedia de 75% a 80%.</span>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<span class="px-2 py-0.5 rounded bg-surface-variant text-on-surface font-label-sm text-label-sm">Módulo: Reglas de Evaluación</span>
+</div>
+</article>
+<!-- Log 4: Modificación de Rol RF-28 -->
+<article class="log-entry flex flex-col p-space-sm rounded-xl bg-surface-container gap-2 shadow-sm transition-all hover:bg-surface-container-high" data-cat="crud">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary shrink-0"></span>
+<span class="font-label-md text-label-md text-secondary truncate">RF-28 · Modificación de Rol</span>
+</div>
+<span class="font-stat-mono text-[11px] text-on-surface-variant shrink-0">09:30 AM</span>
+</div>
+<div class="flex flex-col text-body-sm font-body-sm">
+<span class="text-on-surface font-semibold truncate">mateo.m (Atleta Juvenil)</span>
+<span class="text-on-surface-variant text-[12px]">Promoción de nivel "Principiante" a "Intermedio" tras evaluación aprobada con 88%.</span>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-sm text-label-sm">Escalafón Deportivo</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Evaluador: Coach Carlos</span>
+</div>
+</article>
+<!-- Log 5: Registro RF-01 -->
+<article class="log-entry flex flex-col p-space-sm rounded-xl bg-surface-container gap-2 shadow-sm transition-all hover:bg-surface-container-high" data-cat="access">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary shrink-0"></span>
+<span class="font-label-md text-label-md text-tertiary truncate">RF-01 · Nueva Cuenta Registrada</span>
+</div>
+<span class="font-stat-mono text-[11px] text-on-surface-variant shrink-0">Ayer 18:20</span>
+</div>
+<div class="flex flex-col text-body-sm font-body-sm">
+<span class="text-on-surface font-semibold truncate">diego.h@athletic.com</span>
+<span class="text-on-surface-variant text-[12px]">Validación de contraseña aprobada (longitud 12, mixto alfanumérico). Email verificado.</span>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<span class="px-2 py-0.5 rounded bg-surface-variant text-on-surface font-label-sm text-label-sm">Rol: Jugador Federado</span>
+</div>
+</article>
+</div>
+</section>
+<!-- Ajustes de Política de Seguridad (RF-03 & Configuración en Caliente) -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">tune</span>
+<span class="font-label-lg text-label-lg text-on-surface">Políticas de Seguridad Activas</span>
+</div>
+<div class="flex flex-col gap-3 p-space-md rounded-xl bg-surface-container shadow-md">
+<!-- Interruptor Push -->
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface">Alerta Push al Administrador</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Notificar al instante si un usuario alcanza 5 intentos fallidos consecutivos.</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="pushToggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<div class="h-[1px] bg-outline-variant/30 w-full"></div>
+<!-- Regla de Tiempo de Bloqueo RF-03 -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Ventana de Bloqueo RF-03</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Duración de penalización tras superar límite.</span>
+</div>
+<span class="font-stat-mono text-stat-mono text-secondary" id="lockoutValueBadge">15 min</span>
+</div>
+<div class="flex items-center gap-3">
+<input class="w-full h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" id="lockoutSlider" max="60" min="5" step="5" type="range" value="15"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0">Norma Oficial</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Banner de Notificación Flotante (Toast) para Interacciones -->
+<div class="fixed bottom-20 left-4 right-4 z-50 transform translate-y-32 opacity-0 transition-all duration-300 pointer-events-none" id="toastNotification">
+<div class="flex items-center gap-3 p-3.5 rounded-xl bg-surface-bright text-on-surface shadow-2xl">
+<span class="material-symbols-outlined text-tertiary text-[22px]" id="toastIcon">check_circle</span>
+<span class="font-body-md text-body-md flex-1" id="toastMessage">Operación ejecutada con éxito</span>
+</div>
+</div>
+</div>
+<!-- Micro-Interacciones y Lógica Reactiva -->
+<script>
+  (function() {
+    // 1. Contador Regresivo para la Cuenta Bloqueada
+    let remainingSeconds = 8 * 60 + 34; // 08:34 min
+    const countdownEl = document.getElementById('countdownTimer');
+    
+    const timerInterval = setInterval(() => {
+      if (remainingSeconds <= 0) {
+        clearInterval(timerInterval);
+        if (countdownEl) {
+          countdownEl.textContent = '00:00';
+          countdownEl.classList.replace('text-secondary', 'text-tertiary');
+        }
+        return;
+      }
+      remainingSeconds--;
+      const mins = Math.floor(remainingSeconds / 60).toString().padStart(2, '0');
+      const secs = (remainingSeconds % 60).toString().padStart(2, '0');
+      if (countdownEl) {
+        countdownEl.textContent = `${mins}:${secs}`;
+      }
+    }, 1000);
+
+    // 2. Sistema Toast
+    const toast = document.getElementById('toastNotification');
+    const toastMsg = document.getElementById('toastMessage');
+    const toastIco = document.getElementById('toastIcon');
+    let toastTimeout;
+
+    function showToast(message, icon = 'check_circle', isError = false) {
+      if (!toast) return;
+      clearTimeout(toastTimeout);
+      toastMsg.textContent = message;
+      toastIco.textContent = icon;
+      toastIco.className = `material-symbols-outlined text-[22px] ${isError ? 'text-error' : 'text-tertiary'}`;
+      
+      toast.classList.remove('translate-y-32', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('translate-y-32', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3200);
+    }
+
+    // 3. Acciones de Administración en Tarjeta Crítica
+    const btnUnlock = document.getElementById('btnUnlock');
+    const btnResetPass = document.getElementById('btnResetPass');
+    const btnDismiss = document.getElementById('btnDismiss');
+    const incidentCard = document.getElementById('incidentCard');
+
+    if (btnUnlock) {
+      btnUnlock.addEventListener('click', () => {
+        showToast('Cuenta de roberto.m@gmail.com desbloqueada manualmente (RF-03).');
+        if (incidentCard) {
+          incidentCard.style.opacity = '0.5';
+          btnUnlock.disabled = true;
+          btnUnlock.classList.add('opacity-50', 'pointer-events-none');
+        }
+      });
+    }
+
+    if (btnResetPass) {
+      btnResetPass.addEventListener('click', () => {
+        showToast('Enlace de restablecimiento de contraseña enviado al correo del atleta.');
+      });
+    }
+
+    if (btnDismiss) {
+      btnDismiss.addEventListener('click', () => {
+        if (incidentCard) {
+          incidentCard.classList.add('hidden');
+          showToast('Alerta temporal descartada del panel rápido.', 'info');
+        }
+      });
+    }
+
+    // 4. Exportar Reportes
+    const btnExport = document.getElementById('btnExport');
+    if (btnExport) {
+      btnExport.addEventListener('click', () => {
+        showToast('Descargando auditoria_bowlingpro_24h.json...', 'download');
+      });
+    }
+
+    // 5. Filtros de Categoría del Audit Log
+    const filterButtons = document.querySelectorAll('.audit-filter-btn');
+    const logEntries = document.querySelectorAll('.log-entry');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        // Actualizar estados visuales de los chips
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-primary-container', 'text-on-primary-container');
+          b.classList.add('bg-surface-container', 'text-on-surface-variant');
+        });
+        btn.classList.add('bg-primary-container', 'text-on-primary-container');
+        btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+
+        // Filtrar registros
+        logEntries.forEach(entry => {
+          const cat = entry.getAttribute('data-cat');
+          if (filter === 'all' || cat === filter) {
+            entry.classList.remove('hidden');
+          } else {
+            entry.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // 6. Slider de Bloqueo RF-03
+    const lockoutSlider = document.getElementById('lockoutSlider');
+    const lockoutBadge = document.getElementById('lockoutValueBadge');
+
+    if (lockoutSlider && lockoutBadge) {
+      lockoutSlider.addEventListener('input', (e) => {
+        const val = e.target.value;
+        lockoutBadge.textContent = `${val} min`;
+      });
+
+      lockoutSlider.addEventListener('change', (e) => {
+        showToast(`Regla RF-03 actualizada: Bloqueo fijado en ${e.target.value} min.`);
+      });
+    }
+
+    // 7. Toggle Push
+    const pushToggle = document.getElementById('pushToggle');
+    if (pushToggle) {
+      pushToggle.addEventListener('change', (e) => {
+        if (e.target.checked) {
+          showToast('Alertas instantáneas activadas para el Administrador.');
+        } else {
+          showToast('Alertas instantáneas silenciadas.', 'notifications_off');
+        }
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-2px_16px_rgba(0,0,0,0.45)]" data-active-classes="text-primary [&amp;&gt;div.active-pip]:opacity-100"><div class="flex justify-around items-center h-16 px-space-xs"><a class="group flex flex-col items-center justify-center min-h-[44px] min-w-[44px] flex-1 py-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="cuentas" href="#"><span class="material-symbols-outlined text-[22px]">manage_accounts</span><span class="font-label-sm text-label-sm mt-0.5 tracking-wide">Cuentas</span><div class="active-pip w-1.5 h-1.5 rounded-full bg-secondary mt-1 opacity-0 transition-opacity"></div></a><a class="group flex flex-col items-center justify-center min-h-[44px] min-w-[44px] flex-1 py-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="contenido" href="#"><span class="material-symbols-outlined text-[22px]">sports_score</span><span class="font-label-sm text-label-sm mt-0.5 tracking-wide">Contenido</span><div class="active-pip w-1.5 h-1.5 rounded-full bg-secondary mt-1 opacity-0 transition-opacity"></div></a><a class="group flex flex-col items-center justify-center min-h-[44px] min-w-[44px] flex-1 py-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="auditoria-logs" href="#"><span class="material-symbols-outlined text-[22px]">shield</span><span class="font-label-sm text-label-sm mt-0.5 tracking-wide">Auditoría</span><div class="active-pip w-1.5 h-1.5 rounded-full bg-secondary mt-1 opacity-0 transition-opacity"></div></a><a class="group flex flex-col items-center justify-center min-h-[44px] min-w-[44px] flex-1 py-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="ajustes" href="#"><span class="material-symbols-outlined text-[22px]">tune</span><span class="font-label-sm text-label-sm mt-0.5 tracking-wide">Ajustes</span><div class="active-pip w-1.5 h-1.5 rounded-full bg-secondary mt-1 opacity-0 transition-opacity"></div></a></div></nav></body></html>

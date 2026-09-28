@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0b1326;color:#dae2fd;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-error-container": "#ffdad6", "secondary-fixed-dim": "#ffb95f", "on-surface-variant": "#c3c6d7", "on-background": "#dae2fd", "primary-container": "#2563eb", "secondary": "#ffb95f", "on-primary-fixed": "#00174b", "surface-variant": "#2d3449", "on-surface": "#dae2fd", "on-tertiary-fixed": "#002113", "secondary-fixed": "#ffddb8", "error": "#ffb4ab", "secondary-container": "#ee9800", "primary-fixed": "#dbe1ff", "inverse-on-surface": "#283044", "surface-bright": "#31394d", "background": "#0b1326", "outline-variant": "#434655", "on-secondary": "#472a00", "on-primary-fixed-variant": "#003ea8", "on-secondary-container": "#5b3800", "on-primary": "#002a78", "on-secondary-fixed": "#2a1700", "surface-tint": "#b4c5ff", "on-secondary-fixed-variant": "#653e00", "inverse-primary": "#0053db", "inverse-surface": "#dae2fd", "tertiary-fixed-dim": "#4edea3", "surface-container-high": "#222a3d", "tertiary-fixed": "#6ffbbe", "surface-container-highest": "#2d3449", "surface-container": "#171f33", "on-tertiary-container": "#bdffdb", "surface-container-low": "#131b2e", "tertiary-container": "#007d55", "error-container": "#93000a", "on-tertiary-fixed-variant": "#005236", "on-tertiary": "#003824", "surface": "#0b1326", "surface-dim": "#0b1326", "tertiary": "#4edea3", "on-error": "#690005", "outline": "#8d90a0", "primary-fixed-dim": "#b4c5ff", "primary": "#b4c5ff", "on-primary-container": "#eeefff", "surface-container-lowest": "#060e20" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "1rem", "space-xs": "0.25rem", "gutter": "1rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "margin-lg": "1.5rem", "space-md": "1rem", "gutter-sm": "0.75rem", "space-xl": "2rem" }, "fontFamily": { "stat-mono": ["Outfit"], "headline-sm": ["Outfit"], "display-score": ["Outfit"], "body-lg": ["Plus Jakarta Sans"], "label-sm": ["Outfit"], "label-lg": ["Outfit"], "headline-lg": ["Outfit"], "body-md": ["Plus Jakarta Sans"], "headline-md": ["Outfit"], "display-score-mobile": ["Outfit"], "body-sm": ["Plus Jakarta Sans"], "label-md": ["Outfit"] }, "fontSize": { "stat-mono": ["18px", { "lineHeight": "22px", "letterSpacing": "0.02em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "display-score": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.06em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "700" }], "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display-score-mobile": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="BowlingPro Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWmVFev2tMzHxp0V1_Q5OLKVPxi5bzYyDuXMjeKIG6ssmQeDhbiVf3RANz5-biYjxDwReidh-MSRleKCMOlW5EaxzmsLB47qUXLK-HuelzI8ImGonBCUxf_85R9yz8LADHCztU0vvAWEJeUS_o9u9985K_QgfHxVH3Ox5AlaMCGvxEjAzrpmoaJM30Pddt43j2qqOrbFW1CUwEHBUpNkY4Akwv5bTMvQx1HjJ4jg4D-yb2nPtIb3X0ew"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface">BowlingPro</span><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Athletic Telemetry</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Notifications" class="relative w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-2xl">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span></button><button aria-label="Profile" class="w-11 h-11 flex items-center justify-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB36l80i4OrIS-H33C4ut2zzLPd0r1YF3P72uRonwh9KLxOIvKYWkkSXvt6IV_tsETlrNP7GkKiS8rbIlM4VV9WLUmhb9kyt-lb_CJKKeZACBHak44zrUDealQOOEYzKuZTLKsZfyMyKF6NNfxUDcoJHrt6kxaxYk7UXH9Y6G6fULuXGfx__fgB89TmKhq_k72pK90CS4UchPRUR4Lm4Xqkpr4Im2kfTB_aEZtb63VnRD2zDi9hmlL5ZA"/></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full px-margin space-y-space-lg pb-space-xl">
+<!-- Segmented View Tabs Selector -->
+<div class="w-full bg-surface-container-low p-1 rounded-xl shadow-inner flex items-center justify-between">
+<button class="flex-1 py-2 rounded-lg font-label-md text-label-md transition-all duration-200 bg-primary-container text-on-primary-container shadow-md flex items-center justify-center gap-1.5" id="tab-plan" onclick="switchView('plan')">
+<span class="material-symbols-outlined text-base">assignment</span>
+<span>Plan de Entrenamiento</span>
+</button>
+<button class="flex-1 py-2 rounded-lg font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-1.5" id="tab-retos" onclick="switchView('retos')">
+<span class="material-symbols-outlined text-base">military_tech</span>
+<span>Retos &amp; Medallas</span>
+</button>
+<button class="flex-1 py-2 rounded-lg font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-1.5" id="tab-liga" onclick="switchView('liga')">
+<span class="material-symbols-outlined text-base">leaderboard</span>
+<span>Liga</span>
+</button>
+</div>
+<!-- SECTION 1: Plan de Entrenamiento (RF-15, RF-16, RF-17, RF-18) -->
+<div class="flex flex-col space-y-space-md w-full" id="view-plan">
+<!-- Active Training Plan Hero Card -->
+<div class="relative overflow-hidden bg-gradient-to-br from-surface-container-high to-surface-container p-space-md rounded-2xl shadow-xl">
+<!-- Glow ambient accent -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<div class="space-y-1">
+<div class="flex items-center gap-1.5">
+<span class="bg-secondary/15 text-secondary px-2 py-0.5 rounded-full font-label-sm text-label-sm uppercase tracking-wider font-bold">Semana 11 • Activo</span>
+<span class="text-tertiary font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">verified</span> RF-15
+            </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Plan de Consistencia &amp; Conversión de Spares</h2>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary shrink-0 shadow-md">
+<span class="material-symbols-outlined text-2xl">sports</span>
+</div>
+</div>
+<!-- Coach Attribution & Timeline (RF-18) -->
+<div class="flex items-center gap-space-sm py-2 px-3 bg-surface-container-lowest/60 rounded-xl mb-space-md">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="Close up professional portrait of Coach Carlos Mendez, a seasoned bowling instructor with intense analytical eyes, dark athletic polo shirt, bowling alley background with neon blue highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2rOD8h_g1DQQZEo1TPN-pR_MdZcfssfdwkCLOFg-uupXGbM8xotTFmU_6p49sXMFJm1jcsOlW6oSWq-yCGdJow-6VgT7BbT756nVEr2cRPxRPvVzKls6wpPQ-dHfWGl3QzlvMG8Kp8ENrgkGaZDETYzfgIaBaH5Yt-W4svbyjNrX3MbJdhCM3sbQgYBIutDdM-z9J5jN8ZmziFuy5W21uY6QoC74r4Wkk0tbhl8YkGsIfC7zSpvJf3Q"/>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Coach Carlos Méndez</span>
+<span class="material-symbols-outlined text-xs text-primary">verified_user</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Asignado: Esta semana • Objetivo promedio 195+</span>
+</div>
+</div>
+<!-- Progress bar telemetry (60%) -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-baseline font-label-md text-label-md">
+<span class="text-on-surface-variant">Progreso del Ciclo</span>
+<span class="font-stat-mono text-stat-mono text-tertiary">3/5 Ejercicios (60%)</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-lowest rounded-full overflow-hidden p-0.5">
+<div class="h-full bg-gradient-to-r from-primary to-tertiary rounded-full transition-all duration-500 shadow-[0_0_12px_rgba(78,222,163,0.5)]" style="width: 60%"></div>
+</div>
+</div>
+</div>
+<!-- AI Coaching Insight / Recommendation Card (RF-17) -->
+<div class="bg-surface-container p-space-md rounded-2xl shadow-md relative overflow-hidden flex gap-space-sm items-start">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/20 text-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Telemetría IA • Ajuste Táctico</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">RF-17</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-1">
+          Basado en tus últimas 4 partidas: tu % de conversión en el <strong class="text-secondary font-bold">pino 7 cayó al 62%</strong>. Te sugerimos practicar el ajuste de posición inicial <span class="text-primary font-semibold">3 tablas a la derecha</span> con péndulo extendido.
+        </p>
+</div>
+</div>
+<!-- Exercises Header & Filter Counter -->
+<div class="flex items-center justify-between pt-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold flex items-center gap-1.5">
+<span>Sesiones del Plan</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm font-normal">(ProgresoEjercicio RF-16)</span>
+</h3>
+<span class="bg-surface-container-high px-2.5 py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm">5 Ejercicios</span>
+</div>
+<!-- Exercise Items List (RF-16 & Diagrama ProgresoEjercicio) -->
+<div class="space-y-space-sm w-full">
+<!-- Ejercicio 1: Completado -->
+<div class="bg-surface-container-high p-space-md rounded-2xl flex items-center justify-between gap-space-sm shadow-sm transition-transform active:scale-[0.99]">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-xl bg-tertiary-container/30 text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-tertiary font-bold uppercase">Ejercicio 1 • Precisión</span>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold truncate">10 Tiros a la Flecha 2</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">3 series de 10 lanzamientos • Flecha central derecha</span>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-container-lowest font-label-sm text-label-sm text-tertiary font-medium">
+            12 Mar ✓
+          </span>
+</div>
+</div>
+<!-- Ejercicio 2: Completado -->
+<div class="bg-surface-container-high p-space-md rounded-2xl flex items-center justify-between gap-space-sm shadow-sm transition-transform active:scale-[0.99]">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-xl bg-tertiary-container/30 text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-tertiary font-bold uppercase">Ejercicio 2 • Conversión</span>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold truncate">Conversión de Pino 10</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">20 repeticiones Single Pin Corner • Remate cruzado</span>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-container-lowest font-label-sm text-label-sm text-tertiary font-medium">
+            14 Mar ✓
+          </span>
+</div>
+</div>
+<!-- Ejercicio 3: Completado Hoy -->
+<div class="bg-surface-container-high p-space-md rounded-2xl flex items-center justify-between gap-space-sm shadow-sm transition-transform active:scale-[0.99]">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-xl bg-tertiary-container/30 text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-tertiary font-bold uppercase">Ejercicio 3 • Postura &amp; Balance</span>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold truncate">Rutina de Deslizamiento &amp; Equilibrio</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">15 min en línea de falta • Rodilla flexionada 3s</span>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-tertiary-container/40 font-label-sm text-label-sm text-on-tertiary-container font-bold">
+            Hoy ✓
+          </span>
+</div>
+</div>
+<!-- Ejercicio 4: PENDIENTE CON CTA INMEDIATO -->
+<div class="bg-surface-container-highest p-space-md rounded-2xl shadow-lg relative overflow-hidden space-y-space-sm">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 mt-0.5 shadow-[0_0_12px_rgba(37,99,235,0.4)]">
+<span class="material-symbols-outlined text-xl">play_arrow</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase">Ejercicio 4 • Sensación Motriz</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Lanzamiento a Ciegas</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">10 repeticiones • Foco en soltura del péndulo libre</span>
+</div>
+</div>
+<span class="bg-secondary-container/20 text-secondary-fixed px-2 py-0.5 rounded-full font-label-sm text-label-sm font-bold uppercase shrink-0">
+            Siguiente
+          </span>
+</div>
+<div class="flex items-center gap-space-sm pt-1">
+<button class="flex-1 h-12 bg-primary-container hover:bg-inverse-primary text-on-primary-container rounded-xl font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-[0_0_16px_-2px_rgba(37,99,235,0.45)] transition-all active:scale-[0.98]" onclick="handleStartExercise(this)">
+<span class="material-symbols-outlined text-xl">fitness_center</span>
+<span>Iniciar Ejercicio</span>
+</button>
+<button aria-label="Ver detalles del ejercicio" class="w-12 h-12 rounded-xl bg-surface-container text-on-surface-variant flex items-center justify-center hover:text-on-surface transition-colors shrink-0">
+<span class="material-symbols-outlined text-xl">info</span>
+</button>
+</div>
+</div>
+<!-- Ejercicio 5: Pendiente / Bloqueado hasta completar #4 -->
+<div class="bg-surface-container/60 p-space-md rounded-2xl flex items-center justify-between gap-space-sm opacity-75">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-lg">lock</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase">Ejercicio 5 • Presión Competitiva</span>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold truncate">Partida Simulada Bajo Presión</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Objetivo mínimo: score &gt; 185 pts continuos</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium shrink-0 bg-surface-container-lowest px-2 py-1 rounded">
+          Pendiente
+        </span>
+</div>
+</div>
+</div>
+<!-- SECTION 2: Retos Activos & Logros (RF-19, RF-20, RF-21, RN-04) -->
+<div class="flex flex-col space-y-space-md w-full pt-space-xs">
+<div class="flex items-center justify-between">
+<div class="space-y-0.5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold flex items-center gap-1.5">
+<span>Retos Activos &amp; Logros</span>
+<span class="text-secondary font-label-sm text-label-sm uppercase font-bold">RN-04</span>
+</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Validación automática desde telemetría de juego</p>
+</div>
+<button class="text-primary font-label-md text-label-md hover:underline" onclick="switchView('retos')">Ver todos</button>
+</div>
+<!-- Active Challenge Cards (Reto) -->
+<div class="grid grid-cols-1 gap-space-sm w-full">
+<!-- Reto 1: Completado & Medalla Ganada (RN-04) -->
+<div class="bg-gradient-to-r from-surface-container-high via-surface-container to-surface-container-high p-space-md rounded-2xl shadow-md relative overflow-hidden flex items-center justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container/20 text-secondary-fixed flex items-center justify-center shrink-0 shadow-[0_0_20px_-2px_rgba(245,158,11,0.35)]">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase">Reto Completado ✓</span>
+<span class="font-label-sm text-label-sm text-tertiary">RF-19</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Rey del Strike</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Logra 5 strikes en una sola partida oficial.</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Validado por historial de partida • 14 Mar</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 gap-1">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed-dim/20 flex items-center justify-center text-secondary">
+<span class="font-stat-mono text-base font-bold">🏅</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+150 XP</span>
+</div>
+</div>
+<!-- Reto 2: En curso (9/10 frames) -->
+<div class="bg-surface-container-high p-space-md rounded-2xl shadow-md space-y-space-sm">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-2xl bg-primary-container/20 text-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl">sports_score</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase">En Curso • Desafío Élite</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">RF-20</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Limpieza Total (Clean Game)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cierra los 10 frames de una partida sin cometer ningún open frame.</p>
+</div>
+</div>
+<span class="bg-surface-container-lowest px-2 py-1 rounded text-primary font-stat-mono text-stat-mono">
+            9/10
+          </span>
+</div>
+<!-- Telemetry Progress Bar -->
+<div class="space-y-1">
+<div class="w-full h-2 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 90%"></div>
+</div>
+<div class="flex justify-between items-center font-label-sm text-label-sm text-on-surface-variant">
+<span>Última partida: 9 frames convertidos consecutivamente</span>
+<span class="text-primary font-bold">Falta 1 frame</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Showcase de Insignias Ganadas (Logro RF-21) -->
+<div class="bg-surface-container p-space-md rounded-2xl shadow-lg space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">stars</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">Showcase de Insignias Ganadas</h4>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">3 Desbloqueadas</span>
+</div>
+<div class="grid grid-cols-3 gap-space-sm pt-1">
+<!-- Badge 1: Turkey Master -->
+<div class="bg-surface-container-high p-3 rounded-xl flex flex-col items-center text-center space-y-1.5 group cursor-pointer hover:bg-surface-container-highest transition-all">
+<div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-2xl shadow-[0_0_14px_rgba(238,152,0,0.3)] group-hover:scale-110 transition-transform">
+            🦃
+          </div>
+<span class="font-label-md text-label-md text-on-surface font-bold leading-tight">Turkey Master</span>
+<span class="font-label-sm text-label-sm text-secondary">3 Strikes Seguidos</span>
+</div>
+<!-- Badge 2: Club 200 -->
+<div class="bg-surface-container-high p-3 rounded-xl flex flex-col items-center text-center space-y-1.5 group cursor-pointer hover:bg-surface-container-highest transition-all">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center text-2xl shadow-[0_0_14px_rgba(37,99,235,0.3)] group-hover:scale-110 transition-transform">
+            ⚡
+          </div>
+<span class="font-label-md text-label-md text-on-surface font-bold leading-tight">Club 200</span>
+<span class="font-label-sm text-label-sm text-primary">Score &gt; 200 pts</span>
+</div>
+<!-- Badge 3: Primer Spare -->
+<div class="bg-surface-container-high p-3 rounded-xl flex flex-col items-center text-center space-y-1.5 group cursor-pointer hover:bg-surface-container-highest transition-all">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/20 flex items-center justify-center text-2xl shadow-[0_0_14px_rgba(78,222,163,0.3)] group-hover:scale-110 transition-transform">
+            🎯
+          </div>
+<span class="font-label-md text-label-md text-on-surface font-bold leading-tight">Primer Spare</span>
+<span class="font-label-sm text-label-sm text-tertiary">100% Precisión</span>
+</div>
+</div>
+</div>
+<!-- Quick Stats Telemetry Ribbon -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container-low p-space-md rounded-2xl flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Eficacia Spares</span>
+<span class="font-stat-mono text-stat-mono text-on-surface">78.4%</span>
+<span class="font-body-sm text-body-sm text-tertiary">+4.2% esta sem</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-2xl flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">speed</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Velocidad Prom.</span>
+<span class="font-stat-mono text-stat-mono text-on-surface">26.8 km/h</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Constante ±0.5</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function switchView(tabKey) {
+    const tabs = ['plan', 'retos', 'liga'];
+    tabs.forEach(t => {
+      const btn = document.getElementById('tab-' + t);
+      if (btn) {
+        if (t === tabKey) {
+          btn.className = "flex-1 py-2 rounded-lg font-label-md text-label-md transition-all duration-200 bg-primary-container text-on-primary-container shadow-md flex items-center justify-center gap-1.5";
+        } else {
+          btn.className = "flex-1 py-2 rounded-lg font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-1.5";
+        }
+      }
+    });
+
+    if (tabKey !== 'plan') {
+      const planView = document.getElementById('view-plan');
+      if (planView) {
+        planView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }
+
+  function handleStartExercise(btn) {
+    btn.innerHTML = '<span class="material-symbols-outlined text-xl animate-spin">refresh</span><span>Registrando Telemetría...</span>';
+    btn.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
+    setTimeout(() => {
+      btn.innerHTML = '<span class="material-symbols-outlined text-xl">timer</span><span>En Sesión (Tiro 1/10)</span>';
+    }, 1200);
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.4)]" data-active-classes="text-primary font-bold [&amp;_span.material-symbols-outlined]:text-primary [&amp;_span.indicator]:opacity-100"><div class="flex items-center justify-around h-18 px-space-xs relative"><a class="group flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 text-on-surface-variant hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-2xl group-hover:scale-105 transition-transform">dashboard</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Dashboard</span><span class="indicator opacity-0 w-1.5 h-1.5 bg-secondary rounded-full mt-0.5 transition-opacity"></span></a><a class="group flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 text-on-surface-variant hover:text-on-surface transition-all" data-path="learn" href="#"><span class="material-symbols-outlined text-2xl group-hover:scale-105 transition-transform">menu_book</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Aprender</span><span class="indicator opacity-0 w-1.5 h-1.5 bg-secondary rounded-full mt-0.5 transition-opacity"></span></a><div class="flex flex-col items-center justify-center -mt-6 z-10"><a class="group flex flex-col items-center focus:outline-none" data-path="match" href="#"><div class="w-14 h-14 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-[0_0_20px_rgba(37,99,235,0.45)] group-active:scale-95 transition-all"><span class="material-symbols-outlined text-3xl">sports_score</span></div><span class="font-label-sm text-label-sm text-on-surface mt-1 font-bold">Partida</span></a></div><a aria-current="page" class="group flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 transition-all text-primary font-bold [&amp;_span.material-symbols-outlined]:text-primary [&amp;_span.indicator]:opacity-100" data-path="training" href="#"><span class="material-symbols-outlined text-2xl group-hover:scale-105 transition-transform">fact_check</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Entrenar</span><span class="indicator opacity-0 w-1.5 h-1.5 bg-secondary rounded-full mt-0.5 transition-opacity"></span></a><a class="group flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 text-on-surface-variant hover:text-on-surface transition-all" data-path="coach" href="#"><span class="material-symbols-outlined text-2xl group-hover:scale-105 transition-transform">forum</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Entrenador</span><span class="indicator opacity-0 w-1.5 h-1.5 bg-secondary rounded-full mt-0.5 transition-opacity"></span></a></div></nav></body></html>

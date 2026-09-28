@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0b1326;color:#dae2fd;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-error": "#690005", "on-secondary-container": "#5b3800", "on-background": "#dae2fd", "on-surface": "#dae2fd", "on-error-container": "#ffdad6", "error": "#ffb4ab", "surface": "#0b1326", "on-tertiary-container": "#bdffdb", "on-tertiary-fixed": "#002113", "secondary-container": "#ee9800", "primary-fixed-dim": "#b4c5ff", "on-secondary-fixed": "#2a1700", "surface-bright": "#31394d", "primary": "#b4c5ff", "surface-dim": "#0b1326", "surface-container": "#171f33", "on-primary": "#002a78", "inverse-on-surface": "#283044", "background": "#0b1326", "on-tertiary-fixed-variant": "#005236", "on-secondary-fixed-variant": "#653e00", "error-container": "#93000a", "surface-container-lowest": "#060e20", "secondary-fixed-dim": "#ffb95f", "primary-container": "#2563eb", "tertiary-container": "#007d55", "outline-variant": "#434655", "tertiary-fixed": "#6ffbbe", "surface-container-highest": "#2d3449", "tertiary": "#4edea3", "inverse-surface": "#dae2fd", "surface-tint": "#b4c5ff", "primary-fixed": "#dbe1ff", "surface-container-low": "#131b2e", "inverse-primary": "#0053db", "secondary-fixed": "#ffddb8", "on-primary-fixed-variant": "#003ea8", "secondary": "#ffb95f", "tertiary-fixed-dim": "#4edea3", "outline": "#8d90a0", "surface-variant": "#2d3449", "on-primary-fixed": "#00174b", "on-secondary": "#472a00", "on-tertiary": "#003824", "on-primary-container": "#eeefff", "on-surface-variant": "#c3c6d7", "surface-container-high": "#222a3d" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "0.5rem", "margin": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin-lg": "1.5rem", "gutter": "1rem", "space-xl": "2rem", "gutter-sm": "0.75rem" }, "fontFamily": { "body-sm": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "label-md": ["Outfit"], "label-lg": ["Outfit"], "display-score-mobile": ["Outfit"], "headline-sm": ["Outfit"], "headline-lg": ["Outfit"], "body-md": ["Plus Jakarta Sans"], "display-score": ["Outfit"], "headline-md": ["Outfit"], "label-sm": ["Outfit"], "stat-mono": ["Outfit"] }, "fontSize": { "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "700" }], "display-score-mobile": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "display-score": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.06em", "fontWeight": "700" }], "stat-mono": ["18px", { "lineHeight": "22px", "letterSpacing": "0.02em", "fontWeight": "700" }] } } } }</script></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-16 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><img alt="BowlingPro" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1UBJ9RXRHjOXyIN9_-NLOqpZbjHiEDthIxg2K6cGPyqGJn1Fv8tuDh0qNlhROa2WFHhylIZpQQjMmgIU1sEh2DUX6gAmsH-9x2ifPLNvWXtTnizrMwtvxFv-BtCZ23qe5m-bcFS3-96RlABYkk67aaLazsLFt6sEMItsLKqkgP70ISCaUhDCUsdUWXG2yrQNAd6DIBs-OfNHgMU80wL-WFTQupUKo4SNBLVLDIM5N99OSXEUQG4c3olvaFV"/><div class="flex flex-col truncate"><span class="font-label-sm text-label-sm uppercase text-secondary tracking-wider">BowlingPro</span><h1 class="font-headline-sm text-headline-sm font-bold text-on-surface truncate">Reglas Y Glosario</h1></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Buscar en glosario" class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">search</span></button><button aria-label="Marcadores guardados" class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">bookmark</span></button><div class="pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/40" src="https://lh3.googleusercontent.com/aida/AEtjO1Ut22PNGAbzRm9btI_PXYkw3qqRTIx7WDV1ef83-K0HDcmVUsC2DamUU7MPKJQD7OnTbYocTWJdveXkiw-v9K9BQEPbjHnqf0SkjSF50MBAz2eAM53SVV5BULbC5H2WpWcBnaD2wPGGQqgx_wszHo_ZXnlMnK4SY_x0J68johlDfJ6_fFZsVjJfpswFHqPv4W-IsIZ5AwXiik25wbwtXZb3EKRp8FZ20pxPaIXBRfNChOXgGYxKKmiQI2zQ"/></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-20 bg-surface"><div class="flex flex-col w-full pb-6 space-y-5">
+<!-- Top Context & Badging -->
+<div class="px-margin flex flex-col space-y-2">
+<div class="inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full bg-surface-container-high">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(245,158,11,0.6)]"></span>
+<span class="font-label-sm text-label-sm text-secondary tracking-wider uppercase font-semibold">
+        RF-25 · RF-26 Repositorio Técnico Oficial USBC &amp; WTBA
+      </span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight">
+      Glosario &amp; Reglas Oficiales
+    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+      Manual normativo, biomecánica y terminología estandarizada de bowling deportivo de alto rendimiento.
+    </p>
+</div>
+<!-- Search & Filter Controls -->
+<div class="px-margin flex flex-col space-y-3">
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full h-12 pl-10 pr-10 bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-md text-body-md rounded-xl outline-none focus:bg-surface-container transition-all" id="glossary-search" placeholder="Buscar término técnico, regla o infracción..." type="search"/>
+<button aria-label="Limpiar búsqueda" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-on-surface-variant opacity-0 pointer-events-none transition-opacity" id="clear-search">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+</div>
+<!-- Scrollable Filter Chips -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5" id="filter-container">
+<button class="filter-chip active shrink-0 px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md transition-colors" data-category="all">
+        Todos
+      </button>
+<button class="filter-chip shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors" data-category="tecnico">
+        Glosario Técnico
+      </button>
+<button class="filter-chip shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors" data-category="reglamento">
+        Reglamento Oficial USBC
+      </button>
+<button class="filter-chip shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors" data-category="pistas">
+        Física de Pistas
+      </button>
+<button class="filter-chip shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors" data-category="equipamiento">
+        Equipamiento
+      </button>
+</div>
+</div>
+<!-- Interactive Pin & Pocket Graphic Spotlight -->
+<div class="mx-margin rounded-2xl bg-surface-container p-4 shadow-sm overflow-hidden relative">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">target</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Anatomía del Pocket (1-3)</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-secondary font-semibold">
+        6° Ángulo Óptimo
+      </span>
+</div>
+<div class="flex items-center gap-4">
+<!-- Mini Pin Deck Vector Simulation -->
+<div class="w-28 h-28 bg-surface-container-lowest rounded-xl flex items-center justify-center p-2 shrink-0">
+<svg class="w-full h-full text-on-surface" viewbox="0 0 100 100">
+<!-- Lane Arrow Vector -->
+<path class="text-primary-container opacity-40" d="M 50 95 L 42 75 L 47 75 L 48 50 L 52 50 L 53 75 L 58 75 Z" fill="currentColor"></path>
+<!-- Pocket vector entry line -->
+<path d="M 68 90 Q 56 60 46 38" fill="none" stroke="#ffb95f" stroke-dasharray="2 2" stroke-width="2.5"></path>
+<!-- Pins: 7, 8, 9, 10 -->
+<circle cx="20" cy="20" fill="#dae2fd" opacity="0.3" r="4.5"></circle>
+<circle cx="40" cy="20" fill="#dae2fd" opacity="0.4" r="4.5"></circle>
+<circle cx="60" cy="20" fill="#dae2fd" opacity="0.4" r="4.5"></circle>
+<circle cx="80" cy="20" fill="#dae2fd" opacity="0.3" r="4.5"></circle>
+<!-- Pins: 4, 5, 6 -->
+<circle cx="30" cy="36" fill="#dae2fd" opacity="0.5" r="4.5"></circle>
+<circle cx="50" cy="36" fill="#dae2fd" opacity="0.7" r="4.5"></circle>
+<circle cx="70" cy="36" fill="#dae2fd" opacity="0.5" r="4.5"></circle>
+<!-- Pins: 2, 3 -->
+<circle cx="40" cy="52" fill="#dae2fd" opacity="0.8" r="5"></circle>
+<circle cx="60" cy="52" fill="#ffb95f" r="5.5"></circle>
+<!-- Headpin 1 -->
+<circle class="animate-pulse" cx="50" cy="68" fill="#ffb95f" r="6"></circle>
+<!-- Impact target marker -->
+<circle cx="55" cy="60" fill="#b4c5ff" r="2.5"></circle>
+</svg>
+</div>
+<div class="flex-1 flex flex-col justify-between space-y-1">
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
+          Vórtice cinético de máximo arrastre. El impacto oblicuo desvía el pino 1 hacia el 2 y el pino 3 hacia el 6 y 10.
+        </p>
+<div class="flex items-center gap-2 pt-1">
+<div class="flex flex-col">
+<span class="font-stat-mono text-stat-mono text-tertiary">98.4%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Strike Ratio</span>
+</div>
+<div class="h-6 w-[1px] bg-outline-variant/30 mx-1"></div>
+<div class="flex flex-col">
+<span class="font-stat-mono text-stat-mono text-secondary">17.5 mph</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Velocidad Ideal</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 1: Términos Técnicos Esenciales (Glosario RF-25) -->
+<div class="px-margin flex flex-col space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">
+          Términos Técnicos Esenciales
+        </h3>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-semibold">
+        RF-25
+      </span>
+</div>
+<!-- Cards Container -->
+<div class="flex flex-col space-y-2.5" id="technical-cards">
+<!-- Pocket -->
+<article class="glossary-item rounded-2xl bg-surface-container p-4 shadow-sm transition-all" data-category="tecnico">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[24px]">adjust</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">Pocket (Tronera / Bolsillo 1-3)</h4>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Zona Clave · Biomecánica de Pines</span>
+</div>
+</div>
+<span class="font-stat-mono text-label-md text-tertiary px-2 py-0.5 rounded bg-surface-container-high">100% Potencial</span>
+</div>
+<p class="mt-3 font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          El punto de impacto ideal entre el <strong class="text-on-surface font-semibold">pino 1 y el pino 3</strong> (para diestros, ángulo óptimo de 6°) que maximiza el efecto dominó y la probabilidad de Strike minimizando desviaciones indeseadas de la bola.
+        </p>
+</article>
+<!-- Axis Tilt & Rotation -->
+<article class="glossary-item rounded-2xl bg-surface-container p-4 shadow-sm transition-all" data-category="tecnico pistas">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[24px]">rotate_right</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">Axis Tilt &amp; Axis Rotation</h4>
+<span class="font-label-sm text-label-sm text-primary font-medium">Dinámica Angular de Giro</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px]">sync</span>
+</div>
+<p class="mt-3 font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Inclinación y rotación angular del eje de la bola respecto al plano horizontal de la pista. Un alto <em class="text-primary-fixed">Axis Tilt</em> retarda el viraje conservando energía rotacional, determinando el <strong class="text-on-surface font-semibold">skid y breakpoint</strong> al emerger del patrón de aceite.
+        </p>
+</article>
+<!-- Oil Pattern & Breakpoint -->
+<article class="glossary-item rounded-2xl bg-surface-container p-4 shadow-sm transition-all" data-category="pistas">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0 text-tertiary">
+<span class="material-symbols-outlined text-[24px]">water_drop</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">Oil Pattern &amp; Breakpoint</h4>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">Fricción &amp; Topografía de Aceitado</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant">Cheetah / Shark</span>
+</div>
+<p class="mt-3 font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Patrón de aceitado sintético de alta precisión (sport o house). El <strong class="text-on-surface font-semibold">breakpoint</strong> es la coordenada longitudinal exacta donde la bola sale del bloque de lubricante y tracciona sobre la superficie seca, desatando la curva destructiva (<em class="text-secondary">Hook</em>).
+        </p>
+</article>
+<!-- Split 7-10 -->
+<article class="glossary-item rounded-2xl bg-surface-container p-4 shadow-sm transition-all" data-category="tecnico">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0 text-error">
+<span class="material-symbols-outlined text-[24px]">call_split</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">Split 7-10 &amp; Spares Complejos</h4>
+<span class="font-label-sm text-label-sm text-error font-medium">Configuración de Descarte Crítico</span>
+</div>
+</div>
+<span class="font-stat-mono text-label-md text-error px-2 py-0.5 rounded bg-error-container/30">&lt; 1.2% Conv.</span>
+</div>
+<p class="mt-3 font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Separación extrema entre los dos pinos de esquina más alejados tras el primer lanzamiento habiendo caído el headpin (pino 1). Requiere proyectar un pino de rebote lateral en el foso o un rebote ultrasónico con deflexión milimétrica.
+        </p>
+</article>
+<!-- PAP -->
+<article class="glossary-item rounded-2xl bg-surface-container p-4 shadow-sm transition-all" data-category="equipamiento tecnico">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[24px]">my_location</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">PAP (Positive Axis Point)</h4>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Geometría de Perforación</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-primary font-mono">X / Y Vector</span>
+</div>
+<p class="mt-3 font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Punto en la superficie de la bola donde se cruzan las líneas del eje inicial de lanzamiento. Es el parámetro indispensable para que el Pro Shop perfore el núcleo asimétrico en armonía con el release único del atleta.
+        </p>
+</article>
+</div>
+</div>
+<!-- Visual Break: High Performance Gear Spec Photo -->
+<div class="px-margin">
+<div class="relative w-full h-36 rounded-2xl overflow-hidden bg-surface-container-high shadow-md">
+<img class="w-full h-full object-cover" data-alt="Close up photograph of a professional bowling ball on polished dark hardwood alley lane under dynamic neon amber and midnight cobalt studio spotlights, showcasing smooth reactive resin surface texture, fingerprint grips, and precise USBC certification serial markings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDocWfKui6ang4qseVT6lXyR9w4RTIqAPWw5s96jZATZePfZflCeDox_HzYEiSt77pXlvNKu_ZY9O4kQ77rM26bzkZIX9NNm9gWwHpLHcbVliPuygSS0T488hsdFd9pFwpLfzZxqZOqUPx-0qV-A0jVyj0GnRLqKtVQU-uMVifnPetr35-HV3yK-F3pQwttxEpQanOC5ay39sb_e0tF_sDi5KPpLiTNAgtpZa8h2-bvZit2zyGjabWmVQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent flex flex-col justify-end p-4">
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase font-bold">Normativa Técnica WTBA</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Laboratorio de Pruebas y Homologación</span>
+</div>
+</div>
+</div>
+<!-- Section 2: Reglamento Oficial de Competición (RF-26) -->
+<div class="px-margin flex flex-col space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">
+          Reglamento Oficial de Competición
+        </h3>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-semibold">
+        RF-26
+      </span>
+</div>
+<!-- Official Rules List -->
+<div class="flex flex-col space-y-2.5" id="rules-cards">
+<!-- Foul Line -->
+<article class="glossary-item rounded-2xl bg-surface-container p-4 shadow-sm transition-all" data-category="reglamento">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[20px]">sensors_off</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">Línea de Falta (Foul Line Rule)</h4>
+</div>
+<span class="font-stat-mono text-label-md text-error px-2 py-0.5 rounded bg-error-container/40">F = 0 Pts</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Tocar o rebasar con cualquier parte del cuerpo, calzado o ropa la línea divisoria tras soltar la bola invalida el lanzamiento asignando <strong class="text-error font-semibold">0 pines (letra F en marcador oficial)</strong>. Si ocurre en el primer tiro, se repone el pin deck completo para el segundo tiro sin conteo previo.
+        </p>
+</article>
+<!-- Ball Specs -->
+<article class="glossary-item rounded-2xl bg-surface-container p-4 shadow-sm transition-all" data-category="reglamento equipamiento">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">sports_volleyball</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">Especificaciones Oficiales de la Bola</h4>
+</div>
+<span class="font-label-sm text-label-sm text-primary-fixed bg-surface-container-high px-2 py-0.5 rounded">USBC 2025</span>
+</div>
+<div class="grid grid-cols-2 gap-2 my-2">
+<div class="bg-surface-container-high p-2.5 rounded-xl flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Peso Máximo</span>
+<span class="font-stat-mono text-stat-mono text-on-surface">16.0 lbs (7.26 kg)</span>
+</div>
+<div class="bg-surface-container-high p-2.5 rounded-xl flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Dureza Mínima</span>
+<span class="font-stat-mono text-stat-mono text-on-surface">72 Shore D</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Circunferencia homologada entre <strong class="text-on-surface">27.002 y 27.027 pulgadas</strong>. Se prohíben agujeros de balance sin agarre activo y rellenos asimétricos no certificados por USBC/WTBA.
+        </p>
+</article>
+<!-- Frame 10 Rule -->
+<article class="glossary-item rounded-2xl bg-surface-container p-4 shadow-sm transition-all" data-category="reglamento">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">scoreboard</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">Puntuación y Décimo Frame (RN-02)</h4>
+</div>
+<span class="font-stat-mono text-label-md text-secondary px-2 py-0.5 rounded bg-surface-container-high">Max 300</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          En el Frame 10, si se logra un Strike o Spare se conceden hasta <strong class="text-on-surface">2 tiros adicionales de bonificación</strong> inmediatos. La partida perfecta consiste en 12 strikes consecutivos computando el puntaje perfecto de 300 puntos sin margen de error.
+        </p>
+</article>
+<!-- Approach & Footwear -->
+<article class="glossary-item rounded-2xl bg-surface-container p-4 shadow-sm transition-all" data-category="reglamento equipamiento">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">ice_skating</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">Calzado y Superficie del Approach</h4>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded">Zona Limpia</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Queda terminantemente prohibido aplicar talco, resina seca o agua en las suelas intercambiables que alteren las condiciones de fricción del approach de madera o sintético para el resto de competidores.
+        </p>
+</article>
+</div>
+</div>
+<!-- Referee Manual Download Box -->
+<div class="px-margin pt-2">
+<div class="rounded-2xl bg-surface-container-high p-4 flex flex-col space-y-3.5 shadow-md">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[26px]">menu_book</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold truncate">Manual de Arbitraje Oficial WTBA</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Edición reglamentaria internacional 2025 (PDF · 4.8 MB)</p>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-surface-container-lowest text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="font-body-sm text-body-sm">Sincronizado con el Módulo Curricular y Examen RN-01</span>
+</div>
+<button class="w-full h-12 rounded-xl bg-primary-container text-on-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-sm active:opacity-90 transition-opacity" id="btn-download-pdf" type="button">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>Descargar Manual Oficial PDF</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const searchInput = document.getElementById('glossary-search');
+    const clearBtn = document.getElementById('clear-search');
+    const filterContainer = document.getElementById('filter-container');
+    const items = document.querySelectorAll('.glossary-item');
+    const downloadBtn = document.getElementById('btn-download-pdf');
+
+    let activeFilter = 'all';
+
+    function applyFilters() {
+      const query = (searchInput.value || '').trim().toLowerCase();
+
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        const cats = item.getAttribute('data-category') || '';
+        const matchesCategory = (activeFilter === 'all') || cats.includes(activeFilter);
+        const matchesSearch = query === '' || text.includes(query);
+
+        if (matchesCategory && matchesSearch) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    searchInput.addEventListener('input', () => {
+      if (searchInput.value.length > 0) {
+        clearBtn.classList.remove('opacity-0', 'pointer-events-none');
+      } else {
+        clearBtn.classList.add('opacity-0', 'pointer-events-none');
+      }
+      applyFilters();
+    });
+
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      clearBtn.classList.add('opacity-0', 'pointer-events-none');
+      applyFilters();
+      searchInput.focus();
+    });
+
+    filterContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-chip');
+      if (!btn) return;
+
+      filterContainer.querySelectorAll('.filter-chip').forEach(c => {
+        c.classList.remove('bg-primary-container', 'text-on-primary-container');
+        c.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+
+      btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      btn.classList.add('bg-primary-container', 'text-on-primary-container');
+
+      activeFilter = btn.getAttribute('data-category');
+      applyFilters();
+    });
+
+    downloadBtn.addEventListener('click', () => {
+      const originalHTML = downloadBtn.innerHTML;
+      downloadBtn.innerHTML = `
+        <span class="material-symbols-outlined text-[20px] animate-spin">progress_activity</span>
+        <span>Descargando Manual WTBA 2025...</span>
+      `;
+      setTimeout(() => {
+        downloadBtn.innerHTML = `
+          <span class="material-symbols-outlined text-[20px] text-tertiary">check_circle</span>
+          <span>¡Descarga Completada!</span>
+        `;
+        setTimeout(() => {
+          downloadBtn.innerHTML = originalHTML;
+        }, 2200);
+      }, 1200);
+    });
+  })();
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_24px_rgba(0,0,0,0.4)]" data-active-classes="text-primary relative after:content-[''] after:absolute after:bottom-1 after:w-1.5 after:h-1.5 after:bg-secondary after:rounded-full"><div class="flex justify-around items-center h-18 px-gutter-sm"><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors" data-path="inicio" href="#"><span class="material-symbols-outlined text-[24px]">dashboard</span><span class="font-label-sm text-label-sm tracking-tight mt-0.5">Inicio</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors" data-path="ranking" href="#"><span class="material-symbols-outlined text-[24px]">leaderboard</span><span class="font-label-sm text-label-sm tracking-tight mt-0.5">Ranking</span></a><a aria-current="page" class="flex flex-col items-center justify-center w-14 h-14 transition-colors text-primary relative after:content-[''] after:absolute after:bottom-1 after:w-1.5 after:h-1.5 after:bg-secondary after:rounded-full" data-path="reglas-y-glosario" href="#"><span class="material-symbols-outlined text-[24px]">menu_book</span><span class="font-label-sm text-label-sm tracking-tight mt-0.5">Glosario</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors" data-path="coach" href="#"><span class="material-symbols-outlined text-[24px]">sports</span><span class="font-label-sm text-label-sm tracking-tight mt-0.5">Coach</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors" data-path="perfil" href="#"><span class="material-symbols-outlined text-[24px]">person</span><span class="font-label-sm text-label-sm tracking-tight mt-0.5">Perfil</span></a></div></nav></body></html>

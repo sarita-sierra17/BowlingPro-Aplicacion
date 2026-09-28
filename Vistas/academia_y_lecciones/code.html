@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0b1326;color:#dae2fd;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-error-container": "#ffdad6", "secondary-fixed-dim": "#ffb95f", "on-surface-variant": "#c3c6d7", "on-background": "#dae2fd", "primary-container": "#2563eb", "secondary": "#ffb95f", "on-primary-fixed": "#00174b", "surface-variant": "#2d3449", "on-surface": "#dae2fd", "on-tertiary-fixed": "#002113", "secondary-fixed": "#ffddb8", "error": "#ffb4ab", "secondary-container": "#ee9800", "primary-fixed": "#dbe1ff", "inverse-on-surface": "#283044", "surface-bright": "#31394d", "background": "#0b1326", "outline-variant": "#434655", "on-secondary": "#472a00", "on-primary-fixed-variant": "#003ea8", "on-secondary-container": "#5b3800", "on-primary": "#002a78", "on-secondary-fixed": "#2a1700", "surface-tint": "#b4c5ff", "on-secondary-fixed-variant": "#653e00", "inverse-primary": "#0053db", "inverse-surface": "#dae2fd", "tertiary-fixed-dim": "#4edea3", "surface-container-high": "#222a3d", "tertiary-fixed": "#6ffbbe", "surface-container-highest": "#2d3449", "surface-container": "#171f33", "on-tertiary-container": "#bdffdb", "surface-container-low": "#131b2e", "tertiary-container": "#007d55", "error-container": "#93000a", "on-tertiary-fixed-variant": "#005236", "on-tertiary": "#003824", "surface": "#0b1326", "surface-dim": "#0b1326", "tertiary": "#4edea3", "on-error": "#690005", "outline": "#8d90a0", "primary-fixed-dim": "#b4c5ff", "primary": "#b4c5ff", "on-primary-container": "#eeefff", "surface-container-lowest": "#060e20" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "1rem", "space-xs": "0.25rem", "gutter": "1rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "margin-lg": "1.5rem", "space-md": "1rem", "gutter-sm": "0.75rem", "space-xl": "2rem" }, "fontFamily": { "stat-mono": ["Outfit"], "headline-sm": ["Outfit"], "display-score": ["Outfit"], "body-lg": ["Plus Jakarta Sans"], "label-sm": ["Outfit"], "label-lg": ["Outfit"], "headline-lg": ["Outfit"], "body-md": ["Plus Jakarta Sans"], "headline-md": ["Outfit"], "display-score-mobile": ["Outfit"], "body-sm": ["Plus Jakarta Sans"], "label-md": ["Outfit"] }, "fontSize": { "stat-mono": ["18px", { "lineHeight": "22px", "letterSpacing": "0.02em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "display-score": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.06em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "700" }], "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display-score-mobile": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="BowlingPro Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWmVFev2tMzHxp0V1_Q5OLKVPxi5bzYyDuXMjeKIG6ssmQeDhbiVf3RANz5-biYjxDwReidh-MSRleKCMOlW5EaxzmsLB47qUXLK-HuelzI8ImGonBCUxf_85R9yz8LADHCztU0vvAWEJeUS_o9u9985K_QgfHxVH3Ox5AlaMCGvxEjAzrpmoaJM30Pddt43j2qqOrbFW1CUwEHBUpNkY4Akwv5bTMvQx1HjJ4jg4D-yb2nPtIb3X0ew"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface">BowlingPro</span><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Athletic Telemetry</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Notifications" class="relative w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-2xl">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span></button><button aria-label="Profile" class="w-11 h-11 flex items-center justify-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB36l80i4OrIS-H33C4ut2zzLPd0r1YF3P72uRonwh9KLxOIvKYWkkSXvt6IV_tsETlrNP7GkKiS8rbIlM4VV9WLUmhb9kyt-lb_CJKKeZACBHak44zrUDealQOOEYzKuZTLKsZfyMyKF6NNfxUDcoJHrt6kxaxYk7UXH9Y6G6fULuXGfx__fgB89TmKhq_k72pK90CS4UchPRUR4Lm4Xqkpr4Im2kfTB_aEZtb63VnRD2zDi9hmlL5ZA"/></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full px-margin pb-6 gap-space-lg">
+<!-- Sub-header & Academy Banner -->
+<section class="flex flex-col gap-space-xs mt-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="p-1 rounded-lg bg-primary-container/20 text-primary">
+<span class="material-symbols-outlined text-lg">school</span>
+</span>
+<span class="font-label-md text-label-md text-secondary uppercase tracking-widest">Academia Oficial</span>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container-high px-2 py-0.5 rounded-full text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> RN-01 • RN-03 Vigente
+      </span>
+</div>
+<div class="flex items-baseline justify-between">
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Ruta de Maestría</h2>
+<span class="font-stat-mono text-stat-mono text-tertiary">14/20 Leds</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+      Avanza de fundamentos biomecánicos a táctica competitiva de pista aceitada según el estándar WTBA/USBC.
+    </p>
+</section>
+<!-- Selector de Niveles (RF-08, Diagrama de Actividades: Consultar -> Seleccionar Nivel) -->
+<section class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Nivel Formativo</span>
+<span class="font-label-sm text-label-sm text-secondary">Nivel 2 seleccionado</span>
+</div>
+<!-- Pills de Navegación de Nivel -->
+<div class="grid grid-cols-3 gap-2 p-1.5 bg-surface-container-lowest rounded-2xl shadow-inner">
+<!-- Nivel 1: Principiante (Aprobado 100%) -->
+<button class="group flex flex-col items-center justify-between p-2 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all text-left relative overflow-hidden" type="button">
+<div class="w-full flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary font-bold">NIVEL 1</span>
+<span class="material-symbols-outlined text-base text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="font-headline-sm text-xs font-semibold text-on-surface w-full truncate mt-1">Iniciación</span>
+<div class="w-full bg-surface-variant h-1 rounded-full mt-2 overflow-hidden">
+<div class="bg-tertiary h-full w-full"></div>
+</div>
+</button>
+<!-- Nivel 2: Intermedio (ACTIVO - 68%) -->
+<button class="group flex flex-col items-center justify-between p-2 rounded-xl bg-surface-container-high shadow-md transition-all text-left relative overflow-hidden ring-2 ring-secondary/70" type="button">
+<div class="w-full flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-bold">NIVEL 2</span>
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+</div>
+<span class="font-headline-sm text-xs font-bold text-on-surface w-full truncate mt-1">Intermedio</span>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 68%;"></div>
+</div>
+</button>
+<!-- Nivel 3: Avanzado (BLOQUEADO - RN-03) -->
+<button class="group flex flex-col items-center justify-between p-2 rounded-xl bg-surface-container-low/50 opacity-60 text-left relative overflow-hidden cursor-not-allowed" type="button">
+<div class="w-full flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline font-bold">NIVEL 3</span>
+<span class="material-symbols-outlined text-base text-outline">lock</span>
+</div>
+<span class="font-headline-sm text-xs font-semibold text-outline w-full truncate mt-1">Avanzado</span>
+<div class="w-full bg-surface-variant h-1 rounded-full mt-2 overflow-hidden">
+<div class="bg-outline h-full w-0"></div>
+</div>
+</button>
+</div>
+<!-- RN-03 Disclaimer tag -->
+<div class="flex items-center gap-1.5 px-3 py-2 bg-surface-container-lowest/70 rounded-xl text-on-surface-variant">
+<span class="material-symbols-outlined text-base text-secondary">info</span>
+<p class="font-body-sm text-[11px] leading-tight">
+<strong class="text-on-surface">Regla RN-03:</strong> El Nivel 3 permanece bloqueado hasta aprobar la evaluación técnica del Nivel 2 con calificación ≥ 80%.
+      </p>
+</div>
+</section>
+<!-- Banner de Lección Actual Recomendada (Enfocada y Dinámica) -->
+<section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-low shadow-xl p-space-md">
+<div class="absolute -right-10 -bottom-10 w-44 h-44 rounded-full bg-primary-container/15 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+          RECOMENDADO PARA HOY
+        </span>
+<span class="font-stat-mono text-xs text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">timer</span> 12 min
+        </span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold leading-tight">
+          Control del Péndulo y Timing de 4 Pasos
+        </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Optimiza la gravedad en el swing sin sobre-tensión del antebrazo y sincroniza el slide de deslizamiento.
+        </p>
+</div>
+<!-- Video Mockup Preview Mini -->
+<div class="relative rounded-xl overflow-hidden h-28 bg-surface-container-lowest flex items-center justify-center group">
+<div class="w-full h-full bg-cover bg-center opacity-75" data-alt="A professional ten-pin bowling player in a modern dark midnight cobalt illuminated bowling center performing a textbook 4-step approach release with amber glow lighting accenting the synthetic lane boards" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCEsjvNK7jiGfYwT9wgZSEmNiYgh2MNKtFj50T-MhzWK0x_Uex4cW_DRr3okZpO3DKshsXds1VdY7SPGY4KpctquiW_SitRepKQ0r-051CTAdUy_om7hQpfbbWAbM0a0RumK3N7hc1xlLr9cR-Gr4xGpUInX6OuILda47d8aUMvHdxWfAd0rPA4a7eROM3LvlR_314uLvB0PgdC6LUfwSgFmgaDHC2LwDTMJEFFzysbsXYTNDhftIlSzg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/30 to-transparent"></div>
+<button aria-label="Reproducir clase" class="absolute w-11 h-11 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-lg shadow-primary/30 transform group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<span class="absolute bottom-2 left-2.5 font-label-sm text-label-sm bg-surface-container-highest/80 px-2 py-0.5 rounded text-on-surface backdrop-blur-sm">Masterclass HD + Guía de Pista</span>
+</div>
+<!-- Action Button -->
+<button class="w-full h-[48px] rounded-xl bg-primary-container hover:bg-primary-container/90 text-on-primary-container font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-lg transition-all active:scale-[0.98]">
+<span>Continuar Lección</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Lista de Módulos y Lecciones del Nivel Intermedio (RF-09, RF-10) -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Módulo 2: Geometría y Control de Eje</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">3 lecciones técnicas + 1 examen de certificación</p>
+</div>
+<span class="font-stat-mono text-stat-mono text-secondary">68%</span>
+</div>
+<!-- Lección 2.1: Lectura de Aceitado y Puntos de Quiebre (Aprobada) -->
+<div class="bg-surface-container rounded-2xl p-4 flex flex-col gap-3 transition-all hover:bg-surface-container-high shadow-md">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-tertiary/15 text-tertiary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-tertiary uppercase font-bold tracking-wider">Lección 2.1</span>
+<span class="px-1.5 py-0.2 bg-tertiary/15 text-tertiary rounded text-[10px] font-bold">APROBADO</span>
+</div>
+<h4 class="font-headline-sm text-sm text-on-surface font-bold leading-snug">Lectura de Aceitado y Puntos de Quiebre</h4>
+</div>
+</div>
+<span class="font-stat-mono text-xs text-on-surface-variant flex-shrink-0">100%</span>
+</div>
+<div class="flex items-center justify-between pt-2 text-on-surface-variant font-body-sm text-xs">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">videocam</span> Video HD
+          </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary">image</span> 3 Diagramas
+          </span>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:underline flex items-center gap-0.5">
+          Repasar
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Lección 2.2: Técnica de Hook y Rotación de Eje (Axis Tilt) (En Progreso 80%) -->
+<div class="bg-surface-container-high rounded-2xl p-4 flex flex-col gap-3 shadow-lg relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/20 text-secondary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl">rotate_right</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Lección 2.2</span>
+<span class="px-1.5 py-0.2 bg-secondary-container/20 text-secondary rounded text-[10px] font-bold">EN PROGRESO</span>
+</div>
+<h4 class="font-headline-sm text-sm text-on-surface font-bold leading-snug">Técnica de Hook y Rotación de Eje (Axis Tilt)</h4>
+</div>
+</div>
+<span class="font-stat-mono text-xs text-secondary font-bold flex-shrink-0">80%</span>
+</div>
+<!-- Barra de progreso específica -->
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 80%;"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-xs pt-1">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">slow_motion_video</span> Paso a Paso
+          </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-tertiary">sports</span> Ejercicio Práctico
+          </span>
+</div>
+<button class="h-8 px-3 rounded-lg bg-secondary text-on-secondary font-label-sm text-label-sm flex items-center gap-1 font-bold">
+          Reanudar
+          <span class="material-symbols-outlined text-sm">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Lección 2.3: Conversión de Splits Difíciles (2-4-5 y 3-10) (Desbloqueado) -->
+<div class="bg-surface-container rounded-2xl p-4 flex flex-col gap-3 transition-all hover:bg-surface-container-high shadow-md">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-variant text-on-surface flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl">crisis_alert</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Lección 2.3</span>
+<span class="px-1.5 py-0.2 bg-primary-container/20 text-primary rounded text-[10px] font-bold">DESBLOQUEADO</span>
+</div>
+<h4 class="font-headline-sm text-sm text-on-surface font-bold leading-snug">Conversión de Splits Difíciles (2-4-5 y 3-10)</h4>
+</div>
+</div>
+<span class="font-stat-mono text-xs text-on-surface-variant flex-shrink-0">0%</span>
+</div>
+<div class="flex items-center justify-between pt-2 text-on-surface-variant font-body-sm text-xs">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary">calculate</span> Simulador de Ángulo
+        </span>
+<button class="h-8 px-3 rounded-lg bg-surface-container-highest text-on-surface hover:bg-primary hover:text-on-primary font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+          Iniciar
+          <span class="material-symbols-outlined text-sm">launch</span>
+</button>
+</div>
+</div>
+<!-- Evaluación Técnica Nivel Intermedio (RF-10, RN-01, Evaluacion en Diagrama de Clases) -->
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-b from-surface-container-highest via-surface-container to-surface-container-low p-4 shadow-xl">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-secondary/15 text-secondary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-[10px] font-bold">
+                EVALUACIÓN OBLIGATORIA
+              </span>
+<span class="text-xs text-on-surface-variant font-label-sm">RF-10</span>
+</div>
+<h4 class="font-headline-sm text-sm text-on-surface font-bold mt-0.5">Certificación Nivel Intermedio</h4>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-stat-mono text-xs text-tertiary">Mín. 80%</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">RN-01 Aprobación</span>
+</div>
+</div>
+<!-- Requisitos del Diagrama de Clases & Reglas de Negocio -->
+<div class="grid grid-cols-2 gap-2 my-3 p-3 bg-surface-container-lowest/80 rounded-xl">
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase">Prueba Teórica</span>
+<span class="font-headline-sm text-xs font-bold text-on-surface flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs text-primary">quiz</span> 10 Preguntas
+          </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase">Validación Pista</span>
+<span class="font-headline-sm text-xs font-bold text-on-surface flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs text-secondary">sports_score</span> 3 juegos &gt; 180 pts
+          </span>
+</div>
+</div>
+<!-- Estado de bloqueo / acción -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-base text-outline">hourglass_empty</span>
+<span class="font-body-sm text-xs">Completa la Lección 2.3 para habilitar</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-outline font-label-sm text-xs cursor-not-allowed flex items-center gap-1" disabled="">
+<span class="material-symbols-outlined text-xs">lock</span> Pendiente
+        </button>
+</div>
+</div>
+</section>
+<!-- Biblioteca de Referencia Rápida: Glosario & Reglas WTBA/USBC (RF-25, RF-26) -->
+<section class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Recursos y Manuales Oficiales</span>
+<span class="font-label-sm text-label-sm text-primary">RF-25 / RF-26</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Card Reglamento USBC / WTBA (RF-25) -->
+<a class="group bg-surface-container p-3.5 rounded-2xl flex flex-col justify-between gap-3 hover:bg-surface-container-high transition-all shadow-md" href="#reglamento">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">gavel</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-lg">arrow_outward</span>
+</div>
+<div>
+<span class="font-headline-sm text-xs font-bold text-on-surface block leading-tight">Reglamento USBC &amp; WTBA</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2">Leyes de pista, peso de bola (máx 16 lb), y faltas de línea.</p>
+</div>
+</a>
+<!-- Card Glosario Técnico (RF-26) -->
+<a class="group bg-surface-container p-3.5 rounded-2xl flex flex-col justify-between gap-3 hover:bg-surface-container-high transition-all shadow-md" href="#glosario">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded-xl bg-secondary-container/20 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">menu_book</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary transition-colors text-lg">arrow_outward</span>
+</div>
+<div>
+<span class="font-headline-sm text-xs font-bold text-on-surface block leading-tight">Glosario BowlingPro</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-1 line-clamp-2">Hook, Spare, Oil Pattern, Axis Tilt, Lofting, Breakpoint.</p>
+</div>
+</a>
+</div>
+<!-- Píldoras de términos rápidos (micro-glosario interactivo) -->
+<div class="flex items-center gap-2 overflow-x-auto py-1 no-scrollbar">
+<span class="font-label-sm text-[11px] text-on-surface-variant flex-shrink-0">Términos Clave:</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-xs whitespace-nowrap">Hook (Efecto)</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-xs whitespace-nowrap">Spare Conversion</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-xs whitespace-nowrap">Oil Pattern (House/Sport)</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-xs whitespace-nowrap">Lofting</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-xs whitespace-nowrap">Axis Tilt</span>
+</div>
+</section>
+<!-- Progreso del Jugador / Diagrama de Actividades Status Footer Card -->
+<section class="p-4 rounded-2xl bg-surface-container-lowest flex items-center justify-between shadow-inner">
+<div class="flex items-center gap-3">
+<div class="relative w-12 h-12 flex items-center justify-center">
+<!-- SVG Progress Donut -->
+<svg class="w-12 h-12 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-variant" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="68, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<span class="absolute font-stat-mono text-[11px] text-on-surface">68%</span>
+</div>
+<div>
+<span class="font-label-sm text-[10px] text-secondary font-bold uppercase">Estado Académico</span>
+<h4 class="font-headline-sm text-xs text-on-surface font-bold">Actualización en tiempo real</h4>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Próxima meta: Desbloquear Nivel 3 Avanzado</p>
+</div>
+</div>
+<button class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:text-primary transition-colors" title="Sincronizar telemetría">
+<span class="material-symbols-outlined text-lg">sync</span>
+</button>
+</section>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.4)]" data-active-classes="text-primary font-bold [&amp;_span.material-symbols-outlined]:text-primary [&amp;_span.indicator]:opacity-100"><div class="flex items-center justify-around h-18 px-space-xs relative"><a class="group flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 text-on-surface-variant hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-2xl group-hover:scale-105 transition-transform">dashboard</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Dashboard</span><span class="indicator opacity-0 w-1.5 h-1.5 bg-secondary rounded-full mt-0.5 transition-opacity"></span></a><a aria-current="page" class="group flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 transition-all text-primary font-bold [&amp;_span.material-symbols-outlined]:text-primary [&amp;_span.indicator]:opacity-100" data-path="learn" href="#"><span class="material-symbols-outlined text-2xl group-hover:scale-105 transition-transform">menu_book</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Aprender</span><span class="indicator opacity-0 w-1.5 h-1.5 bg-secondary rounded-full mt-0.5 transition-opacity"></span></a><div class="flex flex-col items-center justify-center -mt-6 z-10"><a class="group flex flex-col items-center focus:outline-none" data-path="match" href="#"><div class="w-14 h-14 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-[0_0_20px_rgba(37,99,235,0.45)] group-active:scale-95 transition-all"><span class="material-symbols-outlined text-3xl">sports_score</span></div><span class="font-label-sm text-label-sm text-on-surface mt-1 font-bold">Partida</span></a></div><a class="group flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 text-on-surface-variant hover:text-on-surface transition-all" data-path="training" href="#"><span class="material-symbols-outlined text-2xl group-hover:scale-105 transition-transform">fact_check</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Entrenar</span><span class="indicator opacity-0 w-1.5 h-1.5 bg-secondary rounded-full mt-0.5 transition-opacity"></span></a><a class="group flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 text-on-surface-variant hover:text-on-surface transition-all" data-path="coach" href="#"><span class="material-symbols-outlined text-2xl group-hover:scale-105 transition-transform">forum</span><span class="font-label-sm text-label-sm mt-0.5 tracking-tight">Entrenador</span><span class="indicator opacity-0 w-1.5 h-1.5 bg-secondary rounded-full mt-0.5 transition-opacity"></span></a></div></nav></body></html>

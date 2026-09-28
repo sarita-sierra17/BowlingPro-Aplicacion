@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "outline": "#8d90a0", "tertiary-fixed-dim": "#4edea3", "secondary-fixed-dim": "#ffb95f", "on-tertiary-fixed": "#002113", "surface-tint": "#b4c5ff", "primary-fixed-dim": "#b4c5ff", "on-secondary-fixed-variant": "#653e00", "on-secondary-fixed": "#2a1700", "on-error-container": "#ffdad6", "on-tertiary": "#003824", "surface-container": "#171f33", "inverse-primary": "#0053db", "on-tertiary-fixed-variant": "#005236", "surface-container-high": "#222a3d", "on-primary-fixed": "#00174b", "surface-bright": "#31394d", "on-primary-container": "#eeefff", "on-error": "#690005", "on-surface": "#dae2fd", "on-secondary": "#472a00", "secondary-container": "#ee9800", "secondary": "#ffb95f", "on-primary": "#002a78", "outline-variant": "#434655", "surface": "#0b1326", "primary-container": "#2563eb", "surface-dim": "#0b1326", "tertiary-container": "#007d55", "surface-container-lowest": "#060e20", "on-primary-fixed-variant": "#003ea8", "primary-fixed": "#dbe1ff", "surface-container-highest": "#2d3449", "on-background": "#dae2fd", "on-tertiary-container": "#bdffdb", "on-secondary-container": "#5b3800", "primary": "#b4c5ff", "tertiary": "#4edea3", "background": "#0b1326", "error": "#ffb4ab", "tertiary-fixed": "#6ffbbe", "surface-variant": "#2d3449", "secondary-fixed": "#ffddb8", "on-surface-variant": "#c3c6d7", "inverse-on-surface": "#283044", "error-container": "#93000a", "surface-container-low": "#131b2e", "inverse-surface": "#dae2fd" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter-sm": "0.75rem", "space-md": "1rem", "space-xl": "2rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "gutter": "1rem", "margin-lg": "1.5rem", "margin": "1rem" }, fontFamily: { "label-sm": ["Outfit"], "headline-md": ["Outfit"], "stat-mono": ["Outfit"], "headline-lg": ["Outfit"], "body-md": ["Plus Jakarta Sans"], "display-score-mobile": ["Outfit"], "headline-sm": ["Outfit"], "body-sm": ["Plus Jakarta Sans"], "label-md": ["Outfit"], "display-score": ["Outfit"], "body-lg": ["Plus Jakarta Sans"], "label-lg": ["Outfit"] }, fontSize: { "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.06em", "fontWeight": "700" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "stat-mono": ["18px", { "lineHeight": "22px", "letterSpacing": "0.02em", "fontWeight": "700" }], "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "display-score-mobile": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }], "display-score": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "700" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;background-color:#0b1326;color:#dae2fd;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.5)] pt-safe"><div class="h-16 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Volver" class="min-w-[44px] min-h-[44px] -ml-space-xs flex items-center gap-1 text-primary hover:text-on-primary-container transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[22px]">arrow_back_ios_new</span><span class="font-label-lg text-label-lg">Volver</span></button><div class="flex items-center gap-space-sm min-w-0"><img alt="Minimalist dynamic vector logo for BowlingPro app. A stylized bowling pin intersected with a sleek speeding bowling ball with precision motion trajectory lines and star accent, clean athletic geometric lines, cobalt blue, vibrant amber gold, and crisp white. Modern esport and pro bowling aesthetic.. Design context: - Primary color: #2563eb
+- Font: outfit
+- Mode: dark
+- Roundness: rounded-md
+. The logo should be visually consistent with these brand tokens." class="h-7 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1UBJ9RXRHjOXyIN9_-NLOqpZbjHiEDthIxg2K6cGPyqGJn1Fv8tuDh0qNlhROa2WFHhylIZpQQjMmgIU1sEh2DUX6gAmsH-9x2ifPLNvWXtTnizrMwtvxFv-BtCZ23qe5m-bcFS3-96RlABYkk67aaLazsLFt6sEMItsLKqkgP70ISCaUhDCUsdUWXG2yrQNAd6DIBs-OfNHgMU80wL-WFTQupUKo4SNBLVLDIM5N99OSXEUQG4c3olvaFV"/><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-tight">Notificaciones</h1></div></div><div class="flex items-center gap-space-xs shrink-0"><button class="min-w-[44px] min-h-[44px] px-space-xs flex items-center justify-center font-label-md text-label-md text-secondary hover:text-secondary-fixed-dim transition-colors" type="button"><span class="hidden xs:inline">Marcar leídas</span><span class="material-symbols-outlined text-[20px] xs:hidden">done_all</span></button><div class="w-11 h-11 flex items-center justify-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/40" src="https://lh3.googleusercontent.com/aida/AEtjO1Ut22PNGAbzRm9btI_PXYkw3qqRTIx7WDV1ef83-K0HDcmVUsC2DamUU7MPKJQD7OnTbYocTWJdveXkiw-v9K9BQEPbjHnqf0SkjSF50MBAz2eAM53SVV5BULbC5H2WpWcBnaD2wPGGQqgx_wszHo_ZXnlMnK4SY_x0J68johlDfJ6_fFZsVjJfpswFHqPv4W-IsIZ5AwXiik25wbwtXZb3EKRp8FZ20pxPaIXBRfNChOXgGYxKKmiQI2zQ"/></div></div></div></header><main class="flex flex-col relative w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full pb-10 space-y-space-md">
+<!-- Top Operational Banner (RF-27 Traceability) -->
+<div class="px-gutter pt-space-xs">
+<div class="flex items-center justify-between bg-surface-container-low px-space-md py-space-sm rounded-xl">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="relative flex h-2.5 w-2.5 shrink-0">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary"></span>
+</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider truncate">RF-27 · MENSAJERÍA Y ALERTAS ACTIVAS</span>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded-full shrink-0">SYNC 60s</span>
+</div>
+</div>
+<!-- Header Status Summary & Batch Actions -->
+<div class="px-gutter flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-baseline gap-space-sm">
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Notificaciones</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container">Live Deck</span>
+</div>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container text-secondary hover:bg-surface-container-high transition-colors font-label-md text-label-md" id="markAllBtn" onclick="marcarTodasLeidas()">
+<span class="material-symbols-outlined text-[18px] text-tertiary">done_all</span>
+<span>Marcar todas</span>
+</button>
+</div>
+<!-- Metric Bar / Summary -->
+<div class="flex items-center justify-between bg-surface-container px-space-md py-2.5 rounded-xl text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">notifications_active</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="unreadCounterText">
+<span class="font-stat-mono text-stat-mono text-primary font-bold">3</span> sin leer de <span class="font-stat-mono text-stat-mono text-on-surface">12</span> totales
+        </span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-secondary uppercase">Prioridad Alta</span>
+</div>
+</div>
+</div>
+<!-- Category Filter Pills (RF-27 & Diagrama de Clases: Notificacion.tipo) -->
+<div class="w-full overflow-x-auto no-scrollbar px-gutter">
+<div class="flex items-center gap-2 min-w-max py-1" id="filterDeck">
+<button class="category-pill active-pill px-3.5 py-2 rounded-full bg-primary-container text-on-primary-container flex items-center gap-2 font-label-md text-label-md transition-all shadow-sm" onclick="filterCategory('todas', this)">
+<span class="material-symbols-outlined text-[18px]">inbox</span>
+<span>Todas</span>
+<span class="ml-0.5 px-1.5 py-0.2 rounded-full bg-surface-container-lowest font-stat-mono text-[10px]">12</span>
+</button>
+<button class="category-pill px-3.5 py-2 rounded-full bg-surface-container text-on-surface-variant flex items-center gap-2 font-label-md text-label-md hover:bg-surface-container-high transition-all" onclick="filterCategory('retroalimentacion', this)">
+<span class="material-symbols-outlined text-[18px] text-primary">sports</span>
+<span>Retroalimentación</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-highest text-primary font-stat-mono text-[10px]">3</span>
+</button>
+<button class="category-pill px-3.5 py-2 rounded-full bg-surface-container text-on-surface-variant flex items-center gap-2 font-label-md text-label-md hover:bg-surface-container-high transition-all" onclick="filterCategory('entrenamientos', this)">
+<span class="material-symbols-outlined text-[18px] text-secondary">fitness_center</span>
+<span>Entrenamientos</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-highest text-secondary font-stat-mono text-[10px]">4</span>
+</button>
+<button class="category-pill px-3.5 py-2 rounded-full bg-surface-container text-on-surface-variant flex items-center gap-2 font-label-md text-label-md hover:bg-surface-container-high transition-all" onclick="filterCategory('logros', this)">
+<span class="material-symbols-outlined text-[18px] text-secondary-fixed">military_tech</span>
+<span>Logros</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-highest text-secondary-fixed font-stat-mono text-[10px]">2</span>
+</button>
+<button class="category-pill px-3.5 py-2 rounded-full bg-surface-container text-on-surface-variant flex items-center gap-2 font-label-md text-label-md hover:bg-surface-container-high transition-all" onclick="filterCategory('recomendaciones', this)">
+<span class="material-symbols-outlined text-[18px] text-tertiary">lightbulb</span>
+<span>Recomendaciones</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-highest text-tertiary font-stat-mono text-[10px]">3</span>
+</button>
+</div>
+</div>
+<!-- Notification Feed Stream -->
+<div class="px-gutter flex flex-col space-y-space-md" id="notificationStream">
+<!-- GROUP: HOY -->
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline">Hoy · Recientes</span>
+<span class="font-label-sm text-label-sm text-tertiary">3 nuevas</span>
+</div>
+<!-- Item 1: Retroalimentación Coach (No leída) -->
+<div class="notification-item unread-item bg-surface-container p-space-md rounded-2xl flex flex-col gap-space-sm relative transition-all" data-id="NTF-9402" data-leida="false" data-type="retroalimentacion">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container/30 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[22px]">sports</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary/20 text-primary uppercase">Retroalimentación</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">#NTF-9402</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-0.5 leading-snug">Nueva Observación Técnica de Coach Carlos</h3>
+</div>
+</div>
+<span class="unread-dot w-2.5 h-2.5 rounded-full bg-primary shrink-0 mt-1 shadow-sm"></span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant pl-13">
+        Se analizó tu tiro en Frame 7 (Split 7-10). Se añadió un nuevo drill de pausa de paso 2 a tu plan semanal de entrenamiento en pistas sintéticas.
+      </p>
+<div class="flex items-center justify-between pt-1 text-on-surface-variant">
+<div class="flex items-center gap-2 font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-tertiary">schedule</span>
+<span>Hace 25 min · Pista 4</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="read-btn px-2.5 py-1.5 rounded-lg bg-surface-container-high text-on-surface hover:text-tertiary font-label-md text-label-md flex items-center gap-1 transition-colors" onclick="marcarIndividual(this)">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Leída</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center gap-1.5 hover:bg-primary-container/90 transition-colors">
+<span>Ver Análisis</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2: Entrenamiento Pendiente (No leída) -->
+<div class="notification-item unread-item bg-surface-container p-space-md rounded-2xl flex flex-col gap-space-sm relative transition-all" data-id="NTF-9390" data-leida="false" data-type="entrenamientos">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[22px]">timer</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary/15 text-secondary uppercase">Entrenamiento RF-16</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">#NTF-9390</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-0.5 leading-snug">Rutina del Día Pendiente</h3>
+</div>
+</div>
+<span class="unread-dot w-2.5 h-2.5 rounded-full bg-secondary shrink-0 mt-1 shadow-sm"></span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Tienes pendiente el ejercicio "10 Tiros a Flecha 2" (3 series x 10 repeticiones) asignado para afinar punto focal en entrada al pocket.
+      </p>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-secondary">pace</span>
+<span>Hace 2 horas · Ciclo Semanal</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="read-btn px-2.5 py-1.5 rounded-lg bg-surface-container-high text-on-surface hover:text-tertiary font-label-md text-label-md flex items-center gap-1 transition-colors" onclick="marcarIndividual(this)">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Leída</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-lg bg-secondary text-on-secondary font-label-lg text-label-lg flex items-center gap-1 hover:bg-secondary-fixed transition-colors">
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+<span>Iniciar Drill</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3: Logro Desbloqueado (No leída) -->
+<div class="notification-item unread-item bg-surface-container p-space-md rounded-2xl flex flex-col gap-space-sm relative transition-all" data-id="NTF-9384" data-leida="false" data-type="logros">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary-fixed text-[24px]">emoji_events</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-fixed/15 text-secondary-fixed uppercase">Logro Oficial RF-20</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">#NTF-9384</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-0.5 leading-snug">¡Nuevo Logro Desbloqueado!</h3>
+</div>
+</div>
+<span class="unread-dot w-2.5 h-2.5 rounded-full bg-secondary-fixed shrink-0 mt-1 shadow-sm"></span>
+</div>
+<!-- Achievement Preview Badge Box -->
+<div class="bg-surface-container-low p-space-sm rounded-xl flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary-fixed shrink-0">
+<span class="font-headline-sm text-headline-sm font-bold">200</span>
+</div>
+<div class="min-w-0">
+<div class="font-label-md text-label-md text-secondary-fixed font-bold">Insignia "Club 200"</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Partida oficial #48 completada con 204 puntos limpios.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-tertiary">verified</span>
+<span>Hace 4 horas · Validado por RN-04</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="read-btn px-2.5 py-1.5 rounded-lg bg-surface-container-high text-on-surface hover:text-tertiary font-label-md text-label-md flex items-center gap-1 transition-colors" onclick="marcarIndividual(this)">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Leída</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-lg bg-surface-container-high text-secondary-fixed font-label-md text-label-md flex items-center gap-1 hover:bg-surface-container-highest transition-colors">
+<span>Ver en Vitrina</span>
+<span class="material-symbols-outlined text-[16px]">military_tech</span>
+</button>
+</div>
+</div>
+</div>
+<!-- GROUP: AYER -->
+<div class="flex items-center justify-between pt-3">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline">Ayer · Anteriores</span>
+<span class="font-label-sm text-label-sm text-outline">Leídas</span>
+</div>
+<!-- Item 4: Recomendación IA Táctica (Leída) -->
+<div class="notification-item bg-surface-container-low p-space-md rounded-2xl flex flex-col gap-space-sm opacity-85 transition-all" data-id="NTF-9210" data-leida="true" data-type="recomendaciones">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container/30 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[22px]">smart_toy</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-tertiary/15 text-tertiary uppercase">Recomendación IA (RF-17)</span>
+<span class="font-label-sm text-label-sm text-outline">#NTF-9210</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-0.5 leading-snug">Ajuste de Bola en Remate de Pino 7</h3>
+</div>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-[18px]">done</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Tu efectividad en el pino 7 ha bajado al 62%. Recomendamos cambiar a bola plástica de remate directo para minimizar la desviación en la zona seca exterior.
+      </p>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-outline">
+<span class="material-symbols-outlined text-[15px]">analytics</span>
+<span>Ayer 18:30 · Algoritmo Apex AI</span>
+</div>
+<button class="px-3 py-1 rounded-lg bg-surface-container text-tertiary font-label-md text-label-md flex items-center gap-1 hover:bg-surface-container-high transition-colors">
+<span>Ver Métricas</span>
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+</button>
+</div>
+</div>
+<!-- Item 5: Plan de Entrenamiento Modificado (Leída) -->
+<div class="notification-item bg-surface-container-low p-space-md rounded-2xl flex flex-col gap-space-sm opacity-85 transition-all" data-id="NTF-9177" data-leida="true" data-type="entrenamientos">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[22px]">edit_calendar</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant uppercase">Entrenamiento RF-18</span>
+<span class="font-label-sm text-label-sm text-outline">#NTF-9177</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-0.5 leading-snug">Plan de Entrenamiento Actualizado</h3>
+</div>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-[18px]">done</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        El Coach Carlos Méndez modificó tu meta semanal: Elevar conversión de spares limpios al 82% previo al Torneo Regional de Invierno.
+      </p>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-outline">
+<span class="material-symbols-outlined text-[15px]">sync</span>
+<span>Ayer 10:15 · Sincronizado</span>
+</div>
+<button class="px-3 py-1 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md flex items-center gap-1 hover:text-on-surface transition-colors">
+<span>Abrir Plan</span>
+</button>
+</div>
+</div>
+<!-- Item 6: Seguridad / Acceso a Pista (Leída) -->
+<div class="notification-item bg-surface-container-low p-space-md rounded-2xl flex flex-col gap-space-sm opacity-85 transition-all" data-id="NTF-9140" data-leida="true" data-type="recomendaciones">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-outline text-[22px]">shield</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-outline uppercase">Seguridad RF-02</span>
+<span class="font-label-sm text-label-sm text-outline">#NTF-9140</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-0.5 leading-snug">Acceso Seguro Confirmado</h3>
+</div>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-[18px]">done</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Inicio de sesión exitoso desde el terminal de telemetría de Pista 4 (Dirección IP: 201.144.90.12).
+      </p>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-outline">
+<span class="material-symbols-outlined text-[15px]">lock_clock</span>
+<span>Ayer 08:45 · Consola Alley</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">Verificado</span>
+</div>
+</div>
+</div>
+<!-- Notification Preferences Box (RF-27 Configuration Deck) -->
+<div class="px-gutter pt-2">
+<div class="bg-surface-container p-space-md rounded-2xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]">tune</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Preferencias de Alertas Push</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Gestiona qué notificaciones activas recibir en pista</p>
+</div>
+</div>
+</div>
+<!-- Toggles List -->
+<div class="flex flex-col gap-3 pt-1">
+<!-- Toggle 1: Coach -->
+<div class="flex items-center justify-between py-1 bg-surface-container-low px-3 py-2.5 rounded-xl">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-primary">sports</span>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">Alertas de Coach y Videoanálisis</div>
+<div class="font-body-sm text-body-sm text-outline">Notas tácticas y corrección de postura en vivo</div>
+</div>
+</div>
+<button class="w-12 h-6 flex items-center bg-primary rounded-full p-1 cursor-pointer transition-colors" data-checked="true" onclick="toggleSwitch(this)" type="button">
+<div class="bg-on-primary w-4 h-4 rounded-full shadow-md transform translate-x-6 transition-transform"></div>
+</button>
+</div>
+<!-- Toggle 2: Drills -->
+<div class="flex items-center justify-between py-1 bg-surface-container-low px-3 py-2.5 rounded-xl">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-secondary">fitness_center</span>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">Recordatorios de Drills Diarios</div>
+<div class="font-body-sm text-body-sm text-outline">Avisos de series pendientes y objetivos de tiro</div>
+</div>
+</div>
+<button class="w-12 h-6 flex items-center bg-primary rounded-full p-1 cursor-pointer transition-colors" data-checked="true" onclick="toggleSwitch(this)" type="button">
+<div class="bg-on-primary w-4 h-4 rounded-full shadow-md transform translate-x-6 transition-transform"></div>
+</button>
+</div>
+<!-- Toggle 3: Liga -->
+<div class="flex items-center justify-between py-1 bg-surface-container-low px-3 py-2.5 rounded-xl">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-tertiary">emoji_events</span>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">Desafíos y Logros de Liga</div>
+<div class="font-body-sm text-body-sm text-outline">Desbloqueos de insignias y ranking de club</div>
+</div>
+</div>
+<button class="w-12 h-6 flex items-center bg-primary rounded-full p-1 cursor-pointer transition-colors" data-checked="true" onclick="toggleSwitch(this)" type="button">
+<div class="bg-on-primary w-4 h-4 rounded-full shadow-md transform translate-x-6 transition-transform"></div>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Micro-interaction Scripts: marcarComoLeida() & dynamic filter -->
+<script>
+    function marcarIndividual(btn) {
+      const card = btn.closest('.notification-item');
+      if (!card) return;
+      
+      card.setAttribute('data-leida', 'true');
+      card.classList.remove('bg-surface-container');
+      card.classList.add('bg-surface-container-low', 'opacity-85');
+      
+      const dot = card.querySelector('.unread-dot');
+      if (dot) dot.remove();
+
+      btn.outerHTML = '<span class="material-symbols-outlined text-[18px] text-tertiary">done</span>';
+      recalcUnread();
+    }
+
+    function marcarTodasLeidas() {
+      const items = document.querySelectorAll('.notification-item[data-leida="false"]');
+      items.forEach(item => {
+        item.setAttribute('data-leida', 'true');
+        item.classList.remove('bg-surface-container');
+        item.classList.add('bg-surface-container-low', 'opacity-85');
+        const dot = item.querySelector('.unread-dot');
+        if (dot) dot.remove();
+        const readBtn = item.querySelector('.read-btn');
+        if (readBtn) {
+          readBtn.outerHTML = '<span class="material-symbols-outlined text-[18px] text-tertiary">done</span>';
+        }
+      });
+      recalcUnread();
+    }
+
+    function recalcUnread() {
+      const unreadCount = document.querySelectorAll('.notification-item[data-leida="false"]').length;
+      const counterContainer = document.getElementById('unreadCounterText');
+      if (counterContainer) {
+        counterContainer.innerHTML = '<span class="font-stat-mono text-stat-mono text-primary font-bold">' + unreadCount + '</span> sin leer de <span class="font-stat-mono text-stat-mono text-on-surface">12</span> totales';
+      }
+    }
+
+    function filterCategory(cat, btn) {
+      const pills = document.querySelectorAll('.category-pill');
+      pills.forEach(p => {
+        p.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-sm');
+        p.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+      btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      btn.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-sm');
+
+      const items = document.querySelectorAll('.notification-item');
+      items.forEach(card => {
+        const itemType = card.getAttribute('data-type');
+        if (cat === 'todas' || itemType === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function toggleSwitch(btn) {
+      const isChecked = btn.getAttribute('data-checked') === 'true';
+      const knob = btn.firstElementChild;
+      if (isChecked) {
+        btn.setAttribute('data-checked', 'false');
+        btn.classList.remove('bg-primary');
+        btn.classList.add('bg-surface-container-highest');
+        knob.classList.remove('translate-x-6');
+        knob.classList.add('translate-x-0');
+      } else {
+        btn.setAttribute('data-checked', 'true');
+        btn.classList.remove('bg-surface-container-highest');
+        btn.classList.add('bg-primary');
+        knob.classList.remove('translate-x-0');
+        knob.classList.add('translate-x-6');
+      }
+    }
+  </script>
+</div></main></body></html>

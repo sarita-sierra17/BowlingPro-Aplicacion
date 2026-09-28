@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0b1326;color:#dae2fd;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-error": "#690005", "on-secondary-container": "#5b3800", "on-background": "#dae2fd", "on-surface": "#dae2fd", "on-error-container": "#ffdad6", "error": "#ffb4ab", "surface": "#0b1326", "on-tertiary-container": "#bdffdb", "on-tertiary-fixed": "#002113", "secondary-container": "#ee9800", "primary-fixed-dim": "#b4c5ff", "on-secondary-fixed": "#2a1700", "surface-bright": "#31394d", "primary": "#b4c5ff", "surface-dim": "#0b1326", "surface-container": "#171f33", "on-primary": "#002a78", "inverse-on-surface": "#283044", "background": "#0b1326", "on-tertiary-fixed-variant": "#005236", "on-secondary-fixed-variant": "#653e00", "error-container": "#93000a", "surface-container-lowest": "#060e20", "secondary-fixed-dim": "#ffb95f", "primary-container": "#2563eb", "tertiary-container": "#007d55", "outline-variant": "#434655", "tertiary-fixed": "#6ffbbe", "surface-container-highest": "#2d3449", "tertiary": "#4edea3", "inverse-surface": "#dae2fd", "surface-tint": "#b4c5ff", "primary-fixed": "#dbe1ff", "surface-container-low": "#131b2e", "inverse-primary": "#0053db", "secondary-fixed": "#ffddb8", "on-primary-fixed-variant": "#003ea8", "secondary": "#ffb95f", "tertiary-fixed-dim": "#4edea3", "outline": "#8d90a0", "surface-variant": "#2d3449", "on-primary-fixed": "#00174b", "on-secondary": "#472a00", "on-tertiary": "#003824", "on-primary-container": "#eeefff", "on-surface-variant": "#c3c6d7", "surface-container-high": "#222a3d" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "0.5rem", "margin": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin-lg": "1.5rem", "gutter": "1rem", "space-xl": "2rem", "gutter-sm": "0.75rem" }, "fontFamily": { "body-sm": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "label-md": ["Outfit"], "label-lg": ["Outfit"], "display-score-mobile": ["Outfit"], "headline-sm": ["Outfit"], "headline-lg": ["Outfit"], "body-md": ["Plus Jakarta Sans"], "display-score": ["Outfit"], "headline-md": ["Outfit"], "label-sm": ["Outfit"], "stat-mono": ["Outfit"] }, "fontSize": { "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "700" }], "display-score-mobile": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "display-score": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.06em", "fontWeight": "700" }], "stat-mono": ["18px", { "lineHeight": "22px", "letterSpacing": "0.02em", "fontWeight": "700" }] } } } }</script></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-16 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs"><button aria-label="Salir de Evaluación" class="w-11 h-11 -ml-space-xs flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">close</span></button><img alt="BowlingPro" class="h-7 w-auto object-contain shrink-0 hidden xs:block" src="https://lh3.googleusercontent.com/aida/AEtjO1UBJ9RXRHjOXyIN9_-NLOqpZbjHiEDthIxg2K6cGPyqGJn1Fv8tuDh0qNlhROa2WFHhylIZpQQjMmgIU1sEh2DUX6gAmsH-9x2ifPLNvWXtTnizrMwtvxFv-BtCZ23qe5m-bcFS3-96RlABYkk67aaLazsLFt6sEMItsLKqkgP70ISCaUhDCUsdUWXG2yrQNAd6DIBs-OfNHgMU80wL-WFTQupUKo4SNBLVLDIM5N99OSXEUQG4c3olvaFV"/><div class="flex flex-col"><span class="font-label-sm text-label-sm uppercase text-secondary font-bold tracking-wider">Evaluación Técnica</span><h1 class="font-headline-sm text-headline-sm font-bold text-on-surface truncate">Evaluación Técnica</h1></div></div><div class="flex items-center gap-space-sm shrink-0"><div class="flex items-center gap-1.5 bg-surface-container-high px-2.5 py-1 rounded-full"><span class="material-symbols-outlined text-secondary text-[16px]">timer</span><span class="font-stat-mono text-stat-mono text-on-surface tracking-tight">12:45</span></div><div class="bg-primary-container/20 text-primary font-label-md text-label-md px-2.5 py-1 rounded-full">Paso 3/5</div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/40 hidden sm:block" src="https://lh3.googleusercontent.com/aida/AEtjO1Ut22PNGAbzRm9btI_PXYkw3qqRTIx7WDV1ef83-K0HDcmVUsC2DamUU7MPKJQD7OnTbYocTWJdveXkiw-v9K9BQEPbjHnqf0SkjSF50MBAz2eAM53SVV5BULbC5H2WpWcBnaD2wPGGQqgx_wszHo_ZXnlMnK4SY_x0J68johlDfJ6_fFZsVjJfpswFHqPv4W-IsIZ5AwXiik25wbwtXZb3EKRp8FZ20pxPaIXBRfNChOXgGYxKKmiQI2zQ"/></div></div><div class="w-full h-1 bg-surface-container-low"><div class="h-full bg-secondary transition-all duration-300 w-[60%]"></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full pb-8 px-gutter">
+<!-- Status & Rule Banner -->
+<section class="mt-4 flex flex-col gap-2.5">
+<div class="flex items-center justify-between gap-2 bg-surface-container-high/70 backdrop-blur-md px-3.5 py-2 rounded-xl">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-secondary/15 text-secondary">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+</span>
+<span class="font-label-sm text-label-sm uppercase font-bold text-secondary tracking-widest">RN-01 · EXAMEN TEÓRICO OBLIGATORIO</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[16px]">schedule</span>
+<span class="font-stat-mono text-stat-mono text-on-surface text-xs tracking-tight" id="examTimer">08:45</span>
+</div>
+</div>
+<!-- Title & Certification Target -->
+<div class="flex flex-col bg-surface-container-low p-4 rounded-xl shadow-md">
+<div class="flex items-start justify-between gap-2 mb-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase font-bold text-primary tracking-wider">Módulo de Ascenso Técnico</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface mt-0.5">Certificación Nivel 2 ➔ Avanzado</h2>
+</div>
+<span class="bg-primary/10 text-primary font-label-sm text-label-sm px-2.5 py-1 rounded-full whitespace-nowrap">RF-10 · Eval</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+        Evaluación de lectura de aceite, axis tilt y ajuste de tablas para bowling de alto rendimiento.
+      </p>
+<!-- Progress Tracking Bar -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex justify-between items-center text-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Progreso: Pregunta 3 de 5</span>
+<span class="font-stat-mono text-stat-mono text-primary text-xs">60.0%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-500 rounded-full" style="width: 60%;"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Benchmark Requirement Card (RN-01 Class Diagram Binding) -->
+<section class="mt-3.5 bg-surface-container-low p-3.5 rounded-xl flex items-center justify-between gap-3 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container/30 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[22px]">assignment_turned_in</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Nota Mínima Requerida</span>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-sm text-headline-sm font-bold text-tertiary">80.0%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">(4/5 aciertos mínimos)</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Método Validación</span>
+<span class="font-stat-mono text-stat-mono text-xs text-primary-fixed-dim bg-surface-container-highest px-2 py-0.5 rounded mt-0.5 font-mono">validarCalificacion()</span>
+</div>
+</section>
+<!-- Question Sequence Pill Strip -->
+<section class="mt-3.5 flex items-center gap-2 overflow-x-auto pb-1">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high shrink-0 text-tertiary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="font-label-sm text-label-sm font-bold">P1: 100%</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high shrink-0 text-tertiary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="font-label-sm text-label-sm font-bold">P2: 100%</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-on-primary shrink-0 shadow-md">
+<span class="material-symbols-outlined text-[16px]">radio_button_checked</span>
+<span class="font-label-sm text-label-sm font-bold">P3: En Curso</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container shrink-0 text-on-surface-variant opacity-75">
+<span class="material-symbols-outlined text-[16px]">pending</span>
+<span class="font-label-sm text-label-sm font-bold">P4: Pendiente</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container shrink-0 text-on-surface-variant opacity-75">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-label-sm text-label-sm font-bold">P5: Final</span>
+</div>
+</section>
+<!-- Main Question Card Container -->
+<section class="mt-4 flex flex-col bg-surface-container-low rounded-xl p-4 shadow-xl">
+<!-- Category & Index Header -->
+<div class="flex items-center justify-between pb-2.5">
+<span class="inline-flex items-center gap-1.5 font-label-sm text-label-sm uppercase font-bold text-secondary tracking-wider">
+<span class="material-symbols-outlined text-[16px]">sports_score</span>
+        Pregunta #3 · Dinámica de Pista &amp; Ajuste (Axis Tilt)
+      </span>
+<span class="font-stat-mono text-stat-mono text-xs text-on-surface-variant">ID: EV-0943</span>
+</div>
+<!-- Question Prompt Body -->
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold leading-snug mt-1 mb-4">
+      ¿Cuál es la corrección biomecánica recomendada cuando la pista se seca rápidamente en el breakpoint y la bola impacta al pino 1 de lleno generando un tiro Brooklyn?
+    </h3>
+<!-- Interactive Technical Lane Diagram / Visual Aid -->
+<div class="w-full bg-surface-container-lowest p-3 rounded-lg flex items-center justify-between gap-3 mb-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[18px]">alt_route</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold text-on-surface uppercase">Lectura de Aceite Corto</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sobre-reacción en tablas 10-14. Desvío excesivo a izquierda.</span>
+</div>
+</div>
+<span class="font-stat-mono text-stat-mono text-xs text-secondary shrink-0">Tiro #3</span>
+</div>
+<!-- Options List (Athletic Radio Selectors) -->
+<form class="flex flex-col gap-2.5" id="evaluationForm">
+<!-- Option A (Active/Selected Option) -->
+<label class="cursor-pointer group flex items-start gap-3 p-3.5 rounded-xl bg-surface-container-high transition-all shadow-sm">
+<input checked="" class="hidden peer" name="technical_answer" type="radio" value="A"/>
+<div class="w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center shrink-0 mt-0.5 transition-colors peer-checked:bg-primary">
+<div class="w-2 h-2 rounded-full bg-on-primary"></div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-primary">Opción A</span>
+<span class="bg-primary/20 text-primary font-label-sm text-label-sm px-1.5 py-0.2 rounded font-medium">Recomendado</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-medium mt-0.5">
+            Mover los pies 2 a 3 tablas a la izquierda en el approach y mantener el objetivo en flechas para ingresar a mayor volumen de aceite.
+          </span>
+</div>
+</label>
+<!-- Option B -->
+<label class="cursor-pointer group flex items-start gap-3 p-3.5 rounded-xl bg-surface-container transition-all hover:bg-surface-container-high">
+<input class="hidden peer" name="technical_answer" type="radio" value="B"/>
+<div class="w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center shrink-0 mt-0.5 transition-colors peer-checked:bg-primary">
+<div class="w-2 h-2 rounded-full bg-on-primary hidden peer-checked:block"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface-variant">Opción B</span>
+<span class="font-body-md text-body-md text-on-surface font-normal mt-0.5">
+            Aumentar la velocidad de lanzamiento a 25 mph sacrificando el swing péndulo para retrasar el punto de quiebre mecánicamente.
+          </span>
+</div>
+</label>
+<!-- Option C -->
+<label class="cursor-pointer group flex items-start gap-3 p-3.5 rounded-xl bg-surface-container transition-all hover:bg-surface-container-high">
+<input class="hidden peer" name="technical_answer" type="radio" value="C"/>
+<div class="w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center shrink-0 mt-0.5 transition-colors peer-checked:bg-primary">
+<div class="w-2 h-2 rounded-full bg-on-primary hidden peer-checked:block"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface-variant">Opción C</span>
+<span class="font-body-md text-body-md text-on-surface font-normal mt-0.5">
+            Cambiar de bola a una con acabado mate abrasivo de grano 500 para aumentar la fricción temprana en la zona de cabezas.
+          </span>
+</div>
+</label>
+<!-- Option D -->
+<label class="cursor-pointer group flex items-start gap-3 p-3.5 rounded-xl bg-surface-container transition-all hover:bg-surface-container-high">
+<input class="hidden peer" name="technical_answer" type="radio" value="D"/>
+<div class="w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center shrink-0 mt-0.5 transition-colors peer-checked:bg-primary">
+<div class="w-2 h-2 rounded-full bg-on-primary hidden peer-checked:block"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface-variant">Opción D</span>
+<span class="font-body-md text-body-md text-on-surface font-normal mt-0.5">
+            Lanzar por la canal exterior directa con tiro recto plano sin rotación axial sobre la tabla 1.
+          </span>
+</div>
+</label>
+</form>
+<!-- Real-time Validation State Flag -->
+<div class="mt-3.5 pt-3 flex items-center justify-between text-xs text-on-surface-variant bg-surface-container-lowest/50 px-3 py-2 rounded-lg">
+<div class="flex items-center gap-1.5 text-tertiary">
+<span class="material-symbols-outlined text-[16px]">sync_saved_locally</span>
+<span class="font-label-sm text-label-sm font-semibold">Respuesta registrada en memoria local</span>
+</div>
+<span class="font-stat-mono text-stat-mono text-[11px] text-on-surface-variant/80">Sincronizado</span>
+</div>
+</section>
+<!-- Live Simulated Score & Qualification Benchmark Card (RN-01 Target) -->
+<section class="mt-4 bg-surface-container-high/60 backdrop-blur-sm p-4 rounded-xl shadow-md flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-secondary/15 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">analytics</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface">Proyección de Calificación RN-01</span>
+</div>
+<span class="font-stat-mono text-stat-mono text-xs text-tertiary font-bold bg-tertiary-container/30 px-2.5 py-0.5 rounded-full">
+        calificar(): En progreso
+      </span>
+</div>
+<!-- Projected Score Matrix Indicator -->
+<div class="grid grid-cols-2 gap-2.5">
+<div class="bg-surface-container-lowest p-3 rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Puntaje Consolidado</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-md text-headline-md font-extrabold text-on-surface">40.0%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ 100%</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary mt-1">2 de 2 aciertos previos</span>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Umbral de Aprobación</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-md text-headline-md font-extrabold text-secondary">80.0%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Mín.</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Restan 2 aciertos</span>
+</div>
+</div>
+<div class="flex items-start gap-2 bg-surface-container p-2.5 rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">info</span>
+<p class="font-body-sm text-body-sm text-xs leading-relaxed">
+        El jugador aprueba únicamente al obtener la calificación mínima de <strong class="text-on-surface font-semibold">80.0%</strong>. Si se aprueba, se desbloquearán las sesiones prácticas de Pista 3 (RN-01, RN-03).
+      </p>
+</div>
+</section>
+<!-- Technical Context Card / Visual Representation of Bowler Alignment -->
+<section class="mt-4 p-4 bg-surface-container-low rounded-xl flex items-center gap-3.5 shadow-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[28px]">sports</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase font-bold text-primary">Técnica Biomecánica Aplicada</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+        El desplazamiento lateral en el approach compensa el ángulo de entrada sin perder el timing de 5 pasos ni la velocidad del péndulo.
+      </span>
+</div>
+</section>
+<!-- Action Controls Navigation Area -->
+<section class="mt-6 flex flex-col gap-3">
+<div class="grid grid-cols-2 gap-3">
+<!-- Previous Button -->
+<button class="h-[52px] rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+<span>Anterior</span>
+</button>
+<!-- Next / Advance Button -->
+<button class="h-[52px] rounded-xl bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-1.5 shadow-lg shadow-primary-container/30 hover:opacity-95 active:scale-[0.99] transition-all" id="nextQuestionBtn" type="button">
+<span>Siguiente (4/5)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+<!-- Backend Contract Verification Note -->
+<div class="flex items-center justify-center gap-1.5 text-center mt-1 text-on-surface-variant/70">
+<span class="material-symbols-outlined text-[14px]">lock_reset</span>
+<span class="font-label-sm text-label-sm text-[11px]">
+        Validación en servidor mediante método <span class="font-mono text-primary font-semibold">calificar()</span>. Al finalizar se actualizará <span class="font-mono text-on-surface">ProgresoAprendizaje.estado</span>.
+      </span>
+</div>
+</section>
+</div>
+<script>
+  // Simple countdown timer emulation for exam compliance
+  (function() {
+    let secondsLeft = 8 * 60 + 45;
+    const timerElem = document.getElementById('examTimer');
+    
+    if (timerElem) {
+      const interval = setInterval(() => {
+        if (secondsLeft <= 0) {
+          clearInterval(interval);
+          return;
+        }
+        secondsLeft--;
+        const mins = Math.floor(secondsLeft / 60);
+        const secs = secondsLeft % 60;
+        timerElem.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      }, 1000);
+    }
+
+    // Dynamic selection styling micro-interaction
+    const form = document.getElementById('evaluationForm');
+    if (form) {
+      const labels = form.querySelectorAll('label');
+      form.addEventListener('change', (e) => {
+        labels.forEach(l => {
+          const radio = l.querySelector('input[type="radio"]');
+          const innerDot = l.querySelector('.peer-checked\\:bg-primary');
+          if (radio && radio.checked) {
+            l.classList.remove('bg-surface-container');
+            l.classList.add('bg-surface-container-high');
+          } else {
+            l.classList.remove('bg-surface-container-high');
+            l.classList.add('bg-surface-container');
+          }
+        });
+      });
+    }
+  })();
+</script></main></body></html>
