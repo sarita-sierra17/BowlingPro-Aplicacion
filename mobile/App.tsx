@@ -3,6 +3,7 @@ import { Outfit_400Regular, Outfit_500Medium, Outfit_600SemiBold, Outfit_700Bold
 import { PlusJakartaSans_400Regular, PlusJakartaSans_500Medium, PlusJakartaSans_600SemiBold, PlusJakartaSans_700Bold, useFonts as useJakarta } from '@expo-google-fonts/plus-jakarta-sans';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { APPROACH_CHAPTERS, INITIAL_ASSESSMENT, INITIAL_MODULES, type AssessmentQuestion, type LearningModule } from './src/content';
 import {
   Activity,
   ArrowRight,
@@ -29,6 +30,7 @@ import {
   Target,
   TrendingUp,
   Trophy,
+  X,
   UserRound,
   Users,
   type LucideIcon,
@@ -50,9 +52,11 @@ import {
 import { bestStrikeRun, getFrames, nextRollLimit, rollLabel, scoreGame } from './src/scoring';
 
 type Role = 'player' | 'coach' | 'admin';
-type Tab = 'home' | 'learn' | 'train' | 'match' | 'profile' | 'roster' | 'plans' | 'feedback' | 'content' | 'accounts' | 'audit' | 'leaderboard' | 'notifications';
+type Tab = 'home' | 'learn' | 'train' | 'match' | 'profile' | 'roster' | 'plans' | 'feedback' | 'content' | 'accounts' | 'audit' | 'leaderboard' | 'notifications' | 'lesson' | 'student' | 'content-editor' | 'assessment-editor';
 type MatchRecord = { id: string; date: string; score: number; mode: 'official' | 'practice'; rolls: number[] };
 type FeedbackRecord = { id: string; player: string; message: string; date: string };
+type TrainingPlan = { id: string; title: string; playerId: string; weeklySessions: number; progress: number; target: string };
+type AcademyLesson = { id: string; moduleId: string; title: string; detail: string; duration: string; icon: LucideIcon };
 
 const C = {
   bg: '#0B1326',
@@ -74,6 +78,7 @@ const C = {
 
 const STORE_KEY = 'bowlingpro-native-v1';
 const LOGIN_SECURITY_KEY = 'bowlingpro-login-security-v1';
+const SEED_COMPLETED_LESSONS = ['technique:stance', 'technique:approach', 'technique:release', 'technique:spare'];
 const lessonList = [
   { id: 'stance', title: 'Postura y agarre', detail: 'La base para un lanzamiento repetible', icon: Target, duration: '8 min' },
   { id: 'approach', title: 'Aproximación de 4 pasos', detail: 'Ritmo, equilibrio y sincronización', icon: Activity, duration: '12 min' },
@@ -82,6 +87,7 @@ const lessonList = [
   { id: 'line', title: 'Lectura de pista', detail: 'Encuentra tu línea de juego', icon: BarChart3, duration: '14 min' },
   { id: 'mental', title: 'Rutina de competencia', detail: 'Una rutina sólida antes de cada tiro', icon: Sparkles, duration: '7 min' },
 ];
+const featuredLesson: AcademyLesson = { id: 'technique:approach', moduleId: 'technique', title: 'Aproximación de 4 pasos', detail: 'Encuentra un ritmo constante entre el paso inicial, el péndulo y la suelta.', icon: Activity, duration: '12 min' };
 
 const assignedPlayers = [
   { id: 'mateo', name: 'Mateo Morales', level: 'Intermedio', average: 188, progress: 68, needsReview: true, initials: 'MM' },
@@ -97,15 +103,12 @@ const seedMatches: MatchRecord[] = [
   { id: 'm5', date: 'Vie, 13 jun', score: 168, mode: 'official', rolls: [] },
 ];
 
-const initialPublished = [true, true, false];
-const moduleTitles = ['Fundamentos del juego', 'Técnica de lanzamiento', 'Estrategia avanzada'];
-const quizQuestions = [
-  { question: '¿Cuántos pinos debes derribar en el primer tiro para lograr un strike?', choices: ['8 pinos', '9 pinos', 'Los 10 pinos'], correct: 2 },
-  { question: '¿Qué bonificación da un strike?', choices: ['El siguiente tiro', 'Los dos tiros siguientes', '10 puntos fijos'], correct: 1 },
-  { question: '¿Qué bonificación da un spare?', choices: ['El siguiente tiro', 'Los dos tiros siguientes', 'Ninguna'], correct: 0 },
-  { question: '¿Cuántos tiros puede incluir el décimo marco?', choices: ['2 como máximo', 'Siempre 2', 'Hasta 3 con bonificación', '10'], correct: 2 },
-  { question: '¿Qué significa un marco abierto?', choices: ['Strike en el primer tiro', 'Quedan pinos tras dos tiros', 'Spare en el segundo tiro'], correct: 1 },
+const INITIAL_PLANS: TrainingPlan[] = [
+  { id: 'plan-mateo', title: 'Consistencia y conversión', playerId: 'mateo', weeklySessions: 4, progress: 72, target: 'Elevar conversión de spares al 82%' },
+  { id: 'plan-lucia', title: 'Fundamentos de lanzamiento', playerId: 'lucia', weeklySessions: 3, progress: 48, target: 'Afirmar postura y aproximación' },
+  { id: 'plan-diego', title: 'Preparación competitiva', playerId: 'diego', weeklySessions: 5, progress: 90, target: 'Mantener promedio sobre 200' },
 ];
+
 const appTabs: Record<Role, { key: Tab; label: string; icon: LucideIcon }[]> = {
   player: [
     { key: 'home', label: 'Inicio', icon: House },
@@ -129,6 +132,11 @@ const appTabs: Record<Role, { key: Tab; label: string; icon: LucideIcon }[]> = {
 };
 
 const roleStartTab: Record<Role, Tab> = { player: 'home', coach: 'roster', admin: 'content' };
+
+function getModuleLessonId(module: LearningModule, index: number, title: string) {
+  const lessonId = lessonList.find((lesson) => lesson.title === title)?.id ?? String(index + 1);
+  return `${module.id}:${lessonId}`;
+}
 
 function Label({ children, style }: { children: ReactNode; style?: object }) {
   return <Text style={[styles.label, style]}>{children}</Text>;
@@ -342,16 +350,21 @@ function RegisterScreen({ onBack, onRegistered }: { onBack: () => void; onRegist
   );
 }
 
-function PlayerHome({ history, lessonCount, assessmentScore, challengeProgress, onStartMatch, onNavigate }: {
-  history: MatchRecord[]; lessonCount: number; assessmentScore: number | null; challengeProgress: number; onStartMatch: () => void; onNavigate: (tab: Tab) => void;
+function PlayerHome({ history, lessonCount, assessmentScore, challengeProgress, modules, onStartMatch, onNavigate }: {
+  history: MatchRecord[]; lessonCount: string[]; assessmentScore: number | null; challengeProgress: number; modules: LearningModule[]; onStartMatch: () => void; onNavigate: (tab: Tab) => void;
 }) {
   const avg = history.length ? Math.round(history.reduce((sum, game) => sum + game.score, 0) / history.length) : 0;
-  const advanced = lessonCount >= lessonList.length && assessmentScore !== null && assessmentScore >= 80;
-  const levelProgress = advanced ? 100 : Math.min(68 + Math.max(0, lessonCount - 4) * 10, 98);
+  const intermediateModules = modules.filter((module) => module.level === 'Intermedio' && module.published);
+  const requiredLessons = intermediateModules.reduce((total, module) => total + module.lessons.length, 0) || lessonList.length;
+  const completedLevelLessons = intermediateModules.reduce((total, module) => total + module.lessons.reduce((count, title, index) => count + (lessonCount.includes(getModuleLessonId(module, index, title)) ? 1 : 0), 0), 0);
+  const advanced = completedLevelLessons >= requiredLessons && assessmentScore !== null && assessmentScore >= 80;
+  const levelProgress = advanced ? 100 : Math.min(68 + Math.max(0, completedLevelLessons - Math.max(0, requiredLessons - 2)) * 10, 98);
   const levelMessage = advanced
     ? 'Requisitos completados. El nivel avanzado está desbloqueado.'
-    : lessonCount < lessonList.length
-      ? `Completa ${lessonList.length - lessonCount} lecciones y aprueba la evaluación con 80% para avanzar.`
+    : intermediateModules.length === 0
+      ? 'El módulo intermedio no está publicado todavía.'
+      : completedLevelLessons < requiredLessons
+        ? `Completa ${requiredLessons - completedLevelLessons} lecciones y aprueba la evaluación con 80% para avanzar.`
       : 'Lecciones completadas. Aprueba la evaluación con 80% para desbloquear el nivel avanzado.';
   return (
     <View style={styles.screenStack}>
@@ -426,22 +439,41 @@ function NotificationsScreen({ role, onBack }: { role: Role; onBack: () => void 
   );
 }
 
-function AcademyScreen({ completed, assessmentScore, onCompleteLesson, onAssess }: { completed: string[]; assessmentScore: number | null; onCompleteLesson: (id: string) => void; onAssess: (score: number) => void }) {
+function AcademyScreen({ completed, assessmentScore, questions, modules, onAssess, onOpenLesson }: { completed: string[]; assessmentScore: number | null; questions: AssessmentQuestion[]; modules: LearningModule[]; onAssess: (score: number) => void; onOpenLesson: (lesson: AcademyLesson) => void }) {
   const [level, setLevel] = useState<'Principiante' | 'Intermedio' | 'Avanzado'>('Intermedio');
   const [query, setQuery] = useState('');
   const [quizOpen, setQuizOpen] = useState(false);
   const [quizIndex, setQuizIndex] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState(0);
-  const locked = completed.length < lessonList.length || assessmentScore === null || assessmentScore < 80;
+  const visibleModules = modules.filter((module) => module.published);
+  if (visibleModules.length === 0) return <View style={styles.screenStack}><View><Pill tone="amber">ACADEMIA BOWLINGPRO</Pill><Text style={styles.pageTitle}>Ruta de maestría</Text></View><Card><Text style={styles.cardTitle}>No hay módulos publicados</Text><Text style={styles.bodyMuted}>Vuelve cuando el administrador publique contenido de aprendizaje.</Text></Card></View>;
+  const activeModules = visibleModules.filter((module) => module.level === level);
+  const activeModule = activeModules[0] ?? visibleModules[0];
+  const moduleLessons = activeModules.flatMap((module) => module.lessons.map((title, index) => {
+    const catalogLesson = lessonList.find((lesson) => lesson.title === title);
+    return {
+      id: getModuleLessonId(module, index, title),
+      moduleId: module.id,
+      title,
+      detail: catalogLesson?.detail ?? 'Lección de este módulo formativo',
+      duration: catalogLesson?.duration ?? '8 min',
+      icon: catalogLesson?.icon ?? BookOpen,
+      moduleTitle: module.title,
+    };
+  }));
+  const intermediateModules = visibleModules.filter((module) => module.level === 'Intermedio');
+  const intermediateCount = intermediateModules.reduce((total, module) => total + module.lessons.length, 0) || lessonList.length;
+  const completedIntermediateCount = intermediateModules.reduce((total, module) => total + module.lessons.reduce((count, title, index) => count + (completed.includes(getModuleLessonId(module, index, title)) ? 1 : 0), 0), 0);
+  const locked = intermediateModules.length === 0 || completedIntermediateCount < intermediateCount || assessmentScore === null || assessmentScore < 80;
   const answerQuestion = (answer: number) => {
-    const question = quizQuestions[quizIndex];
+    const question = questions[quizIndex];
     const correct = correctAnswers + (answer === question.correct ? 1 : 0);
-    if (quizIndex < quizQuestions.length - 1) {
+    if (quizIndex < questions.length - 1) {
       setCorrectAnswers(correct);
       setQuizIndex((current) => current + 1);
       return;
     }
-    const score = correct * 20;
+    const score = Math.round(correct / questions.length * 100);
     onAssess(score);
     setQuizOpen(false);
     setQuizIndex(0);
@@ -459,21 +491,52 @@ function AcademyScreen({ completed, assessmentScore, onCompleteLesson, onAssess 
     <View style={styles.screenStack}>
       <View><Pill tone="amber">ACADEMIA BOWLINGPRO</Pill><Text style={styles.pageTitle}>Ruta de maestría</Text><Text style={styles.bodyMuted}>Aprende a tu ritmo. Cada nivel se gana en la pista.</Text></View>
       <View style={styles.levelSelector}>{(['Principiante', 'Intermedio', 'Avanzado'] as const).map((item, index) => {
-        const isLocked = index === 2 && locked;
-        return <Pressable key={item} disabled={isLocked} onPress={() => setLevel(item)} style={[styles.levelOption, level === item && styles.levelOptionActive, isLocked && styles.levelOptionLocked]}><View style={styles.levelOptionTop}><Text style={[styles.levelOptionIndex, level === item && { color: C.amber }]}>0{index + 1}</Text>{isLocked ? <LockKeyhole size={13} color={C.dim} /> : index === 0 ? <CheckCircle2 size={14} color={C.mint} /> : null}</View><Text numberOfLines={1} style={[styles.levelOptionName, level === item && { color: C.text }]}>{item}</Text><Meter progress={index === 0 ? 100 : index === 1 ? Math.min(68 + (completed.length - 4) * 10, 100) : locked ? 0 : 100} color={index === 0 ? C.mint : C.amber} /></Pressable>;
+        const levelModule = visibleModules.find((module) => module.level === item);
+        const isLocked = (index === 2 && locked) || !levelModule;
+        const completedCount = levelModule?.lessons.reduce((count, title, lessonIndex) => count + (completed.includes(getModuleLessonId(levelModule, lessonIndex, title)) ? 1 : 0), 0) ?? 0;
+        const progress = index === 0 ? 100 : index === 1 ? Math.round(completedCount / Math.max(1, levelModule?.lessons.length ?? 1) * 100) : locked ? 0 : 100;
+        return <Pressable key={item} disabled={isLocked} onPress={() => setLevel(item)} style={[styles.levelOption, level === item && styles.levelOptionActive, isLocked && styles.levelOptionLocked]}><View style={styles.levelOptionTop}><Text style={[styles.levelOptionIndex, level === item && { color: C.amber }]}>0{index + 1}</Text>{isLocked ? <LockKeyhole size={13} color={C.dim} /> : index === 0 ? <CheckCircle2 size={14} color={C.mint} /> : null}</View><Text numberOfLines={1} style={[styles.levelOptionName, level === item && { color: C.text }]}>{item}</Text><Meter progress={progress} color={index === 0 ? C.mint : C.amber} /></Pressable>;
       })}</View>
-      <Card style={styles.recommendedCard}><View style={styles.recommendedTop}><Pill tone="amber">RECOMENDADO · 12 MIN</Pill><BookOpen size={19} color={C.amber} /></View><Text style={styles.cardTitleLarge}>Aproximación de 4 pasos</Text><Text style={styles.bodyMuted}>Encuentra un ritmo constante entre el paso inicial, el péndulo y la suelta.</Text><View style={styles.lessonVisual}><View style={styles.laneStripe} /><View style={styles.laneStripe} /><View style={styles.laneStripe} /><View style={styles.laneBall}><View style={styles.laneHole} /></View><View style={styles.lanePins}><Text style={styles.lanePinText}>I</Text><Text style={styles.lanePinText}>I</Text><Text style={styles.lanePinText}>I</Text></View><View style={styles.lessonPlay}><ArrowRight size={19} color="#FFFFFF" /></View></View><Text style={styles.smallText}>NIVEL INTERMEDIO · TÉCNICA</Text></Card>
-      <View><Heading title="Lecciones" action={`${completed.length}/${lessonList.length}`} /><View style={styles.lessonList}>{lessonList.map((lesson, index) => {
+      <Pressable onPress={() => onOpenLesson(featuredLesson)}><Card style={styles.recommendedCard}><View style={styles.recommendedTop}><Pill tone="amber">RECOMENDADO · 12 MIN</Pill><BookOpen size={19} color={C.amber} /></View><Text style={styles.cardTitleLarge}>Aproximación de 4 pasos</Text><Text style={styles.bodyMuted}>Encuentra un ritmo constante entre el paso inicial, el péndulo y la suelta.</Text><View style={styles.lessonVisual}><View style={styles.laneStripe} /><View style={styles.laneStripe} /><View style={styles.laneStripe} /><View style={styles.laneBall}><View style={styles.laneHole} /></View><View style={styles.lanePins}><Text style={styles.lanePinText}>I</Text><Text style={styles.lanePinText}>I</Text><Text style={styles.lanePinText}>I</Text></View><View style={styles.lessonPlay}><ArrowRight size={19} color="#FFFFFF" /></View></View><View style={styles.recommendedFooter}><Text style={styles.smallText}>NIVEL INTERMEDIO · TÉCNICA</Text><Text style={styles.actionText}>Abrir lección  →</Text></View></Card></Pressable>
+      <View><Heading title={`Lecciones · ${activeModules.length > 1 ? level : activeModule.title}`} action={`${moduleLessons.filter((lesson) => completed.includes(lesson.id)).length}/${moduleLessons.length}`} /><View style={styles.lessonList}>{moduleLessons.map((lesson, index) => {
         const done = completed.includes(lesson.id);
         const Glyph = lesson.icon;
-        return <Card key={lesson.id} style={styles.lessonRow}><View style={[styles.lessonIcon, done && styles.lessonIconDone]}><Glyph size={19} color={done ? C.mint : C.blue} /></View><View style={styles.flex}><Text style={styles.cardTitle}>{lesson.title}</Text><Text style={styles.smallText}>{lesson.detail}</Text><Text style={styles.lessonDuration}>{lesson.duration} · {index < 4 ? 'Técnica' : 'Estrategia'}</Text></View><Pressable accessibilityLabel={done ? 'Lección completada' : `Completar ${lesson.title}`} onPress={() => onCompleteLesson(lesson.id)} style={styles.checkButton}>{done ? <CheckCircle2 size={21} color={C.mint} /> : <Plus size={19} color={C.muted} />}</Pressable></Card>;
+        return <Card key={lesson.id} style={styles.lessonRow}><View style={[styles.lessonIcon, done && styles.lessonIconDone]}><Glyph size={19} color={done ? C.mint : C.blue} /></View><View style={styles.flex}><Text style={styles.cardTitle}>{lesson.title}</Text><Text style={styles.smallText}>{lesson.detail}</Text><Text style={styles.lessonDuration}>{lesson.duration} · {activeModule.level}</Text></View><Pressable accessibilityLabel={done ? `Repasar ${lesson.title}` : `Abrir ${lesson.title}`} onPress={() => onOpenLesson(lesson)} style={styles.checkButton}>{done ? <CheckCircle2 size={21} color={C.mint} /> : <ArrowRight size={19} color={C.muted} />}</Pressable></Card>;
       })}</View></View>
       <Card style={styles.assessmentCard}>
         <View style={styles.challengeTop}><View style={styles.assessmentIcon}><Medal size={19} color={C.amber} /></View><View style={styles.flex}><Label>EVALUACIÓN DE NIVEL</Label><Text style={styles.cardTitle}>Avanza a avanzado</Text></View>{assessmentScore !== null && <Pill tone={assessmentScore >= 80 ? 'mint' : 'amber'}>{assessmentScore}%</Pill>}</View>
-        {quizOpen ? <View style={styles.quizPanel}><Text style={styles.smallText}>PREGUNTA {quizIndex + 1} DE {quizQuestions.length}</Text><Meter progress={(quizIndex + 1) / quizQuestions.length * 100} color={C.amber} /><Text style={styles.quizQuestion}>{quizQuestions[quizIndex].question}</Text>{quizQuestions[quizIndex].choices.map((choice, index) => <Pressable key={choice} onPress={() => answerQuestion(index)} style={({ pressed }) => [styles.quizChoice, pressed && styles.pressed]}><Text style={styles.quizChoiceText}>{choice}</Text><ChevronRight size={15} color={C.dim} /></Pressable>)}</View> : <><Text style={styles.bodyMuted}>Completa todas las lecciones y obtén al menos 80%. El siguiente nivel permanece bloqueado hasta cumplir ambas condiciones.</Text><ActionButton label={completed.length < lessonList.length ? `Completa ${lessonList.length - completed.length} lecciones primero` : assessmentScore !== null && assessmentScore >= 80 ? 'Evaluación aprobada' : 'Presentar evaluación'} icon={assessmentScore !== null && assessmentScore >= 80 ? Check : LockKeyhole} variant="secondary" disabled={completed.length < lessonList.length || (assessmentScore !== null && assessmentScore >= 80)} onPress={() => setQuizOpen(true)} style={{ marginTop: 4 }} /></>}
+        {quizOpen ? <View style={styles.quizPanel}><Text style={styles.smallText}>PREGUNTA {quizIndex + 1} DE {questions.length}</Text><Meter progress={(quizIndex + 1) / questions.length * 100} color={C.amber} /><Text style={styles.quizQuestion}>{questions[quizIndex].question}</Text>{questions[quizIndex].choices.map((choice, index) => <Pressable key={choice} onPress={() => answerQuestion(index)} style={({ pressed }) => [styles.quizChoice, pressed && styles.pressed]}><Text style={styles.quizChoiceText}>{choice}</Text><ChevronRight size={15} color={C.dim} /></Pressable>)}</View> : <><Text style={styles.bodyMuted}>Completa todas las lecciones del nivel intermedio y obtén al menos 80%. El nivel avanzado permanece bloqueado hasta cumplir ambas condiciones.</Text><ActionButton label={completedIntermediateCount < intermediateCount ? `Completa ${intermediateCount - completedIntermediateCount} lecciones primero` : assessmentScore !== null && assessmentScore >= 80 ? 'Evaluación aprobada' : 'Presentar evaluación'} icon={assessmentScore !== null && assessmentScore >= 80 ? Check : LockKeyhole} variant="secondary" disabled={locked || (assessmentScore !== null && assessmentScore >= 80)} onPress={() => setQuizOpen(true)} style={{ marginTop: 4 }} /></>}
       </Card>
       <View><Heading title="Glosario de bowling" /><View style={styles.searchBar}><Search size={17} color={C.dim} /><TextInput value={query} onChangeText={setQuery} placeholder="Buscar un término" placeholderTextColor={C.dim} style={styles.searchInput} /></View><Card style={{ paddingVertical: 3 }}>{terms.map(([term, detail]) => <View key={term} style={styles.glossaryRow}><Text style={styles.glossaryTerm}>{term}</Text><Text style={styles.bodyMuted}>{detail}</Text></View>)}</Card></View>
       <Card><View style={styles.challengeTop}><CircleHelp size={20} color={C.blue} /><Text style={[styles.cardTitle, styles.flex]}>Reglas esenciales</Text></View><Text style={styles.bodyMuted}>Una partida tiene 10 marcos. El strike suma los dos tiros siguientes; el spare, el siguiente. El décimo marco puede tener hasta tres tiros para resolver bonificaciones.</Text></Card>
+    </View>
+  );
+}
+
+function LessonViewer({ completed, lesson, onComplete, onBack }: { completed: string[]; lesson: AcademyLesson; onComplete: () => void; onBack: () => void }) {
+  const [chapterIndex, setChapterIndex] = useState(0);
+  const chapters = lesson.id === 'technique:approach' ? APPROACH_CHAPTERS : [
+    { title: 'Objetivo', body: `${lesson.detail}. Familiarízate con la técnica y define una meta clara antes de empezar.`, cue: 'Empieza con control y una rutina constante.' },
+    { title: 'Práctica', body: `Repite ${lesson.title.toLowerCase()} en series cortas. Mantén la postura, respira entre intentos y anota qué ajuste te ayuda.`, cue: 'Prioriza la repetición consistente sobre la potencia.' },
+    { title: 'Revisión', body: 'Revisa tus resultados y ajusta un solo aspecto de la técnica cada vez. Pide feedback si el resultado cambia entre intentos.', cue: 'Observa, ajusta y vuelve a intentarlo.' },
+  ];
+  const chapter = chapters[chapterIndex];
+  const isComplete = completed.includes(lesson.id);
+  const finishLesson = () => {
+    if (chapterIndex < chapters.length - 1) return;
+    onComplete();
+    Alert.alert('Lección completada', 'La aproximación de 4 pasos quedó guardada en tu progreso.');
+  };
+  return (
+    <View style={styles.screenStack}>
+      <Pressable onPress={onBack} style={styles.backLink}><Text style={styles.actionText}>‹  Volver a la academia</Text></Pressable>
+      <View><Pill tone="amber">LECCIÓN GUIADA · {lesson.duration.toUpperCase()}</Pill><Text style={styles.pageTitle}>{lesson.title}</Text><Text style={styles.bodyMuted}>{lesson.detail}</Text></View>
+      <View style={styles.lessonPlayerVisual}><View style={styles.lessonLaneCenter}><View style={styles.lessonLaneLine} /><View style={styles.lessonFootsteps}><View style={styles.lessonFootstep}><Text style={styles.lessonFootstepText}>1</Text></View><View style={styles.lessonFootstep}><Text style={styles.lessonFootstepText}>2</Text></View><View style={styles.lessonFootstep}><Text style={styles.lessonFootstepText}>3</Text></View><View style={[styles.lessonFootstep, styles.lessonFootstepActive]}><Text style={[styles.lessonFootstepText, { color: C.bg }]}>4</Text></View></View><View style={styles.lessonArrow}><ArrowRight size={19} color={C.amber} /></View></View><View style={styles.lessonVisualCaption}><Text style={styles.lessonChapterBadge}>{String(chapterIndex + 1).padStart(2, '0')}</Text><Text style={styles.smallText}>SECUENCIA DE APROXIMACIÓN</Text></View></View>
+      <View style={styles.chapterProgress}>{chapters.map((item, index) => <Pressable key={item.title} accessibilityLabel={`Capítulo ${index + 1}: ${item.title}`} onPress={() => setChapterIndex(index)} style={[styles.chapterDot, index === chapterIndex && styles.chapterDotActive, index < chapterIndex && styles.chapterDotDone]} />)}</View>
+      <Card style={styles.chapterCard}><View style={styles.challengeTop}><View style={styles.chapterNumber}><Text style={styles.chapterNumberText}>{chapterIndex + 1}</Text></View><View style={styles.flex}><Label>CAPÍTULO {chapterIndex + 1} DE {chapters.length}</Label><Text style={styles.cardTitleLarge}>{chapter.title}</Text></View><Pill tone="neutral">TÉCNICA</Pill></View><Text style={styles.chapterBody}>{chapter.body}</Text><View style={styles.lessonCue}><Target size={17} color={C.amber} /><Text style={styles.lessonCueText}>{chapter.cue}</Text></View></Card>
+      <View style={styles.chapterControls}><ActionButton label="Anterior" icon={ChevronRight} variant="secondary" disabled={chapterIndex === 0} onPress={() => setChapterIndex((index) => Math.max(0, index - 1))} style={styles.chapterControlButton} /><ActionButton label={chapterIndex === chapters.length - 1 ? 'Finalizar' : 'Siguiente'} icon={ArrowRight} onPress={() => chapterIndex === chapters.length - 1 ? finishLesson() : setChapterIndex((index) => Math.min(chapters.length - 1, index + 1))} style={styles.chapterControlButton} /></View>
+      <ActionButton label={isComplete ? 'Lección completada' : chapterIndex < chapters.length - 1 ? 'Continúa para completar' : 'Marcar lección como completada'} icon={isComplete ? CheckCircle2 : Check} variant={isComplete ? 'secondary' : 'primary'} disabled={isComplete || chapterIndex < chapters.length - 1} onPress={finishLesson} />
+      <Text style={styles.smallText}>Consejo: practica a velocidad cómoda antes de aumentar la potencia.</Text>
     </View>
   );
 }
@@ -544,7 +607,7 @@ function ProfileScreen({ role, history, completedCount, onRoleChange, onLogOut }
   );
 }
 
-function CoachRoster({ onOpenFeedback }: { onOpenFeedback: () => void }) {
+function CoachRoster({ onOpenFeedback, onOpenStudent }: { onOpenFeedback: (id: string) => void; onOpenStudent: (id: string) => void }) {
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState<'Todos' | 'Revisión'>('Todos');
   const visible = assignedPlayers.filter((person) => person.name.toLowerCase().includes(query.toLowerCase()) && (filter === 'Todos' || person.needsReview));
@@ -554,30 +617,61 @@ function CoachRoster({ onOpenFeedback }: { onOpenFeedback: () => void }) {
       <View style={styles.coachMetrics}><View style={styles.coachMetric}><Text style={styles.coachMetricValue}>03</Text><Text style={styles.smallText}>JUGADORES</Text></View><View style={styles.coachMetric}><Text style={[styles.coachMetricValue, { color: C.amber }]}>02</Text><Text style={styles.smallText}>POR REVISAR</Text></View><View style={styles.coachMetric}><Text style={[styles.coachMetricValue, { color: C.mint }]}>01</Text><Text style={styles.smallText}>PLAN AL DÍA</Text></View></View>
       <View style={styles.searchBar}><Search size={17} color={C.dim} /><TextInput value={query} onChangeText={setQuery} placeholder="Buscar jugador asignado" placeholderTextColor={C.dim} style={styles.searchInput} /></View>
       <View style={styles.segmentRow}>{(['Todos', 'Revisión'] as const).map((item) => <Pressable key={item} onPress={() => setFilter(item)} style={[styles.segment, filter === item && styles.segmentActive]}><Text style={[styles.segmentText, filter === item && styles.segmentTextActive]}>{item}</Text></Pressable>)}</View>
-      <View style={styles.screenStackTight}>{visible.map((person) => <Card key={person.id} style={styles.athleteCard}><View style={styles.athleteTop}><View style={styles.coachInitials}><Text style={styles.coachInitialsText}>{person.initials}</Text></View><View style={styles.flex}><Text style={styles.cardTitle}>{person.name}</Text><Text style={styles.smallText}>{person.level} · {person.average} promedio</Text></View>{person.needsReview && <View style={styles.reviewDot} />}</View><View style={styles.athleteProgress}><Text style={styles.smallText}>Progreso formativo</Text><Text style={styles.athleteProgressValue}>{person.progress}%</Text></View><Meter progress={person.progress} color={person.needsReview ? C.amber : C.mint} /><View style={styles.athleteActions}><ActionButton label="Ver progreso" variant="secondary" onPress={() => Alert.alert(person.name, `Jugador de tu grupo asignado · promedio ${person.average} · nivel ${person.level}.`)} style={styles.smallButton} /><ActionButton label="Dar feedback" icon={MessageCircle} onPress={onOpenFeedback} style={styles.smallButton} /></View></Card>)}</View>
+      <View style={styles.screenStackTight}>{visible.map((person) => <Card key={person.id} style={styles.athleteCard}><View style={styles.athleteTop}><View style={styles.coachInitials}><Text style={styles.coachInitialsText}>{person.initials}</Text></View><View style={styles.flex}><Text style={styles.cardTitle}>{person.name}</Text><Text style={styles.smallText}>{person.level} · {person.average} promedio</Text></View>{person.needsReview && <View style={styles.reviewDot} />}</View><View style={styles.athleteProgress}><Text style={styles.smallText}>Progreso formativo</Text><Text style={styles.athleteProgressValue}>{person.progress}%</Text></View><Meter progress={person.progress} color={person.needsReview ? C.amber : C.mint} /><View style={styles.athleteActions}><ActionButton label="Ver progreso" variant="secondary" onPress={() => onOpenStudent(person.id)} style={styles.smallButton} /><ActionButton label="Dar feedback" icon={MessageCircle} onPress={() => onOpenFeedback(person.id)} style={styles.smallButton} /></View></Card>)}</View>
       <View style={styles.ruleHint}><ShieldCheck size={15} color={C.mint} /><Text style={styles.smallText}>Solo se muestran jugadores de tu grupo asignado.</Text></View>
     </View>
   );
 }
 
-function CoachPlans({ onAssign }: { onAssign: () => void }) {
-  const [activePlan, setActivePlan] = useState(0);
-  const plans = [
-    { title: 'Consistencia y conversión', detail: 'Mateo Morales · 4 sesiones / semana', progress: 72, target: 'Elevar conversión de spares al 82%' },
-    { title: 'Fundamentos de lanzamiento', detail: 'Lucía Herrera · 3 sesiones / semana', progress: 48, target: 'Afirmar postura y aproximación' },
-    { title: 'Preparación competitiva', detail: 'Diego Salas · 5 sesiones / semana', progress: 90, target: 'Mantener promedio sobre 200' },
-  ];
+function StudentDetail({ student, history, onBack, onFeedback, onPlan }: { student: typeof assignedPlayers[number]; history: MatchRecord[]; onBack: () => void; onFeedback: () => void; onPlan: () => void }) {
+  const sampleScores = student.id === 'mateo' ? history.slice(0, 5).map((game) => game.score) : student.id === 'lucia' ? [126, 138, 142, 147, 142] : [195, 201, 207, 212, 207];
+  const games = student.id === 'mateo' ? history.slice(0, 5) : sampleScores.map((score, index) => ({ id: `${student.id}-${index}`, date: ['Hoy', 'Ayer', 'Lun', 'Dom', 'Vie'][index], score, mode: 'official' as const, rolls: [] }));
+  const best = Math.max(student.average, ...sampleScores);
   return (
     <View style={styles.screenStack}>
-      <View style={styles.plansTitleRow}><View><Pill tone="amber">RF-15 · RF-18</Pill><Text style={styles.pageTitle}>Planes</Text></View><Pressable onPress={() => Alert.alert('Nuevo plan', 'La edición detallada de planes estará disponible cuando se conecte el backend.')} style={styles.addButton}><Plus size={18} color="#FFFFFF" /></Pressable></View>
-      {plans.map((plan, index) => <Pressable key={plan.title} onPress={() => setActivePlan(index)}><Card style={[styles.planCard, activePlan === index && styles.planCardSelected]}><View style={styles.planTop}><View style={styles.flex}><Text style={styles.cardTitleLarge}>{plan.title}</Text><Text style={styles.smallText}>{plan.detail}</Text></View><ChevronRight size={17} color={activePlan === index ? C.amber : C.dim} /></View><View style={styles.planTarget}><Target size={15} color={C.amber} /><Text style={styles.planTargetText}>{plan.target}</Text></View><View style={styles.athleteProgress}><Text style={styles.smallText}>Cumplimiento semanal</Text><Text style={styles.athleteProgressValue}>{plan.progress}%</Text></View><Meter progress={plan.progress} color={activePlan === index ? C.amber : C.blue} /></Card></Pressable>)}
-      <Card><Heading title="Banco de ejercicios" /><View style={styles.bankRow}><Target size={17} color={C.blue} /><View style={styles.flex}><Text style={styles.cardTitle}>Tiros a la flecha 2</Text><Text style={styles.smallText}>Precisión · 3 series de 5 tiros</Text></View><Plus size={17} color={C.muted} /></View><View style={styles.bankRow}><Activity size={17} color={C.mint} /><View style={styles.flex}><Text style={styles.cardTitle}>Suelta sin tensión</Text><Text style={styles.smallText}>Técnica · 12 lanzamientos</Text></View><Plus size={17} color={C.muted} /></View></Card>
-      <ActionButton label="Asignar plan seleccionado" icon={Check} onPress={onAssign} />
+      <Pressable onPress={onBack} style={styles.backLink}><Text style={styles.actionText}>‹  Volver al equipo</Text></Pressable>
+      <Card style={styles.profileCard}><View style={styles.profileTop}><View style={styles.coachInitials}><Text style={styles.coachInitialsText}>{student.initials}</Text></View><View style={styles.flex}><Pill tone="amber">{student.level.toUpperCase()}</Pill><Text style={styles.profileName}>{student.name}</Text><Text style={styles.bodyMuted}>Grupo Élite Vallesur · Lanzador diestro</Text></View></View><View style={styles.profileStats}><View><Text style={styles.profileStatValue}>{student.average}</Text><Text style={styles.smallText}>PROMEDIO</Text></View><View><Text style={styles.profileStatValue}>{best}</Text><Text style={styles.smallText}>MEJOR JUEGO</Text></View><View><Text style={styles.profileStatValue}>{student.progress}%</Text><Text style={styles.smallText}>PROGRESO</Text></View></View></Card>
+      <View><Heading title="Rendimiento" /><Card style={styles.chartCard}><View style={styles.chartTop}><View><Label>ÚLTIMAS 5 PARTIDAS</Label><Text style={styles.chartAverage}>{student.average} <Text style={styles.smallText}>promedio del grupo</Text></Text></View><View style={styles.trendBadge}><TrendingUp size={14} color={C.mint} /><Text style={styles.trendText}>estable</Text></View></View><View style={styles.barChart}>{sampleScores.map((score, index) => <View key={`${score}-${index}`} style={styles.barColumn}><Text style={styles.barValue}>{score}</Text><View style={[styles.chartBar, { height: `${Math.max(18, Math.round(score / 2.5))}%` }]} /><Text style={styles.barDate}>{index === 0 ? 'Hoy' : `P${index + 1}`}</Text></View>)}</View></Card></View>
+      <View><Heading title="Historial reciente" /><Card style={{ paddingVertical: 2 }}>{games.map((game) => <View key={game.id} style={styles.historyRow}><View style={styles.historyIcon}><Trophy size={16} color={C.amber} /></View><View style={styles.flex}><Text style={styles.cardTitle}>{game.date}</Text><Text style={styles.smallText}>Juego oficial</Text></View><Text style={styles.historyScore}>{game.score}</Text></View>)}</Card></View>
+      <Card><View style={styles.challengeTop}><View style={styles.assessmentIcon}><Target size={19} color={C.amber} /></View><View style={styles.flex}><Label>FOCO TÉCNICO</Label><Text style={styles.cardTitle}>Conversión de spares</Text></View><Pill tone="amber">REVISAR</Pill></View><Text style={styles.bodyMuted}>Define el siguiente objetivo del alumno con base en su rendimiento reciente y sus partidas registradas.</Text></Card>
+      <View style={styles.chapterControls}><ActionButton label="Asignar plan" icon={ClipboardList} variant="secondary" onPress={onPlan} style={styles.chapterControlButton} /><ActionButton label="Dar feedback" icon={MessageCircle} onPress={onFeedback} style={styles.chapterControlButton} /></View>
     </View>
   );
 }
 
-function CoachFeedback({ feedback, onSend }: { feedback: FeedbackRecord[]; onSend: (message: string) => void }) {
+function CoachPlans({ plans, studentId, onSavePlan, onAssign }: { plans: TrainingPlan[]; studentId: string; onSavePlan: (plan: TrainingPlan) => void; onAssign: (plan: TrainingPlan) => void }) {
+  const [activePlanId, setActivePlanId] = useState(plans[0]?.id ?? '');
+  const [draftPlan, setDraftPlan] = useState<TrainingPlan | null>(null);
+  const activePlan = plans.find((plan) => plan.id === activePlanId) ?? plans[0];
+  const assignedStudent = (playerId: string) => assignedPlayers.find((player) => player.id === playerId)?.name ?? 'Sin asignar';
+  const editPlan = (plan: TrainingPlan) => { setActivePlanId(plan.id); setDraftPlan({ ...plan }); };
+  const newPlan = () => {
+    const id = `plan-${Date.now()}`;
+    setActivePlanId(id);
+    setDraftPlan({ id, title: '', playerId: studentId, weeklySessions: 3, progress: 0, target: '' });
+  };
+  const savePlan = () => {
+    if (!draftPlan?.title.trim() || !draftPlan.target.trim() || draftPlan.weeklySessions < 1) {
+      Alert.alert('Completa el plan', 'Indica nombre, objetivo y al menos una sesión semanal.');
+      return;
+    }
+    const saved = { ...draftPlan, title: draftPlan.title.trim(), target: draftPlan.target.trim() };
+    onSavePlan(saved);
+    setActivePlanId(saved.id);
+    setDraftPlan(null);
+  };
+  return (
+    <View style={styles.screenStack}>
+      <View style={styles.plansTitleRow}><View><Pill tone="amber">RF-15 · RF-18</Pill><Text style={styles.pageTitle}>Planes</Text></View><Pressable accessibilityLabel="Crear plan" onPress={newPlan} style={styles.addButton}><Plus size={18} color="#FFFFFF" /></Pressable></View>
+      {plans.map((plan) => <Card key={plan.id} style={[styles.planCard, activePlan?.id === plan.id && styles.planCardSelected]}><View style={styles.planTop}><View style={styles.flex}><Text style={styles.cardTitleLarge}>{plan.title}</Text><Text style={styles.smallText}>{assignedStudent(plan.playerId)} · {plan.weeklySessions} sesiones / semana</Text></View><Pressable accessibilityLabel={`Editar ${plan.title}`} onPress={() => editPlan(plan)} style={styles.editorAction}><Text style={styles.actionText}>Editar</Text></Pressable></View><View style={styles.planTarget}><Target size={15} color={C.amber} /><Text style={styles.planTargetText}>{plan.target}</Text></View><View style={styles.athleteProgress}><Text style={styles.smallText}>Cumplimiento semanal</Text><Text style={styles.athleteProgressValue}>{plan.progress}%</Text></View><Meter progress={plan.progress} color={activePlan?.id === plan.id ? C.amber : C.blue} /></Card>)}
+      {draftPlan && <Card style={styles.planEditor}><View style={styles.headingRow}><Text style={styles.sectionTitle}>{plans.some((plan) => plan.id === draftPlan.id) ? 'Editar plan' : 'Nuevo plan'}</Text><Pressable accessibilityLabel="Cancelar edición" onPress={() => setDraftPlan(null)}><X size={18} color={C.muted} /></Pressable></View><Label>NOMBRE DEL PLAN</Label><TextInput value={draftPlan.title} onChangeText={(value) => setDraftPlan((current) => current ? { ...current, title: value } : current)} placeholder="Ej. Conversión y precisión" placeholderTextColor={C.dim} style={styles.input} /><Label>OBJETIVO TÉCNICO</Label><TextInput value={draftPlan.target} onChangeText={(value) => setDraftPlan((current) => current ? { ...current, target: value } : current)} placeholder="Objetivo medible del jugador" placeholderTextColor={C.dim} style={styles.input} /><Label>SESIONES POR SEMANA</Label><TextInput value={String(draftPlan.weeklySessions)} onChangeText={(value) => setDraftPlan((current) => current ? { ...current, weeklySessions: Number(value.replace(/\D/g, '')) } : current)} keyboardType="number-pad" placeholder="3" placeholderTextColor={C.dim} style={styles.input} /><ActionButton label="Guardar cambios" icon={Check} onPress={savePlan} /></Card>}
+      <Card><Heading title="Banco de ejercicios" /><View style={styles.bankRow}><Target size={17} color={C.blue} /><View style={styles.flex}><Text style={styles.cardTitle}>Tiros a la flecha 2</Text><Text style={styles.smallText}>Precisión · 3 series de 5 tiros</Text></View><Plus size={17} color={C.muted} /></View><View style={styles.bankRow}><Activity size={17} color={C.mint} /><View style={styles.flex}><Text style={styles.cardTitle}>Suelta sin tensión</Text><Text style={styles.smallText}>Técnica · 12 lanzamientos</Text></View><Plus size={17} color={C.muted} /></View></Card>
+      {activePlan && <ActionButton label={`Asignar a ${assignedStudent(studentId)}`} icon={Check} onPress={() => onAssign(activePlan)} />}
+    </View>
+  );
+}
+
+function CoachFeedback({ feedback, studentName, onSend }: { feedback: FeedbackRecord[]; studentName: string; onSend: (message: string) => void }) {
   const [message, setMessage] = useState('');
   const send = () => {
     if (!message.trim()) {
@@ -586,25 +680,75 @@ function CoachFeedback({ feedback, onSend }: { feedback: FeedbackRecord[]; onSen
     }
     onSend(message.trim());
     setMessage('');
-    Alert.alert('Feedback guardado', 'El comentario quedó asociado a Mateo, jugador de tu grupo.');
+    Alert.alert('Feedback guardado', `El comentario quedó asociado a ${studentName}, jugador de tu grupo.`);
   };
   return (
     <View style={styles.screenStack}>
       <View><Pill tone="amber">SEGUIMIENTO · GRUPO ÉLITE</Pill><Text style={styles.pageTitle}>Feedback</Text><Text style={styles.bodyMuted}>Comentarios vinculados al progreso del jugador.</Text></View>
-      <Card><View style={styles.challengeTop}><View style={styles.coachInitials}><Text style={styles.coachInitialsText}>MM</Text></View><View style={styles.flex}><Text style={styles.cardTitle}>Mateo Morales</Text><Text style={styles.smallText}>Partida reciente · 198 puntos</Text></View><Pill tone="amber">PENDIENTE</Pill></View><Label style={{ marginTop: 16 }}>OBSERVACIÓN DEL ENTRENADOR</Label><TextInput multiline value={message} onChangeText={setMessage} placeholder="Anota una recomendación técnica..." placeholderTextColor={C.dim} style={[styles.input, styles.messageInput]} /><ActionButton label="Enviar feedback" icon={ArrowRight} onPress={send} style={{ marginTop: 12 }} /></Card>
+      <Card><View style={styles.challengeTop}><View style={styles.coachInitials}><Text style={styles.coachInitialsText}>{studentName.split(' ').map((part) => part[0]).slice(0, 2).join('')}</Text></View><View style={styles.flex}><Text style={styles.cardTitle}>{studentName}</Text><Text style={styles.smallText}>Nota vinculada al progreso del alumno</Text></View><Pill tone="amber">SEGUIMIENTO</Pill></View><Label style={{ marginTop: 16 }}>OBSERVACIÓN DEL ENTRENADOR</Label><TextInput multiline value={message} onChangeText={setMessage} placeholder="Anota una recomendación técnica..." placeholderTextColor={C.dim} style={[styles.input, styles.messageInput]} /><ActionButton label="Enviar feedback" icon={ArrowRight} onPress={send} style={{ marginTop: 12 }} /></Card>
       <View><Heading title="Comentarios recientes" />{feedback.length === 0 ? <Card><Text style={styles.bodyMuted}>Aún no hay comentarios guardados. Tu feedback aparecerá aquí.</Text></Card> : feedback.map((entry) => <Card key={entry.id} style={styles.feedbackCard}><View style={styles.feedbackTop}><Text style={styles.cardTitle}>{entry.player}</Text><Text style={styles.smallText}>{entry.date}</Text></View><Text style={styles.bodyMuted}>{entry.message}</Text></Card>)}</View>
       <View style={styles.ruleHint}><ShieldCheck size={15} color={C.mint} /><Text style={styles.smallText}>El acceso del entrenador se limita a jugadores asignados (RN-05).</Text></View>
     </View>
   );
 }
 
-function AdminContent({ published, onToggle }: { published: boolean[]; onToggle: (index: number) => void }) {
+function AdminContent({ modules, onToggle, onEdit, onEditAssessment, onCreate }: { modules: LearningModule[]; onToggle: (id: string) => void; onEdit: (id: string) => void; onEditAssessment: () => void; onCreate: () => void }) {
   return (
     <View style={styles.screenStack}>
-      <View><Pill tone="amber">ADMINISTRACIÓN · RF-06</Pill><Text style={styles.pageTitle}>Contenido</Text><Text style={styles.bodyMuted}>Publica y organiza el material de aprendizaje.</Text></View>
-      <Card style={styles.adminMetricCard}><View style={styles.adminMetric}><Text style={styles.adminMetricValue}>12</Text><Text style={styles.smallText}>MÓDULOS</Text></View><View style={styles.adminMetric}><Text style={[styles.adminMetricValue, { color: C.mint }]}>{published.filter(Boolean).length}</Text><Text style={styles.smallText}>PUBLICADOS</Text></View><View style={styles.adminMetric}><Text style={[styles.adminMetricValue, { color: C.amber }]}>03</Text><Text style={styles.smallText}>BORRADORES</Text></View></Card>
-      {moduleTitles.map((title, index) => <Card key={title} style={styles.adminRow}><View style={styles.challengeTop}><View style={styles.adminModuleIcon}><BookOpen size={18} color={C.blue} /></View><View style={styles.flex}><Text style={styles.cardTitle}>{title}</Text><Text style={styles.smallText}>{index === 0 ? 'Principiante · 6 lecciones' : index === 1 ? 'Intermedio · 8 lecciones' : 'Avanzado · 5 lecciones'}</Text></View><Pressable onPress={() => onToggle(index)} style={[styles.publishToggle, published[index] && styles.publishToggleOn]}><View style={[styles.publishKnob, published[index] && styles.publishKnobOn]} /></Pressable></View><View style={styles.athleteProgress}><Text style={styles.smallText}>Estado del módulo</Text><Pill tone={published[index] ? 'mint' : 'neutral'}>{published[index] ? 'PUBLICADO' : 'BORRADOR'}</Pill></View></Card>)}
+      <View style={styles.adminPageHeading}><View style={styles.flex}><Pill tone="amber">ADMINISTRACIÓN · RN-06</Pill><Text style={styles.pageTitle}>Contenido</Text><Text style={styles.bodyMuted}>Edita módulos, lecciones y evaluaciones antes de publicarlos.</Text></View><ActionButton label="Nuevo" icon={Plus} onPress={onCreate} style={styles.createModuleButton} /></View>
+      <Card style={styles.adminMetricCard}><View style={styles.adminMetric}><Text style={styles.adminMetricValue}>{modules.length}</Text><Text style={styles.smallText}>MÓDULOS</Text></View><View style={styles.adminMetric}><Text style={[styles.adminMetricValue, { color: C.mint }]}>{modules.filter((module) => module.published).length}</Text><Text style={styles.smallText}>PUBLICADOS</Text></View><View style={styles.adminMetric}><Text style={[styles.adminMetricValue, { color: C.amber }]}>{modules.filter((module) => !module.published).length}</Text><Text style={styles.smallText}>BORRADORES</Text></View></Card>
+      {modules.map((module) => <Card key={module.id} style={styles.adminRow}><View style={styles.challengeTop}><View style={styles.adminModuleIcon}><BookOpen size={18} color={C.blue} /></View><View style={styles.flex}><Text style={styles.cardTitle}>{module.title}</Text><Text style={styles.smallText}>{module.level} · {module.lessons.length} lecciones</Text></View><Pressable onPress={() => onEdit(module.id)} style={styles.editorAction}><Text style={styles.actionText}>Editar</Text><ChevronRight size={15} color={C.amber} /></Pressable></View><Text style={styles.bodyMuted}>{module.description}</Text><View style={styles.athleteProgress}><Text style={styles.smallText}>Estado del módulo</Text><View style={styles.publishStatus}><Pill tone={module.published ? 'mint' : 'neutral'}>{module.published ? 'PUBLICADO' : 'BORRADOR'}</Pill><Pressable accessibilityLabel={module.published ? `Retirar ${module.title}` : `Publicar ${module.title}`} onPress={() => onToggle(module.id)} style={[styles.publishToggle, module.published && styles.publishToggleOn]}><View style={[styles.publishKnob, module.published && styles.publishKnobOn]} /></Pressable></View></View></Card>)}
+      <Card><View style={styles.challengeTop}><View style={styles.assessmentIcon}><Medal size={19} color={C.amber} /></View><View style={styles.flex}><Label>EVALUACIÓN · AVANCE DE NIVEL</Label><Text style={styles.cardTitle}>Banco de preguntas</Text><Text style={styles.smallText}>Umbral de aprobación: 80%</Text></View><Pressable onPress={onEditAssessment} style={styles.editorAction}><Text style={styles.actionText}>Editar</Text><ChevronRight size={15} color={C.amber} /></Pressable></View></Card>
       <Card><View style={styles.challengeTop}><ShieldCheck size={19} color={C.amber} /><Text style={[styles.cardTitle, styles.flex]}>Permisos editoriales</Text></View><Text style={styles.bodyMuted}>Solo administradores pueden crear, modificar o retirar contenido de aprendizaje (RN-06).</Text></Card>
+    </View>
+  );
+}
+
+function ContentModuleEditor({ module, onBack, onSave }: { module: LearningModule; onBack: () => void; onSave: (module: LearningModule) => void }) {
+  const [title, setTitle] = useState(module.title);
+  const [description, setDescription] = useState(module.description);
+  const [level, setLevel] = useState(module.level);
+  const [lessonsText, setLessonsText] = useState(module.lessons.join('\n'));
+  const save = () => {
+    const lessons = lessonsText.split('\n').map((lesson) => lesson.trim()).filter(Boolean);
+    if (!title.trim() || !description.trim() || lessons.length === 0) {
+      Alert.alert('Completa el contenido', 'Cada módulo debe tener título, descripción y al menos una lección.');
+      return;
+    }
+    onSave({ ...module, title: title.trim(), description: description.trim(), level, lessons });
+    Alert.alert('Módulo guardado', 'Los cambios se guardaron en este dispositivo.');
+  };
+  return (
+    <View style={styles.screenStack}>
+      <Pressable onPress={onBack} style={styles.backLink}><Text style={styles.actionText}>‹  Volver al contenido</Text></Pressable>
+      <View><Pill tone="amber">EDITOR DE CONTENIDO · ADMIN</Pill><Text style={styles.pageTitle}>Editar módulo</Text><Text style={styles.bodyMuted}>{module.level} · cambios locales de demostración</Text></View>
+      <Card><Label>TÍTULO DEL MÓDULO</Label><TextInput value={title} onChangeText={setTitle} placeholder="Nombre del módulo" placeholderTextColor={C.dim} style={styles.input} /><Label style={{ marginTop: 5 }}>NIVEL FORMATIVO</Label><View style={styles.segmentRow}>{(['Principiante', 'Intermedio', 'Avanzado'] as const).map((item) => <Pressable key={item} onPress={() => setLevel(item)} style={[styles.segment, level === item && styles.segmentActive]}><Text style={[styles.segmentText, level === item && styles.segmentTextActive]}>{item}</Text></Pressable>)}</View><Label style={{ marginTop: 5 }}>DESCRIPCIÓN</Label><TextInput multiline value={description} onChangeText={setDescription} placeholder="Objetivo formativo" placeholderTextColor={C.dim} style={[styles.input, styles.editorDescription]} /></Card>
+      <Card><View style={styles.headingRow}><Text style={styles.sectionTitle}>Lecciones</Text><Pill tone="neutral">UNA POR LÍNEA</Pill></View><Text style={styles.bodyMuted}>Edita el título de cada lección. El contenido detallado se organiza dentro de su visor.</Text><TextInput multiline value={lessonsText} onChangeText={setLessonsText} placeholder="Título de la lección" placeholderTextColor={C.dim} style={[styles.input, styles.editorLessons]} /></Card>
+      <View style={styles.chapterControls}><ActionButton label="Cancelar" variant="secondary" onPress={onBack} style={styles.chapterControlButton} /><ActionButton label="Guardar módulo" icon={Check} onPress={save} style={styles.chapterControlButton} /></View>
+    </View>
+  );
+}
+
+function AssessmentEditor({ questions, onBack, onSave }: { questions: AssessmentQuestion[]; onBack: () => void; onSave: (questions: AssessmentQuestion[]) => void }) {
+  const [draft, setDraft] = useState(() => questions.map((question) => ({ ...question, choices: [...question.choices] })));
+  const updateQuestion = (questionIndex: number, update: Partial<AssessmentQuestion>) => setDraft((current) => current.map((question, index) => index === questionIndex ? { ...question, ...update } : question));
+  const updateChoice = (questionIndex: number, choiceIndex: number, value: string) => setDraft((current) => current.map((question, index) => index === questionIndex ? { ...question, choices: question.choices.map((choice, item) => item === choiceIndex ? value : choice) } : question));
+  const save = () => {
+    const valid = draft.length >= 5 && draft.every((question) => question.question.trim() && question.choices.length >= 2 && question.choices.every((choice) => choice.trim()) && question.correct >= 0 && question.correct < question.choices.length);
+    if (!valid) {
+      Alert.alert('Evaluación incompleta', 'Usa al menos cinco preguntas y verifica que cada una tenga dos opciones y una respuesta correcta.');
+      return;
+    }
+    onSave(draft.map((question) => ({ ...question, question: question.question.trim(), choices: question.choices.map((choice) => choice.trim()) })));
+    Alert.alert('Evaluación guardada', 'La academia ya usará las preguntas y respuestas actualizadas.');
+  };
+  return (
+    <View style={styles.screenStack}>
+      <Pressable onPress={onBack} style={styles.backLink}><Text style={styles.actionText}>‹  Volver al contenido</Text></Pressable>
+      <View><Pill tone="amber">EDITOR DE EVALUACIÓN · ADMIN</Pill><Text style={styles.pageTitle}>Banco de preguntas</Text><Text style={styles.bodyMuted}>La nota se calcula con las respuestas correctas. Se requiere 80% para avanzar.</Text></View>
+      {draft.map((question, questionIndex) => <Card key={`question-${questionIndex}`} style={styles.questionEditor}><View style={styles.questionEditorHeader}><Text style={styles.questionNumber}>P{String(questionIndex + 1).padStart(2, '0')}</Text><Text style={styles.smallText}>Marca la opción correcta</Text><Pressable accessibilityLabel={`Eliminar pregunta ${questionIndex + 1}`} disabled={draft.length <= 5} onPress={() => setDraft((current) => current.filter((_, index) => index !== questionIndex))} style={styles.deleteQuestion}><X size={16} color={draft.length <= 5 ? C.dim : C.red} /></Pressable></View><TextInput multiline value={question.question} onChangeText={(value) => updateQuestion(questionIndex, { question: value })} placeholder="Pregunta" placeholderTextColor={C.dim} style={[styles.input, styles.questionInput]} />{question.choices.map((choice, choiceIndex) => <View key={`choice-${choiceIndex}`} style={styles.choiceEditorRow}><Pressable accessibilityLabel={`Marcar opción ${choiceIndex + 1} correcta`} onPress={() => updateQuestion(questionIndex, { correct: choiceIndex })} style={[styles.correctChoice, question.correct === choiceIndex && styles.correctChoiceActive]}>{question.correct === choiceIndex && <Check size={12} color={C.bg} />}</Pressable><TextInput value={choice} onChangeText={(value) => updateChoice(questionIndex, choiceIndex, value)} placeholder={`Opción ${choiceIndex + 1}`} placeholderTextColor={C.dim} style={[styles.input, styles.choiceInput]} /></View>)}<Pressable onPress={() => setDraft((current) => current.map((item, index) => index === questionIndex ? { ...item, choices: [...item.choices, ''] } : item))} style={styles.addChoice}><Plus size={14} color={C.amber} /><Text style={styles.actionText}>Añadir opción</Text></Pressable></Card>)}
+      <ActionButton label="Añadir pregunta" icon={Plus} variant="secondary" onPress={() => setDraft((current) => [...current, { question: '', choices: ['', ''], correct: 0 }])} />
+      <ActionButton label="Guardar evaluación" icon={Check} onPress={save} />
     </View>
   );
 }
@@ -657,13 +801,18 @@ export default function App() {
   const [history, setHistory] = useState<MatchRecord[]>(seedMatches);
   const [rolls, setRolls] = useState<number[]>([]);
   const [matchMode, setMatchMode] = useState<'official' | 'practice'>('official');
-  const [completedLessons, setCompletedLessons] = useState<string[]>(['stance', 'approach', 'release', 'spare']);
+  const [completedLessons, setCompletedLessons] = useState<string[]>(SEED_COMPLETED_LESSONS);
   const [assessmentScore, setAssessmentScore] = useState<number | null>(null);
+  const [selectedLesson, setSelectedLesson] = useState<AcademyLesson>(featuredLesson);
   const [completedDrills, setCompletedDrills] = useState<string[]>(['line']);
   const [feedback, setFeedback] = useState<FeedbackRecord[]>([]);
-  const [published, setPublished] = useState(initialPublished);
+  const [modules, setModules] = useState<LearningModule[]>(INITIAL_MODULES);
+  const [assessmentQuestions, setAssessmentQuestions] = useState<AssessmentQuestion[]>(INITIAL_ASSESSMENT);
+  const [plans, setPlans] = useState<TrainingPlan[]>(INITIAL_PLANS);
   const [enabledAccounts, setEnabledAccounts] = useState([true, true, true]);
-  const routeTabs: Tab[] = ['home', 'learn', 'train', 'match', 'profile', 'roster', 'plans', 'feedback', 'content', 'accounts', 'audit', 'leaderboard', 'notifications'];
+  const [selectedStudentId, setSelectedStudentId] = useState('mateo');
+  const [selectedModuleId, setSelectedModuleId] = useState(INITIAL_MODULES[0].id);
+  const routeTabs: Tab[] = ['home', 'learn', 'train', 'match', 'profile', 'roster', 'plans', 'feedback', 'content', 'accounts', 'audit', 'leaderboard', 'notifications', 'lesson', 'student', 'content-editor', 'assessment-editor'];
   const activeRole: Role = route.role === 'coach' || route.role === 'admin' || route.role === 'player' ? route.role : role;
   const activeTab = route.tab && routeTabs.includes(route.tab as Tab) ? route.tab as Tab : tab;
   const isRegistering = route.flow === 'register' || registering;
@@ -671,23 +820,26 @@ export default function App() {
   useEffect(() => {
     AsyncStorage.getItem(STORE_KEY).then((stored) => {
       if (!stored) return;
-      const data = JSON.parse(stored) as Partial<{ authenticated: boolean; role: Role; history: MatchRecord[]; completedLessons: string[]; assessmentScore: number | null; completedDrills: string[]; feedback: FeedbackRecord[]; published: boolean[]; enabledAccounts: boolean[] }>;
+      const data = JSON.parse(stored) as Partial<{ authenticated: boolean; role: Role; history: MatchRecord[]; completedLessons: string[]; assessmentScore: number | null; completedDrills: string[]; feedback: FeedbackRecord[]; modules: LearningModule[]; assessmentQuestions: AssessmentQuestion[]; plans: TrainingPlan[]; published: boolean[]; enabledAccounts: boolean[] }>;
       if (data.authenticated !== undefined) setAuthenticated(data.authenticated);
       if (data.role) { setRole(data.role); setTab(roleStartTab[data.role]); }
       if (data.history) setHistory(data.history);
-      if (data.completedLessons) setCompletedLessons(data.completedLessons);
+      if (data.completedLessons) setCompletedLessons(data.completedLessons.map((id) => id.includes(':') ? id : `technique:${id}`));
       if (data.assessmentScore !== undefined) setAssessmentScore(data.assessmentScore);
       if (data.completedDrills) setCompletedDrills(data.completedDrills);
       if (data.feedback) setFeedback(data.feedback);
-      if (data.published) setPublished(data.published);
+      if (data.modules) setModules(data.modules);
+      else if (data.published) setModules(INITIAL_MODULES.map((module, index) => ({ ...module, published: data.published?.[index] ?? module.published })));
+      if (data.assessmentQuestions) setAssessmentQuestions(data.assessmentQuestions);
+      if (data.plans) setPlans(data.plans);
       if (data.enabledAccounts) setEnabledAccounts(data.enabledAccounts);
     }).catch(() => undefined).finally(() => setHydrated(true));
   }, []);
 
   useEffect(() => {
     if (!hydrated) return;
-    AsyncStorage.setItem(STORE_KEY, JSON.stringify({ authenticated, role: activeRole, history, completedLessons, assessmentScore, completedDrills, feedback, published, enabledAccounts })).catch(() => undefined);
-  }, [hydrated, authenticated, activeRole, history, completedLessons, assessmentScore, completedDrills, feedback, published, enabledAccounts]);
+    AsyncStorage.setItem(STORE_KEY, JSON.stringify({ authenticated, role: activeRole, history, completedLessons, assessmentScore, completedDrills, feedback, modules, assessmentQuestions, plans, enabledAccounts })).catch(() => undefined);
+  }, [hydrated, authenticated, activeRole, history, completedLessons, assessmentScore, completedDrills, feedback, modules, assessmentQuestions, plans, enabledAccounts]);
 
   const navigateTab = (nextTab: Tab) => {
     setTab(nextTab);
@@ -716,7 +868,10 @@ export default function App() {
   };
   const toggleLesson = (id: string) => setCompletedLessons((current) => current.includes(id) ? current : [...current, id]);
   const toggleDrill = (id: string) => setCompletedDrills((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]);
-  const sendFeedback = (message: string) => setFeedback((current) => [{ id: `feedback-${Date.now()}`, player: 'Mateo Morales', message, date: 'Ahora' }, ...current]);
+  const sendFeedback = (message: string, playerId: string) => {
+    const player = assignedPlayers.find((item) => item.id === playerId);
+    setFeedback((current) => [{ id: `feedback-${Date.now()}`, player: player?.name ?? 'Jugador asignado', message, date: 'Ahora' }, ...current]);
+  };
   const tabs = appTabs[activeRole];
 
   if (!outfitLoaded || !jakartaLoaded || !hydrated) {
@@ -731,22 +886,35 @@ export default function App() {
     if (activeTab === 'notifications') return <NotificationsScreen role={activeRole} onBack={() => navigateTab(roleStartTab[activeRole])} />;
     if (activeRole === 'player') {
       if (activeTab === 'leaderboard') return <LeaderboardScreen onBack={() => navigateTab('home')} />;
-      if (activeTab === 'learn') return <AcademyScreen completed={completedLessons} assessmentScore={assessmentScore} onCompleteLesson={toggleLesson} onAssess={setAssessmentScore} />;
+      if (activeTab === 'lesson') return <LessonViewer key={selectedLesson.id} completed={completedLessons} lesson={selectedLesson} onComplete={() => toggleLesson(selectedLesson.id)} onBack={() => navigateTab('learn')} />;
+      if (activeTab === 'learn') return <AcademyScreen completed={completedLessons} assessmentScore={assessmentScore} questions={assessmentQuestions} modules={modules} onAssess={setAssessmentScore} onOpenLesson={(lesson) => { setSelectedLesson(lesson); navigateTab('lesson'); }} />;
       if (activeTab === 'train') return <TrainingScreen completed={completedDrills} onToggle={toggleDrill} />;
       if (activeTab === 'match') return <MatchScreen rolls={rolls} mode={matchMode} onModeChange={setMatchMode} onRoll={addRoll} onUndo={() => setRolls((current) => current.slice(0, -1))} onSave={saveMatch} />;
       if (activeTab === 'profile') return <ProfileScreen role={activeRole} history={history} completedCount={completedLessons.length} onRoleChange={changeRole} onLogOut={() => setAuthenticated(false)} />;
-      return <PlayerHome history={history} lessonCount={completedLessons.length} assessmentScore={assessmentScore} challengeProgress={officialChallenge} onStartMatch={() => { setRolls([]); navigateTab('match'); }} onNavigate={navigateTab} />;
+      return <PlayerHome history={history} lessonCount={completedLessons} assessmentScore={assessmentScore} challengeProgress={officialChallenge} modules={modules} onStartMatch={() => { setRolls([]); navigateTab('match'); }} onNavigate={navigateTab} />;
     }
     if (activeRole === 'coach') {
-      if (activeTab === 'plans') return <CoachPlans onAssign={() => Alert.alert('Plan actualizado', `Plan de consistencia asignado a Mateo · ${new Date().toLocaleDateString('es-ES')}.`)} />;
-      if (activeTab === 'feedback') return <CoachFeedback feedback={feedback} onSend={sendFeedback} />;
+      if (activeTab === 'student') {
+        const student = assignedPlayers.find((item) => item.id === selectedStudentId) ?? assignedPlayers[0];
+        return <StudentDetail student={student} history={history} onBack={() => navigateTab('roster')} onFeedback={() => navigateTab('feedback')} onPlan={() => navigateTab('plans')} />;
+      }
+      if (activeTab === 'plans') return <CoachPlans plans={plans} studentId={selectedStudentId} onSavePlan={(plan) => setPlans((current) => current.some((item) => item.id === plan.id) ? current.map((item) => item.id === plan.id ? plan : item) : [...current, plan])} onAssign={(plan) => { setPlans((current) => current.map((item) => item.id === plan.id ? { ...item, playerId: selectedStudentId } : item)); Alert.alert('Plan asignado', `${plan.title} · ${assignedPlayers.find((item) => item.id === selectedStudentId)?.name ?? 'Jugador asignado'}.`); }} />;
+      if (activeTab === 'feedback') {
+        const student = assignedPlayers.find((item) => item.id === selectedStudentId) ?? assignedPlayers[0];
+        return <CoachFeedback feedback={feedback} studentName={student.name} onSend={(message) => sendFeedback(message, student.id)} />;
+      }
       if (activeTab === 'profile') return <ProfileScreen role={activeRole} history={history} completedCount={completedLessons.length} onRoleChange={changeRole} onLogOut={() => setAuthenticated(false)} />;
-      return <CoachRoster onOpenFeedback={() => navigateTab('feedback')} />;
+      return <CoachRoster onOpenFeedback={(id) => { setSelectedStudentId(id); navigateTab('feedback'); }} onOpenStudent={(id) => { setSelectedStudentId(id); navigateTab('student'); }} />;
     }
     if (activeTab === 'accounts') return <AdminAccounts enabled={enabledAccounts} onToggle={(index) => setEnabledAccounts((current) => current.map((active, item) => item === index ? !active : active))} />;
     if (activeTab === 'audit') return <AdminAudit />;
     if (activeTab === 'profile') return <ProfileScreen role={activeRole} history={history} completedCount={completedLessons.length} onRoleChange={changeRole} onLogOut={() => setAuthenticated(false)} />;
-    return <AdminContent published={published} onToggle={(index) => setPublished((current) => current.map((active, item) => item === index ? !active : active))} />;
+    if (activeTab === 'content-editor') {
+      const module = modules.find((item) => item.id === selectedModuleId) ?? modules[0];
+      return <ContentModuleEditor key={module.id} module={module} onBack={() => navigateTab('content')} onSave={(updated) => { setModules((current) => current.map((item) => item.id === updated.id ? updated : item)); navigateTab('content'); }} />;
+    }
+    if (activeTab === 'assessment-editor') return <AssessmentEditor questions={assessmentQuestions} onBack={() => navigateTab('content')} onSave={(questions) => { setAssessmentQuestions(questions); navigateTab('content'); }} />;
+    return <AdminContent modules={modules} onToggle={(id) => setModules((current) => current.map((module) => module.id === id ? { ...module, published: !module.published } : module))} onEdit={(id) => { setSelectedModuleId(id); navigateTab('content-editor'); }} onEditAssessment={() => navigateTab('assessment-editor')} onCreate={() => { const id = `module-${Date.now()}`; setModules((current) => [...current, { id, title: 'Nuevo módulo', level: 'Intermedio', description: 'Describe el objetivo de aprendizaje.', lessons: ['Nueva lección'], published: false }]); setSelectedModuleId(id); navigateTab('content-editor'); }} />;
   };
 
   return (
@@ -892,7 +1060,30 @@ const styles = StyleSheet.create({
   levelOptionName: { color: C.muted, fontFamily: 'Outfit_600SemiBold', fontSize: 10 },
   recommendedCard: { backgroundColor: C.panel2 },
   recommendedTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  recommendedFooter: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 2 },
   lessonVisual: { height: 128, borderRadius: 14, backgroundColor: '#121C32', overflow: 'hidden', position: 'relative', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'stretch', paddingHorizontal: 25 },
+  lessonPlayerVisual: { height: 230, borderRadius: 16, backgroundColor: '#121C32', borderWidth: 1, borderColor: C.line, padding: 15, justifyContent: 'space-between', overflow: 'hidden' },
+  lessonLaneCenter: { flex: 1, alignItems: 'center', justifyContent: 'center', position: 'relative' },
+  lessonLaneLine: { position: 'absolute', width: 54, height: '100%', backgroundColor: '#1A2944', borderLeftWidth: 1, borderRightWidth: 1, borderColor: '#344766' },
+  lessonFootsteps: { height: '100%', justifyContent: 'space-between', paddingVertical: 4 },
+  lessonFootstep: { width: 28, height: 28, borderRadius: 14, backgroundColor: C.panel3, borderWidth: 1, borderColor: '#52617B', alignItems: 'center', justifyContent: 'center' },
+  lessonFootstepActive: { backgroundColor: C.amber, borderColor: C.amber },
+  lessonFootstepText: { color: C.text, fontFamily: 'Outfit_700Bold', fontSize: 11 },
+  lessonArrow: { position: 'absolute', right: '29%', top: '42%', transform: [{ rotate: '-90deg' }] },
+  lessonVisualCaption: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  lessonChapterBadge: { color: C.amber, fontFamily: 'Outfit_800ExtraBold', fontSize: 14 },
+  chapterProgress: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8 },
+  chapterDot: { width: 8, height: 8, borderRadius: 5, backgroundColor: C.panel3 },
+  chapterDotActive: { width: 22, backgroundColor: C.amber },
+  chapterDotDone: { backgroundColor: C.mint },
+  chapterCard: { padding: 16, gap: 14 },
+  chapterNumber: { width: 36, height: 36, borderRadius: 12, backgroundColor: C.amberSoft, alignItems: 'center', justifyContent: 'center' },
+  chapterNumberText: { color: C.amber, fontFamily: 'Outfit_800ExtraBold', fontSize: 16 },
+  chapterBody: { color: C.text, fontFamily: 'PlusJakartaSans_400Regular', fontSize: 14, lineHeight: 22 },
+  lessonCue: { flexDirection: 'row', alignItems: 'center', gap: 8, padding: 11, borderRadius: 11, backgroundColor: C.bg },
+  lessonCueText: { flex: 1, color: C.amber, fontFamily: 'Outfit_600SemiBold', fontSize: 11, lineHeight: 16 },
+  chapterControls: { flexDirection: 'row', gap: 9 },
+  chapterControlButton: { flex: 1 },
   laneStripe: { width: 1, backgroundColor: 'rgba(75,120,255,0.22)' },
   laneBall: { width: 23, height: 23, borderRadius: 12, backgroundColor: C.blue, position: 'absolute', bottom: 17, left: '28%', alignItems: 'center', justifyContent: 'center' },
   laneHole: { width: 5, height: 5, borderRadius: 3, backgroundColor: '#AFC2FF' },
@@ -984,19 +1175,36 @@ const styles = StyleSheet.create({
   plansTitleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   addButton: { width: 39, height: 39, borderRadius: 13, alignItems: 'center', justifyContent: 'center', backgroundColor: C.blue },
   planCard: { padding: 14 },
+  planEditor: { backgroundColor: C.panel2 },
   planCardSelected: { borderColor: C.amber },
   planTop: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   planTarget: { flexDirection: 'row', alignItems: 'center', gap: 7, padding: 9, borderRadius: 9, backgroundColor: C.bg },
   planTargetText: { color: C.muted, fontFamily: 'PlusJakartaSans_400Regular', fontSize: 10, flex: 1 },
   bankRow: { flexDirection: 'row', alignItems: 'center', gap: 9, paddingVertical: 10, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: C.line },
   messageInput: { minHeight: 110, textAlignVertical: 'top', paddingTop: 12 },
+  editorDescription: { minHeight: 82, textAlignVertical: 'top', paddingTop: 10 },
+  editorLessons: { minHeight: 150, textAlignVertical: 'top', paddingTop: 11, lineHeight: 23 },
+  questionEditor: { gap: 9 },
+  questionEditorHeader: { flexDirection: 'row', alignItems: 'center', gap: 9 },
+  questionNumber: { color: C.amber, fontFamily: 'Outfit_800ExtraBold', fontSize: 13 },
+  deleteQuestion: { width: 31, height: 31, borderRadius: 10, backgroundColor: C.bg, alignItems: 'center', justifyContent: 'center' },
+  questionInput: { minHeight: 58, textAlignVertical: 'top', paddingTop: 9 },
+  choiceEditorRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  addChoice: { minHeight: 30, flexDirection: 'row', alignItems: 'center', gap: 5, alignSelf: 'flex-start', paddingHorizontal: 3 },
+  correctChoice: { width: 25, height: 25, borderRadius: 13, borderWidth: 1, borderColor: C.dim, alignItems: 'center', justifyContent: 'center' },
+  correctChoiceActive: { backgroundColor: C.mint, borderColor: C.mint },
+  choiceInput: { flex: 1, minHeight: 39, paddingVertical: 6 },
   feedbackCard: { borderLeftWidth: 3, borderLeftColor: C.amber },
   feedbackTop: { flexDirection: 'row', justifyContent: 'space-between' },
   adminMetricCard: { flexDirection: 'row', justifyContent: 'space-around' },
   adminMetric: { alignItems: 'center', gap: 2 },
   adminMetricValue: { color: C.text, fontFamily: 'Outfit_800ExtraBold', fontSize: 23 },
   adminRow: { gap: 12 },
+  adminPageHeading: { flexDirection: 'row', alignItems: 'flex-end', gap: 8 },
+  createModuleButton: { minHeight: 38, paddingHorizontal: 10, marginBottom: 4 },
   adminModuleIcon: { width: 37, height: 37, borderRadius: 11, backgroundColor: C.blueSoft, alignItems: 'center', justifyContent: 'center' },
+  editorAction: { minHeight: 34, flexDirection: 'row', alignItems: 'center', gap: 2, paddingHorizontal: 4 },
+  publishStatus: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   publishToggle: { width: 44, height: 25, borderRadius: 13, justifyContent: 'center', padding: 3, backgroundColor: C.panel3 },
   publishToggleOn: { backgroundColor: '#326B56' },
   publishKnob: { width: 19, height: 19, borderRadius: 10, backgroundColor: C.muted },

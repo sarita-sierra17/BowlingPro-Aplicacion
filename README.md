@@ -20,13 +20,13 @@ npm run web
 
 ## Flujos incluidos
 
-- **Jugador:** panel de progreso y estadísticas, academia por niveles, lecciones, evaluación de 5 preguntas con umbral de aprobación del 80%, glosario, ejercicios, clasificación de liga, notificaciones e historial.
+- **Jugador:** panel de progreso y estadísticas, academia por niveles, visor guiado de cuatro capítulos, evaluación editable de 5 preguntas con umbral de aprobación del 80%, glosario, ejercicios, clasificación de liga, notificaciones e historial.
 - **Marcador:** partida de diez marcos, práctica o juego oficial, entrada táctil de pinos, cálculo de strike/spare, décimo marco, deshacer tiro y registro de resultados.
-- **Entrenador:** roster del grupo asignado, búsqueda y filtros, planes semanales y registro de retroalimentación.
-- **Administrador:** publicación de módulos, estado de cuentas y registro de auditoría.
+- **Entrenador:** roster del grupo asignado, detalle con rendimiento e historial por alumno, planes semanales editables/asignables y feedback asociado al jugador.
+- **Administrador:** crear y editar módulos/lecciones, elegir nivel, guardar y publicar borradores, editar preguntas y respuestas de evaluación, gestionar cuentas y consultar auditoría.
 - **Cuenta:** registro con validación de campos, selector de rol y bloqueo temporal local tras cinco intentos fallidos.
 
-Los prototipos de la carpeta `Vistas/` no se modificaron. Los estilos y tipografías siguen la dirección visual documentada en `Vistas/athletic_precision/DESIGN.md`.
+Los prototipos de la carpeta `Vistas/` no se modificaron. Los estilos y tipografías siguen la dirección visual documentada en `Vistas/athletic_precision/DESIGN.md`. Los borradores no se muestran a jugadores y el avance agrega todas las lecciones publicadas del nivel intermedio.
 
 ## Desarrollo
 
